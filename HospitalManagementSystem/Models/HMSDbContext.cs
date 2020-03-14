@@ -8,7 +8,7 @@ namespace HMSProject.Models
 {
     public class HMSDbContext:DbContext
     {
-        public HMSDbContext() : base("HMSDbContext")
+        public HMSDbContext() : base("HMSDatabase")
         {
 
         }
