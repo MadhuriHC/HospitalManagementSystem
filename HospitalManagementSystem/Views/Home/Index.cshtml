@@ -1,12 +1,12 @@
 ﻿@{
     ViewBag.Title = "Home Page";
-    Layout = null;
-
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
@@ -14,13 +14,47 @@
     @*@Scripts.Render("~/bundles/modernizr")*@
 </head>
 <body>
-    <div class="container-sm" >
-        <div class="card" style="width: 18rem;">
-           
+    <div class=" d-flex justify-content-center align-items-center vh-100 ">
+
+        <div class="card" style="width: 40rem;">
+            <div class=" card-header text-center bg-primary">
+                Login
+            </div>
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="pl-3 form-group row">
+                    <label class="col-sm-4 col-form-label">Email</label>
+                    <div class="col-sm-7">
+                        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                </div>
+                <div class="pl-2 form-group row">
+                    <label class="col-sm-4 col-form-label">Password</label>
+                    <div class="col-sm-7">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                </div>
+                <div class="pl-2 form-group row">
+
+                    <label class="col-sm-4 col-form-label">Admin</label>
+                    <div class="col-sm-7">
+                        <select id="inputAdmin" class="form-control selectpicker" title="Select Admin">
+                            <option hidden>Please select</option>
+                            <option>Super Admin</option>
+                            <option>Doctor</option>
+                            <option>Receptionist</option>
+                        </select>
+                    </div>
+                </div>
+                <div class=" d-flex justify-content-center form-row">
+
+                    <div class="form-group">
+                        <a href="#" class="btn btn-primary bg-success">Login</a>
+                    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-group">
+                        <a href="register.cshtml" class="  btn btn-primary bg-success ">Sign up!</a>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
