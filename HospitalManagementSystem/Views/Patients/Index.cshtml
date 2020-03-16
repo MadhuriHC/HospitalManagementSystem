@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HMSProject.Models.Patient>
+﻿@model IEnumerable<HospitalManagementSystem.Models.Patient>
 
 @{
     ViewBag.Title = "Index";
@@ -31,6 +31,9 @@
             @Html.DisplayNameFor(model => model.BloodGroup)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Status)
         </th>
         <th></th>
@@ -57,12 +60,15 @@
             @Html.DisplayFor(modelItem => item.BloodGroup)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Photo)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PatientID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PatientID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PatientID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.PatientID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.PatientID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PatientID })
         </td>
     </tr>
 }

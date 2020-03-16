@@ -12,14 +12,23 @@ namespace HospitalManagementSystem.Models
     {
         [Key]
         public int PatientID { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [Required]
         public char Gender { get; set; }
+        [Required]
         public DateTime DOB { get; set; }
+        [Required]
+        [EmailAddress]
         public string Email { get; set; }
+        [Required]
         public long Phone { get; set; }
+        [Required]
         public string BloodGroup { get; set; }
+        [Required]
         public int Status { get; set; }
-        //public Image Photo { get; set; }
+        public string Photo { get; set; }
     }
 }
