@@ -6,7 +6,7 @@ using System.Text;
 using System.Drawing;
 using System.ComponentModel.DataAnnotations;
 
-namespace HMSProject.Models
+namespace HospitalManagementSystem.Models
 {
     public class Patient
     {
