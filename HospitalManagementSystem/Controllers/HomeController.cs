@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HospitalManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,19 +13,27 @@ namespace HospitalManagementSystem.Controllers
         {
             return View();
         }
-
-        public ActionResult About()
+        public ActionResult Register()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return View("Register");
+        }
+        [HttpPost]
+        public ActionResult Register(GuestResponse guestResponse)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var context = new HMSDbContext())
+                {
+                    context.GuestResponses.Add(guestResponse);
+                    context.SaveChanges();
+                }
+                return View("Index", guestResponse);
+            }
+            else
+            {
+                return View();
+            }
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
