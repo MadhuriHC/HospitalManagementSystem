@@ -12,19 +12,18 @@ namespace HospitalManagementSystem.Controllers
         {
             return View();
         }
-
-        public ActionResult About()
+        public ActionResult Register()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return View("Register");
         }
-
-        public ActionResult Contact()
+      //  [HttpPost]
+        /*public ActionResult Register(GuestResponse g)
         {
-            ViewBag.Message = "Your contact page.";
+            if (ModelState.IsValid)
+            {
+                using(var context=new HospitalManagementSystem())
+            }
+        }*/
 
-            return View();
-        }
     }
 }
