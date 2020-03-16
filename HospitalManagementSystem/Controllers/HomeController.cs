@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HospitalManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,14 +17,23 @@ namespace HospitalManagementSystem.Controllers
         {
             return View("Register");
         }
-      //  [HttpPost]
-        /*public ActionResult Register(GuestResponse g)
+        [HttpPost]
+        public ActionResult Register(GuestResponse guestResponse)
         {
             if (ModelState.IsValid)
             {
-                using(var context=new HospitalManagementSystem())
+                using (var context = new HMSDbContext())
+                {
+                    context.GuestResponses.Add(guestResponse);
+                    context.SaveChanges();
+                }
+                return View("Index", guestResponse);
             }
-        }*/
+            else
+            {
+                return View();
+            }
+        }
 
     }
 }
