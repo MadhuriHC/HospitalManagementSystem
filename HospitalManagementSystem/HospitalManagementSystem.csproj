@@ -141,14 +141,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003161112465_CreateUpdatedTables.cs" />
-    <Compile Include="Migrations\202003161112465_CreateUpdatedTables.Designer.cs">
-      <DependentUpon>202003161112465_CreateUpdatedTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -208,11 +203,6 @@
     <Content Include="Views\Doctors\Details.cshtml" />
     <Content Include="Views\Doctors\Edit.cshtml" />
     <Content Include="Views\Doctors\Index.cshtml" />
-    <Content Include="Views\Patients\Create.cshtml" />
-    <Content Include="Views\Patients\Delete.cshtml" />
-    <Content Include="Views\Patients\Details.cshtml" />
-    <Content Include="Views\Patients\Edit.cshtml" />
-    <Content Include="Views\Patients\Index.cshtml" />
     <Content Include="Views\Staffs\Create.cshtml" />
     <Content Include="Views\Staffs\Delete.cshtml" />
     <Content Include="Views\Staffs\Details.cshtml" />
@@ -234,12 +224,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Uploads\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003161112465_CreateUpdatedTables.resx">
-      <DependentUpon>202003161112465_CreateUpdatedTables.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Uploads\PatientImages\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
