@@ -1,4 +1,4 @@
-﻿@model HospitalManagementSystem.Models.Doctor
+﻿@model HospitalManagementSystem.Models.Patient
 
 @{
     ViewBag.Title = "Details";
@@ -8,7 +8,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Doctor</h4>
+    <h4>Patient</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -28,6 +28,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Email)
         </dt>
 
@@ -44,6 +52,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.BloodGroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BloodGroup)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Status)
         </dt>
 
@@ -51,9 +67,17 @@
             @Html.DisplayFor(model => model.Status)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.DoctorID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PatientID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

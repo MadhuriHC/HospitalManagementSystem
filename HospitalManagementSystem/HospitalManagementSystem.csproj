@@ -146,9 +146,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003170429346_GuestResponse.cs" />
-    <Compile Include="Migrations\202003170429346_GuestResponse.Designer.cs">
-      <DependentUpon>202003170429346_GuestResponse.cs</DependentUpon>
+    <Compile Include="Migrations\202003170803516_TableCreations.cs" />
+    <Compile Include="Migrations\202003170803516_TableCreations.Designer.cs">
+      <DependentUpon>202003170803516_TableCreations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -160,8 +160,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\HMS.mdf" />
-    <Content Include="App_Data\HMS_log.ldf" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -209,22 +207,17 @@
     <Content Include="Views\Doctors\Details.cshtml" />
     <Content Include="Views\Doctors\Edit.cshtml" />
     <Content Include="Views\Doctors\Index.cshtml" />
-    <Content Include="Views\Patients\Create.cshtml" />
-    <Content Include="Views\Patients\Delete.cshtml" />
-    <Content Include="Views\Patients\Details.cshtml" />
-    <Content Include="Views\Patients\Edit.cshtml" />
-    <Content Include="Views\Patients\Index.cshtml" />
     <Content Include="Views\Staffs\Create.cshtml" />
     <Content Include="Views\Staffs\Delete.cshtml" />
     <Content Include="Views\Staffs\Details.cshtml" />
     <Content Include="Views\Staffs\Edit.cshtml" />
     <Content Include="Views\Staffs\Index.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003170429346_GuestResponse.resx">
-      <DependentUpon>202003170429346_GuestResponse.cs</DependentUpon>
-    </EmbeddedResource>
+    <Content Include="Views\Patients\Create.cshtml" />
+    <Content Include="Views\Patients\Delete.cshtml" />
+    <Content Include="Views\Patients\Details.cshtml" />
+    <Content Include="Views\Patients\Edit.cshtml" />
+    <Content Include="Views\Patients\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -238,6 +231,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003170803516_TableCreations.resx">
+      <DependentUpon>202003170803516_TableCreations.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
