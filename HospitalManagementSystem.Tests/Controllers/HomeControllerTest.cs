@@ -24,5 +24,9 @@ namespace HospitalManagementSystem.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+
+      
+
+        
     }
 }
