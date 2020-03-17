@@ -146,6 +146,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003140721444_CreateHMSDb.cs" />
+    <Compile Include="Migrations\202003140721444_CreateHMSDb.Designer.cs">
+      <DependentUpon>202003140721444_CreateHMSDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003170429346_GuestResponse.cs" />
+    <Compile Include="Migrations\202003170429346_GuestResponse.Designer.cs">
+      <DependentUpon>202003170429346_GuestResponse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\GuestResponse.cs" />
     <Compile Include="Models\HMSDbContext.cs" />
@@ -161,6 +170,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -215,7 +225,14 @@
     <Content Include="Views\Staffs\Index.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003140721444_CreateHMSDb.resx">
+      <DependentUpon>202003140721444_CreateHMSDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003170429346_GuestResponse.resx">
+      <DependentUpon>202003170429346_GuestResponse.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

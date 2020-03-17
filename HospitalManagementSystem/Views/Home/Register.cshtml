@@ -1,4 +1,4 @@
-﻿
+﻿@model HospitalManagementSystem.Models.GuestResponse
 @{
     ViewBag.Title = "Register";
 }
@@ -7,13 +7,19 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 <body>
+    
     <div class=" d-flex justify-content-center align-items-center vh-100 ">
-
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
         <div class="card" style="width: 50rem;">
             <div class=" card-header text-center background-color:red700">
                 Registration Form
@@ -21,14 +27,19 @@
             <div class="card-body">
                 <br />
 
+
                 <div class="form row">
                     <div class="form-group col-md-6">
+
                         <label class="col-form-label">First Name</label>
-                        <input type="text" class="form-control" id="inputFName" aria-describedby="FnameHelp" placeholder="Enter First Name">
+                        @Html.TextBoxFor(x => x.inputFName, new { @class = "form-control" })
+                        @*<input type="text" class="form-control" id="inputFName" aria-describedby="FnameHelp" placeholder="Enter First Name">*@
+                       
                     </div>
                     <div class="form-group col-md-6">
                         <label class="col-form-label">Last Name</label>
-                        <input type="text" class="form-control" id="inputLName" placeholder="Enter Last Name">
+                        @Html.TextBoxFor(x => x.inputLName, new { @class = "form-control" })
+                        @*<input type="text" class="form-control" id="inputLName" placeholder="Enter Last Name">*@
                     </div>
                 </div>
                 <br />
@@ -36,11 +47,13 @@
                 <div class="form row">
                     <div class="form-group col-md-6">
                         <label class=" col-form-label">Id</label>
-                        <input type="text" class="form-control" id="inputId" aria-describedby="passwordHelp" placeholder="Enter ID">
+                        @Html.TextBoxFor(x => x.inputId, new { @class = "form-control" })
+                        @*<input type="text" class="form-control" id="inputId" aria-describedby="passwordHelp" placeholder="Enter ID">*@
                     </div>
                     <div class="form-group col-md-6">
                         <label class=" col-form-label">Password</label>
-                        <input type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelp" placeholder="Enter Password">
+                        @Html.TextBoxFor(x => x.inputPassword, new { @class = "form-control" })
+                        @*<input type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelp" placeholder="Enter Password">*@
                     </div>
 
                 </div>
@@ -49,7 +62,8 @@
                 <div class=" form row">
                     <label class="col-sm-2 col-form-label">Phone</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPhone" aria-describedby="phoneHelp" placeholder="Enter Phone">
+                        @Html.TextBoxFor(x => x.inputPhone, new { @class = "form-control" })
+                        @*<input type="text" class="form-control" id="inputPhone" aria-describedby="phoneHelp" placeholder="Enter Phone">*@
                     </div>
                 </div>
                 <br />
@@ -57,7 +71,8 @@
                 <div class=" form row">
                     <label class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                        @Html.TextBoxFor(x => x.inputEmail, new { @class = "form-control" })
+                        @*<input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">*@
                     </div>
                 </div>
                 <br />
@@ -80,11 +95,13 @@
                 <br />
                 <br />
                 <div class=" d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary bg-success col-sm-4">Register</a>
+                    <button type="submit" value="submit"  class="btn btn-success col-sm-4" >Register</button>
 
                 </div>
+            </div>
+        </div>
+    }
+    </div>
 
-
-
-</body>
+    </body>
 </html>
