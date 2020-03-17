@@ -146,10 +146,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003140721444_CreateHMSDb.cs" />
-    <Compile Include="Migrations\202003140721444_CreateHMSDb.Designer.cs">
-      <DependentUpon>202003140721444_CreateHMSDb.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202003170429346_GuestResponse.cs" />
     <Compile Include="Migrations\202003170429346_GuestResponse.Designer.cs">
       <DependentUpon>202003170429346_GuestResponse.cs</DependentUpon>
@@ -226,9 +222,6 @@
     <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003140721444_CreateHMSDb.resx">
-      <DependentUpon>202003140721444_CreateHMSDb.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003170429346_GuestResponse.resx">
       <DependentUpon>202003170429346_GuestResponse.cs</DependentUpon>
     </EmbeddedResource>
