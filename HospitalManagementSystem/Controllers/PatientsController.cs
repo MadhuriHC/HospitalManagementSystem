@@ -44,18 +44,44 @@ namespace HospitalManagementSystem.Controllers
         // POST: Patients/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "PatientID,FirstName,LastName,DOB,Email,Phone,BloodGroup,Status")] Patient patient)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Patients.Add(patient);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View(patient);
+        //}
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PatientID,FirstName,LastName,DOB,Email,Phone,BloodGroup,Status")] Patient patient)
+        public ActionResult Create([Bind(Include = "PatientID,FirstName,LastName,DOB,Email,Phone,BloodGroup,Status,Photo")] Patient patient,HttpPostedFileBase postedFile)
         {
+            //Extract Image File Name.
+            string fileName = System.IO.Path.GetFileName(postedFile.FileName);
+
+            //Set the Image File Path.
+            string filePath = "~/Uploads/" + fileName;
+
+            //Save the Image File in Folder.
+            postedFile.SaveAs(Server.MapPath(filePath));
+
+            //Insert the Image File details in Table.
+            // FilesEntities entities = new FilesEntities();
             if (ModelState.IsValid)
             {
                 db.Patients.Add(patient);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            db.SaveChanges();
 
-            return View(patient);
+            //Redirect to Index Action.
+             return View(patient);
         }
 
         // GET: Patients/Edit/5

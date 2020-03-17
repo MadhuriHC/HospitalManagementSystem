@@ -10,10 +10,16 @@ namespace HospitalManagementSystem.Models
     {
         [Key]
         public int DoctorID { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [Required]
+        [EmailAddress]
         public string Email { get; set; }
+        [Required]
         public long Phone { get; set; }
+        [Required]
         public int Status { get; set; }
     }
 }
