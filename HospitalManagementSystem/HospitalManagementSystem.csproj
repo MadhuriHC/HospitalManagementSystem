@@ -146,9 +146,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003170803516_TableCreations.cs" />
-    <Compile Include="Migrations\202003170803516_TableCreations.Designer.cs">
-      <DependentUpon>202003170803516_TableCreations.cs</DependentUpon>
+    <Compile Include="Migrations\202003250403058_TableCreations.cs" />
+    <Compile Include="Migrations\202003250403058_TableCreations.Designer.cs">
+      <DependentUpon>202003250403058_TableCreations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -236,8 +236,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003170803516_TableCreations.resx">
-      <DependentUpon>202003170803516_TableCreations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003250403058_TableCreations.resx">
+      <DependentUpon>202003250403058_TableCreations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
