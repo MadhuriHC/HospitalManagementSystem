@@ -123,5 +123,9 @@ namespace HospitalManagementSystem.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult Dashdoc()
+        {
+            return View("Dashdoc");
+        }
     }
 }

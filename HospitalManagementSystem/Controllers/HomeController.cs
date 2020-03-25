@@ -13,6 +13,10 @@ namespace HospitalManagementSystem.Controllers
         {
             return View();
         }
+        public ActionResult DashSuper()
+        {
+            return View("DashSuper");
+        }
         public ActionResult Register()
         {
             return View("Register");

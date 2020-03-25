@@ -123,5 +123,9 @@ namespace HospitalManagementSystem.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult Dashrecep()
+        {
+            return View("Dashrecep");
+        }
     }
 }

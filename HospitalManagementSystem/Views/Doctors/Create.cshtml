@@ -29,55 +29,57 @@
                     Doctor
                 </div>
                 <div class="card-body">
-                    <h4> Add Doctor</h4>
+                    <h4 class="text-center"> Add Doctor</h4>
                     <hr />
-                    <div class="form row">
-                        <label class="col-sm-2 col-form-label">First Name</label>
-                        <div class="col-sm-10">
-                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    <div class="pl-5">
+                        <div class="form row">
+                            <label class="col-sm-4 col-form-label">First Name</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                    <br />
+                        <br />
 
-                    <div class=" form row">
-                        <label class="col-sm-2 col-form-label">Last Name</label>
-                        <div class="col-sm-10">
-                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        <div class=" form row">
+                            <label class="col-sm-4 col-form-label">Last Name</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                    <br />
+                        <br />
 
-                    <div class=" form row">
-                        <label class=" col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
-                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        <div class=" form row">
+                            <label class=" col-sm-4 col-form-label">Email</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                    <br />
+                        <br />
 
-                    <div class=" form row">
-                        <label class=" col-sm-2 col-form-label">Phone</label>
-                        <div class="col-sm-10">
-                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        <div class=" form row">
+                            <label class=" col-sm-4 col-form-label">Phone</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                    <br />
+                        <br />
 
-                    <div class=" form row">
-                        <label class="col-sm-2 col-form-label">Status</label>
-                        <div class="col-sm-10">
-                            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        <div class=" form row">
+                            <label class="col-sm-4 col-form-label">Status</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                    <br />
+                        <br />
 
-                    <div class=" d-flex justify-content-center">
-                        <button type="submit" value="submit" class="btn btn-success col-sm-4">Add</button>
+                        <div class=" d-flex justify-content-center">
+                            <button type="submit" value="submit" class="btn btn-success col-sm-4">Add</button>
+                        </div>
                     </div>
                 </div>
             </div>
