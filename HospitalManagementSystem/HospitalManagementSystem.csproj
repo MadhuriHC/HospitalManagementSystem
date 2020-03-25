@@ -218,6 +218,9 @@
     <Content Include="Views\Patients\Details.cshtml" />
     <Content Include="Views\Patients\Edit.cshtml" />
     <Content Include="Views\Patients\Index.cshtml" />
+    <Content Include="Views\Home\DashSuper.cshtml" />
+    <Content Include="Views\Doctors\Dashdoc.cshtml" />
+    <Content Include="Views\Staffs\Dashrecep.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
