@@ -4,15 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HospitalManagementSystem.Models;
+using System.Data.Entity;
 
 namespace HospitalManagementSystem.Controllers
 {
     public class PatientReportController : Controller
     {
+        private HMSDbContext db = new HMSDbContext();
         // GET: PatientReport
         public ActionResult ExistingPatientReport()
         {
-            using (HMSDbContext db = new HMSDbContext())
+            using (db)
             {
                 List<Patient> patient = db.Patients.ToList();
                 List<Doctor> doctor = db.Doctors.ToList();
