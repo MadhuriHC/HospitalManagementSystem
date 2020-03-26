@@ -8,7 +8,7 @@ namespace HospitalManagementSystem.Models
 {
     public class HMSDbContext:DbContext
     {
-        public HMSDbContext() : base("HMSDatabase")
+        public HMSDbContext() : base("HMS")
         {
         }
 
