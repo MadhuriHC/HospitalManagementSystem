@@ -199,6 +199,7 @@
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\style.css" />
     <Content Include="Scripts\_media.css" />
+    <Content Include="Uploads\PatientImages\Hydrangeas.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -232,6 +233,7 @@
     <Content Include="Views\Home\DashSuper.cshtml" />
     <Content Include="Views\Doctors\Dashdoc.cshtml" />
     <Content Include="Views\Staffs\Dashrecep.cshtml" />
+    <Content Include="Views\PatientReport\ExistingPatientReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -246,9 +248,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\PatientReport\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003250403058_TableCreations.resx">
       <DependentUpon>202003250403058_TableCreations.cs</DependentUpon>

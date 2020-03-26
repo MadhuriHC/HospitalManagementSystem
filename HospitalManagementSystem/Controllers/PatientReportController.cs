@@ -10,7 +10,7 @@ namespace HospitalManagementSystem.Controllers
     public class PatientReportController : Controller
     {
         // GET: PatientReport
-        public ActionResult Index()
+        public ActionResult ExistingPatientReport()
         {
             using (HMSDbContext db = new HMSDbContext())
             {
