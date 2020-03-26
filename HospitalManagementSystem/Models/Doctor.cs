@@ -21,5 +21,7 @@ namespace HospitalManagementSystem.Models
         public long Phone { get; set; }
         [Required]
         public int Status { get; set; }
+
+        public virtual ICollection<Patient> Patients { get; set; }
     }
 }

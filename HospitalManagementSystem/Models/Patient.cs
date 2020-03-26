@@ -30,5 +30,11 @@ namespace HospitalManagementSystem.Models
         [Required]
         public int Status { get; set; }
         public string Photo { get; set; }
+
+        public Nullable<int> DoctorID { get; set; }
+
+        public virtual Doctor Doctor { get; set; }
+
+        public virtual ICollection<Treatment> Treatments { get; set; }
     }
 }

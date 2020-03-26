@@ -1,13 +1,16 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.ComponentModel.DataAnnotations;
 
 namespace HospitalManagementSystem.Models
 {
-    public partial class Treatment
+    public class Treatment
     {
         [Key]
         public int TreatemntID { get; set; }
+
         public Nullable<int> PatientID { get; set; }
         [Required]
         public string Symptoms { get; set; }
@@ -15,6 +18,7 @@ namespace HospitalManagementSystem.Models
         public string Diagnosis { get; set; }
         [Required]
         public string Prescription { get; set; }
+
         public virtual Patient Patient { get; set; }
     }
 }
