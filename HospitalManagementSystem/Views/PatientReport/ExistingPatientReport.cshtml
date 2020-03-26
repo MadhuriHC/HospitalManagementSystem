@@ -10,10 +10,12 @@
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script type="text/javascript" src="@Url.Action("~/scripts/jquery-3.3.1.min.js")"></script>
     <script type="text/javascript" src="@Url.Action("~/scripts/bootstrap.min.js")"></script>
 </head>
 <body>
+
     <div class="container-fluid py-4">
         <h4 class="text-center text-uppercase">Patient Report</h4>
         <table class="table table-striped table-bordered">
@@ -28,29 +30,38 @@
                     <th>Blood Group</th>
                     <th>Doctor's Name</th>
                     <th>Treatment</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>@item.patient.PatientID</td>
-                    <td><img src="@Url.Content(@item.patient.Photo)" style="height:80px;width:80px;" /></td>
-                    <td>@item.patient.FirstName @item.patient.LastName</td>
-                    <td>@item.patient.DOB</td>
-                    <td>@item.patient.Email</td>
-                    <td>@item.patient.Phone</td>
-                    <td>@item.patient.BloodGroup</td>
-                    <td>@item.doctor.FirstName @item.doctor.LastName</td>
-                    <td>
-                        Symptoms: @item.treatment.Symptoms
-                        <br />Diagnosis: @item.treatment.Diagnosis
-                        <br />Prescription: @item.treatment.Prescription
-                    </td>
-                </tr>
+                    <tr>
+                        <td>@item.patient.PatientID</td>
+                        <td><img src=@Url.Content(item.patient.Photo) style="height:80px;width:80px;" /></td>
+                        <td>@item.patient.FirstName @item.patient.LastName</td>
+                        <td>@item.patient.DOB</td>
+                        <td>@item.patient.Email</td>
+                        <td>@item.patient.Phone</td>
+                        <td>@item.patient.BloodGroup</td>
+                        <td>@item.doctor.FirstName @item.doctor.LastName</td>
+                        <td>
+                            Checkup Date: @item.treatment.CheckupDate
+                            <br />Symptoms: @item.treatment.Symptoms
+                            <br />Diagnosis: @item.treatment.Diagnosis
+                            <br />Medicine: @item.treatment.Medicine
+                            <br />Doses: @item.treatment.Doses
+                            <br />BeforeMeal: @item.treatment.BeforeMeal
+                        </td>
+                        <td>@Html.ActionLink("Edit", "EditExistingReport", new { id = item.treatment.TreatemntID })</td>
+                    </tr>
                 }
             </tbody>
         </table>
+    </div>
+
+    <div>
+        <button onclick="location.href='@Url.Action("PatientList")';return false;" class = "btn btn-dark">Back To List</button>
     </div>
 </body>
 </html>

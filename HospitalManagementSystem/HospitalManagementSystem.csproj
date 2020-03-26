@@ -244,6 +244,9 @@
     <Content Include="Views\Treatments\Details.cshtml" />
     <Content Include="Views\Treatments\Edit.cshtml" />
     <Content Include="Views\Treatments\Index.cshtml" />
+    <Content Include="Views\PatientReport\EditExistingReport.cshtml" />
+    <Content Include="Views\PatientReport\PatientList.cshtml" />
+    <Content Include="Views\PatientReport\NewPatientReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
