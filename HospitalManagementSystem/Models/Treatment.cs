@@ -13,11 +13,17 @@ namespace HospitalManagementSystem.Models
 
         public Nullable<int> PatientID { get; set; }
         [Required]
+        public DateTime CheckupDate { get; set; }
+        [Required]
         public string Symptoms { get; set; }
         [Required]
         public string Diagnosis { get; set; }
         [Required]
-        public string Prescription { get; set; }
+        public string Medicine { get; set; }
+        [Required]
+        public string Doses { get; set; }
+        [Required]
+        public string BeforeMeal { get; set; }
 
         public virtual Patient Patient { get; set; }
     }

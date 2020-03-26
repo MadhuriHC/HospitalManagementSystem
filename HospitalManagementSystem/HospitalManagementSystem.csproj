@@ -144,7 +144,6 @@
     <Compile Include="Controllers\PatientReportController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
-    <Compile Include="Controllers\TreatmentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -156,6 +155,10 @@
     <Compile Include="Migrations\202003260328085_UpdateTables.Designer.cs">
       <DependentUpon>202003260328085_UpdateTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003262255126_UpdateTreatmentTable.cs" />
+    <Compile Include="Migrations\202003262255126_UpdateTreatmentTable.Designer.cs">
+      <DependentUpon>202003262255126_UpdateTreatmentTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\GuestResponse.cs" />
@@ -166,7 +169,6 @@
     <Compile Include="Models\SuperAdmin.cs" />
     <Compile Include="Models\Treatment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\TreatmentsController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\HMS.mdf" />
@@ -236,11 +238,6 @@
     <Content Include="Views\Doctors\Dashdoc.cshtml" />
     <Content Include="Views\Staffs\Dashrecep.cshtml" />
     <Content Include="Views\PatientReport\ExistingPatientReport.cshtml" />
-    <Content Include="Views\Treatments\Create.cshtml" />
-    <Content Include="Views\Treatments\Delete.cshtml" />
-    <Content Include="Views\Treatments\Details.cshtml" />
-    <Content Include="Views\Treatments\Edit.cshtml" />
-    <Content Include="Views\Treatments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -262,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003260328085_UpdateTables.resx">
       <DependentUpon>202003260328085_UpdateTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003262255126_UpdateTreatmentTable.resx">
+      <DependentUpon>202003262255126_UpdateTreatmentTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

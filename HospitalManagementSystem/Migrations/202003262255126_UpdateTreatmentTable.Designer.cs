@@ -7,13 +7,13 @@ namespace HospitalManagementSystem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UpdateTables : IMigrationMetadata
+    public sealed partial class UpdateTreatmentTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateTables));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateTreatmentTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202003251234380_UpdateTables"; }
+            get { return "202003262255126_UpdateTreatmentTable"; }
         }
         
         string IMigrationMetadata.Source
