@@ -150,6 +150,10 @@
     <Compile Include="Migrations\202003250403058_TableCreations.Designer.cs">
       <DependentUpon>202003250403058_TableCreations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003260328085_UpdateTables.cs" />
+    <Compile Include="Migrations\202003260328085_UpdateTables.Designer.cs">
+      <DependentUpon>202003260328085_UpdateTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\GuestResponse.cs" />
@@ -245,6 +249,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003250403058_TableCreations.resx">
       <DependentUpon>202003250403058_TableCreations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003260328085_UpdateTables.resx">
+      <DependentUpon>202003260328085_UpdateTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
