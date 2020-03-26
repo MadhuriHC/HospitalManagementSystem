@@ -1,0 +1,70 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.Treatment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckupDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Symptoms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diagnosis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medicine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Doses)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeforeMeal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckupDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Symptoms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diagnosis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medicine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Doses)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BeforeMeal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TreatemntID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TreatemntID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TreatemntID })
+        </td>
+    </tr>
+}
+
+</table>

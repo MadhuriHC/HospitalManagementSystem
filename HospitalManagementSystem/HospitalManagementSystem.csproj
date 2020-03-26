@@ -144,6 +144,7 @@
     <Compile Include="Controllers\PatientReportController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
+    <Compile Include="Controllers\TreatmentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -238,6 +239,11 @@
     <Content Include="Views\Doctors\Dashdoc.cshtml" />
     <Content Include="Views\Staffs\Dashrecep.cshtml" />
     <Content Include="Views\PatientReport\ExistingPatientReport.cshtml" />
+    <Content Include="Views\Treatments\Create.cshtml" />
+    <Content Include="Views\Treatments\Delete.cshtml" />
+    <Content Include="Views\Treatments\Details.cshtml" />
+    <Content Include="Views\Treatments\Edit.cshtml" />
+    <Content Include="Views\Treatments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
