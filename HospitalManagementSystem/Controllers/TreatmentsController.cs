@@ -37,9 +37,11 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // GET: Treatments/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName");
+           ViewBag.PatientID = id;
+
+            //ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName");
             return View();
         }
 
@@ -54,10 +56,10 @@ namespace HospitalManagementSystem.Controllers
             {
                 db.Treatments.Add(treatment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("PatientList","PatientReport");
             }
 
-            ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
+           // ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
             return View(treatment);
         }
 
@@ -88,7 +90,7 @@ namespace HospitalManagementSystem.Controllers
             {
                 db.Entry(treatment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("PatientList", "PatientReport");
             }
             ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
             return View(treatment);

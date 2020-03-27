@@ -53,7 +53,7 @@
                             <br />Doses: @item.treatment.Doses
                             <br />BeforeMeal: @item.treatment.BeforeMeal
                         </td>
-                        <td>@Html.ActionLink("Edit", "EditExistingReport", new { id = item.treatment.TreatemntID })</td>
+                        <td>@Html.ActionLink("Edit", "Edit","Treatments", new { id = item.treatment.TreatemntID }, new { })</td>
                     </tr>
                 }
             </tbody>

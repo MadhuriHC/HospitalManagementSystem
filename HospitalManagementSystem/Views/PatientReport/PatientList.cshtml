@@ -34,7 +34,7 @@
                         <td>@item.patient.DOB</td>
                         <td>@item.patient.Email</td>
                         <td>@item.patient.Phone</td>
-                        <td>@Html.ActionLink("New", "NewPatientReport", new { id = item.patient.PatientID })</td>
+                        <td>@Html.ActionLink("New", "Create", "Treatments", new { id = item.patient.PatientID }, new { })</td>
                         <td>@Html.ActionLink("View", "ExistingPatientReport", new { id = item.patient.PatientID })</td>
                     </tr>
                 }

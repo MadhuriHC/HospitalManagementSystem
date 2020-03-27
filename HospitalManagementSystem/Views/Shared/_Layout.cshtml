@@ -26,33 +26,33 @@
                 <h1><a href="index.html" class="logo">Apollo</a></h1>
                 <ul class="list-unstyled components mb-5">
                     <li class="active">
-                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"><span class="glyphicon glyphicon-th mr-3"></span>Dashboard</a>
+                        <a href='@Url.Action("DashSuper","Home")' data-toggle="collapse" aria-expanded="false"><span class="glyphicon glyphicon-th mr-3"></span>Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><span class="fa fa-user-md mr-3"></span>Doctors</a>
+                        <a href='@Url.Action("Dashdoc","Doctors")'><span class="fa fa-user-md mr-3"></span>Doctors</a>
                     </li>
                     <li>
-                        <a href="#"><span class="fa fa-bed mr-3"></span>Patients</a>
+                        <a href='@Url.Action("Index","Patients")'><span class="fa fa-bed mr-3"></span>Patients</a>
                     </li>
                     <li>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-users mr-3"></span>Staffs</a>
+                        <a href="#" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-users mr-3"></span>Staffs</a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             <li>
-                                <a href="#"><span class="fa fa-medkit mr-3"></span>Nurses</a>
+                                <a href='@Url.Action("Dashrecep","Staffs")'><span class="fa fa-medkit mr-3"></span>Receptionist</a>
                             </li>
                             <li>
-                                <a href="#"><span class="fa fa-book mr-3"></span>Accountants</a>
+                                <a href='@Url.Action("","")'><span class="fa fa-book mr-3"></span>Accountants</a>
                             </li>
                             <li>
-                                <a href="#"><span class="fa fa-flask mr-3"></span>Laboraties</a>
+                                <a href='@Url.Action("","")'><span class="fa fa-flask mr-3"></span>Laboraties</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><span class="fa fa-credit-card mr-3"></span>Payment</a>
+                        <a href='@Url.Action("","")'><span class="fa fa-credit-card mr-3"></span>Payment</a>
                     </li>
                     <li>
-                        <a href="#"><span class="glyphicon glyphicon-user mr-3"></span>Edit Profile</a>
+                        <a href='@Url.Action("","")'><span class="glyphicon glyphicon-user mr-3"></span>Edit Profile</a>
                     </li>
                 </ul>
             </div>

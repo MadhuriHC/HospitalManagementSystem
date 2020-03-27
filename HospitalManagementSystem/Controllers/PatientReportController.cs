@@ -20,7 +20,7 @@ namespace HospitalManagementSystem.Controllers
             return View(PatientList);
         }
 
-        public ActionResult NewPatientReport(int? id)
+        /*public ActionResult NewPatientReport(int? id)
         {
             ViewBag.PatientID = id;
             return View();
@@ -39,7 +39,7 @@ namespace HospitalManagementSystem.Controllers
 
             // ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
             return View(treatment);
-        }
+        }*/
 
         // GET: PatientReport
         public ActionResult ExistingPatientReport(int? id)
@@ -78,7 +78,7 @@ namespace HospitalManagementSystem.Controllers
             }
         }
 
-        // GET: Treatments/Edit/5
+       /* // GET: Treatments/Edit/5
         public ActionResult EditExistingReport(int? id)
         {
             if (id == null)
@@ -109,6 +109,6 @@ namespace HospitalManagementSystem.Controllers
             }
             ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
             return View(treatment);
-        }
+        }*/
     }
 }
