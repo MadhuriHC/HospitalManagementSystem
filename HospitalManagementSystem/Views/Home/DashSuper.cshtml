@@ -22,20 +22,6 @@
             <br />
 
             <div class="form-row" style="padding-left:100px;">
-                <div class="form-group col-md-5">
-                    <div class="card bg-success text-white;" style="width: 25rem; height: 17rem; color: white;">
-                        <div class="card-body;">
-                            <div class="card-header text-center" style="font-size:16px;">Report</div>
-
-                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                            <ul style="padding-left:20px; padding-top:20px;">
-                                <li><a href='@Url.Action("PatientList","PatientReport")' class="card-link" style="color: white; font-size:16px;">Generate New Report</a></li>
-                                <li><a href='@Url.Action("PatientList","PatientReport")' class="card-link" style="color: white; font-size:16px;">View Existing Report</a></li>
-                                <li><a href='@Url.Action("PatientList","PatientReport")' class="card-link" style="color: white; font-size:16px;">Edit Existing Report</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="form group col-md-5">
                     <div class="card bg-primary text-white ; " style="width: 25rem; height: 17rem; color: white;">
@@ -44,20 +30,15 @@
 
                             <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
                             <ul style="padding-left:20px; padding-top:20px;">
-                                <li><a href="#" class="card-link" style="color: white; font-size:16px;"> Add New Doctor Info</a></li>
-                                <li><a href="#" class="card-link" style="color: white; font-size:16px;">Edit Existing Info</a></li>
-                                <li><a href="#" class="card-link" style="color: white; font-size:16px;">Delete Info</a></li>
+                                <li><a href='@Url.Action("Index","Doctors")' class="card-link" style="color: white; font-size:16px;"> Show All Doctor Info</a></li>
+                                <li><a href='@Url.Action("Create","Doctors")' class="card-link" style="color: white; font-size:16px;"> Add New Doctor Info</a></li>
+                                <li><a href='@Url.Action("Edit","Doctors")' class="card-link" style="color: white; font-size:16px;">Edit Existing Info</a></li>
+                                <li><a href='@Url.Action("Delete","Doctors")' class="card-link" style="color: white; font-size:16px;">Delete Info</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-            </div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <div class="form-row" style="padding-left:100px;">
                 <div class="form-group col-md-5">
                     <div class="card bg-info text-white;" style=" width: 25rem; height: 17rem;  color: white; ">
                         <div class="card-body;">
@@ -65,54 +46,75 @@
 
                             <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
                             <ul style="padding-left:20px; padding-top:20px;">
-                                <li><a href="#" class="card-link" style="color: white; font-size:16px;"> Add New Patient Info</a></li>
-                                <li><a href="#" class="card-link" style="color: white; font-size:16px;">Edit Existing Info</a></li>
-                                <li><a href="#" class="card-link" style="color: white; font-size:16px;">View Report summary</a></li>
+                                <li><a href='@Url.Action("Create","Patients")' class="card-link" style="color: white; font-size:16px;"> Add New Patient Info</a></li>
+                                <li><a href='@Url.Action("Edit","Patients")' class="card-link" style="color: white; font-size:16px;">Edit Existing Info</a></li>
+                                <li><a href='@Url.Action("Index","Patients")' class="card-link" style="color: white; font-size:16px;">View Report summary</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
 
 
-                <div class="form-group col-md-5">
-                    <div class="card bg-warning text-white;" style="width: 25rem;height: 17rem; color: white;">
-                        <div class="card-body;">
-                            <div class="card-header text-center" style="font-size:16px;">Staff</div>
-                            
+                <div class="form-row" style="padding-left:100px;">
+                    <div class="form-group col-md-5">
+                        <div class="card bg-warning text-white;" style="width: 25rem;height: 17rem; color: white;">
+                            <div class="card-body;">
+                                <div class="card-header text-center" style="font-size:16px;">Staff</div>
+
                                 <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
                                 <ul style="padding-left:20px; padding-top:20px;">
-                                 <li><a href="#" class="card-link" style="color: white; font-size:16px;"> Add New Info</a></li>                                
-                                <li><a href="#" class="card-link" style="color: white; font-size:16px;">Update Existing</a></li>
-                                <li><a href="#" class="card-link" style="color: white; font-size:16px;">Delete Info</a></li>
+                                    <li><a href='@Url.Action("Create","Staffs")' class="card-link" style="color: white; font-size:16px;"> Add New Info</a></li>
+                                    <li><a href='@Url.Action("Edit","Staffs")' class="card-link" style="color: white; font-size:16px;">Update Existing</a></li>
+                                    <li><a href='@Url.Action("Delete","Staffs")' class="card-link" style="color: white; font-size:16px;">Delete Info</a></li>
                                 </ul>
-                         
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group col-md-5">
+                        <div class="card bg-success text-white;" style="width: 25rem; height: 17rem; color: white;">
+                            <div class="card-body;">
+                                <div class="card-header text-center" style="font-size:16px;">Patient Report</div>
+
+                                <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                                <ul style="padding-left:20px; padding-top:20px;">
+                                    <li><a href='@Url.Action("PatientList","PatientReport")' class="card-link" style="color: white; font-size:16px;">Generate New Report</a></li>
+                                    <li><a href='@Url.Action("PatientList","PatientReport")' class="card-link" style="color: white; font-size:16px;">View Existing Report</a></li>
+                                    <li><a href='@Url.Action("PatientList","PatientReport")' class="card-link" style="color: white; font-size:16px;">Edit Existing Report</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+
+                <div class="form-row" style="padding-left:100px;">
+                    <div class="form-group col-md-5">
+                        <div class="card bg-danger text-white;" style="width: 25rem;height: 17rem; color: white;">
+                            <div class="card-body;">
+                                <div class="card-header text-center" style="font-size:16px;">Discharge</div>
+
+                                <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                                <ul style="padding-left:20px; padding-top:20px;">
+                                    <li><a href='@Url.Action("","")' class="card-link" style="color: white; font-size:16px;"> Payment</a></li>
+                                    <li><a href='@Url.Action("","")' class="card-link" style="color: white; font-size:16px;">Fill Discharge form</a></li>
+                                    <li><a href='@Url.Action("","")' class="card-link" style="color: white; font-size:16px;">View Discharge summary</a></li>
+                            </div>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <div class="form-row" style="padding-left:100px;">
-                <div class="form-group col-md-5">
-                    <div class="card bg-danger text-white;" style="width: 25rem;height: 17rem; color: white;">
-                        <div class="card-body;">
-                            <div class="card-header text-center" style="font-size:16px;">Discharge</div>
-
-                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                            <ul style="padding-left:20px; padding-top:20px;">
-                                <li><a href="#" class="card-link" style="color: white; font-size:16px;"> Payment</a></li>
-                                <li><a href="#" class="card-link" style="color: white; font-size:16px;">Fill Discharge form</a></li>
-                                <li><a href="#" class="card-link" style="color: white; font-size:16px;">View Discharge summary</a></li>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <
-        </div>
     </div>
 
 </body>
