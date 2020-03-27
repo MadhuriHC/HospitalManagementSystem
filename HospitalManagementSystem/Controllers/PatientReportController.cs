@@ -14,6 +14,7 @@ namespace HospitalManagementSystem.Controllers
 
         public ActionResult PatientList()
         {
+            //int id= (int)RouteData.Values["did"];
             List<Patient> patient = db.Patients.ToList();
             var PatientList = from p in patient where p.DoctorID == 1 select new PatientReport { patient = p };
             return View(PatientList);
