@@ -7,11 +7,14 @@
 
 <h2>Index</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Add New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
         </th>
@@ -34,16 +37,18 @@
             @Html.DisplayNameFor(model => model.Status)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.DoctorID)
         </th>
-        <th></th>
+        <th>Edit</th>
+        <th>Details</th>
+        <th>Delete</th>
     </tr>
 
 @foreach (var item in Model) {
 <tr>
+    <td>
+        <img src="@Url.Content(@item.Photo)" style="height:80px;width:80px;" />
+    </td>
     <td>
         @Html.DisplayFor(modelItem => item.FirstName)
     </td>
@@ -66,17 +71,17 @@
         @Html.DisplayFor(modelItem => item.Status)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.Photo)
-    </td>
-    <td>
         @Html.DisplayFor(modelItem => item.DoctorID)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.PatientID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.PatientID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.PatientID })
+        <a href="@Url.Action("Edit","Patients",new { id=item.PatientID })"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+    </td>
+    <td>
+        <a href="@Url.Action("Details","Patients",new { id=item.PatientID })"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+    </td>
+    <td>
+        <a href="@Url.Action("Delete","Patients",new { id=item.PatientID })"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
     </td>
 </tr>
 }
-
 </table>

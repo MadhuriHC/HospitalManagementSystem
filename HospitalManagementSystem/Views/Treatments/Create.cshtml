@@ -80,5 +80,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "PatientList","PatientReport")
+    <button onclick="location.href='@Url.Action("PatientList","PatientReport")';return false;" class="btn btn-dark">Back To List</button>
 </div>

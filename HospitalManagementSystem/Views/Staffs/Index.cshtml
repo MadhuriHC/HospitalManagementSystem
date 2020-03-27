@@ -7,9 +7,9 @@
 
 <h2>Index</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -27,32 +27,32 @@
         <th>
             @Html.DisplayNameFor(model => model.SCategory)
         </th>
-        <th></th>
+        <th>Edit</th>
+        <th>Details</th>
+        <th>Delete</th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SCategory)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StaffID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StaffID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.StaffID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Phone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SCategory)
+    </td>
+    <td><a href="@Url.Action("Edit","Staffs",new { id=item.StaffID })"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+    <td><a href="@Url.Action("Details","Staffs",new { id=item.StaffID })"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></td>
+    <td><a href="@Url.Action("Delete","Staffs",new { id=item.StaffID })"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+</tr>
 }
 
 </table>

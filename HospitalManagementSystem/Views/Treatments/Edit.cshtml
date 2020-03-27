@@ -5,7 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="~/Content/Styles.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap.css" rel="stylesheet">
+        <link href="~/Content/bootstrap-theme.css" rel="stylesheet">
+</head>
+<h2>Edit Treatment Details</h2>
 
 @using (Html.BeginForm())
 {
@@ -82,5 +88,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "PatientList","PatientReport")
+    <button onclick="location.href='@Url.Action("PatientList","PatientReport")';return false;" class="btn btn-dark">Back To List</button>
 </div>

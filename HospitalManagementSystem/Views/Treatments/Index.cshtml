@@ -7,9 +7,9 @@
 
 <h2>Index</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -33,38 +33,36 @@
         <th>
             @Html.DisplayNameFor(model => model.BeforeMeal)
         </th>
-        <th></th>
+        <th>Details</th>
+        <th>Delete</th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Patient.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CheckupDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Symptoms)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Diagnosis)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Medicine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Doses)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BeforeMeal)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TreatemntID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TreatemntID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TreatemntID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Patient.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CheckupDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Symptoms)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Diagnosis)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Medicine)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Doses)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BeforeMeal)
+    </td>
+    <td><a href="@Url.Action("Details","Treatments",new { id=item.TreatemntID })"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></td>
+    <td><a href="@Url.Action("Delete","Treatments",new { id=item.TreatemntID })"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+</tr>
 }
 
 </table>

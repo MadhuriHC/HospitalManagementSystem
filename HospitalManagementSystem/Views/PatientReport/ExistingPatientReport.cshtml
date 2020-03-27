@@ -12,7 +12,9 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script type="text/javascript" src="@Url.Action("~/scripts/jquery-3.3.1.min.js")"></script>
-    <script type="text/javascript" src="@Url.Action("~/scripts/bootstrap.min.js")"></script>
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet">
 </head>
 <body>
 
@@ -53,7 +55,7 @@
                             <br />Doses: @item.treatment.Doses
                             <br />BeforeMeal: @item.treatment.BeforeMeal
                         </td>
-                        <td>@Html.ActionLink("Edit", "Edit","Treatments", new { id = item.treatment.TreatemntID }, new { })</td>
+                        <td><a href="@Url.Action("Edit","Treatments",new { id=item.treatment.TreatemntID })"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
                     </tr>
                 }
             </tbody>

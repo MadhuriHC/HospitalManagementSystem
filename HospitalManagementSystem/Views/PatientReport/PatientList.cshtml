@@ -7,6 +7,9 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet">
 </head>
 <body>
     <div class="container-fluid py-4">
@@ -34,8 +37,14 @@
                         <td>@item.patient.DOB</td>
                         <td>@item.patient.Email</td>
                         <td>@item.patient.Phone</td>
-                        <td>@Html.ActionLink("New", "Create", "Treatments", new { id = item.patient.PatientID }, new { })</td>
-                        <td>@Html.ActionLink("View", "ExistingPatientReport", new { id = item.patient.PatientID })</td>
+                        <td>
+                            <a href="@Url.Action("Create","Treatments",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                            @*@Html.ActionLink("New", "Create", "Treatments", new { id = item.patient.PatientID }, new { })*@
+                        </td>
+                        <td>
+                            <a href="@Url.Action("ExistingPatientReport","PatientReport",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+                            @*@Html.ActionLink("View", "ExistingPatientReport", new { id = item.patient.PatientID })*@
+                        </td>
                     </tr>
                 }
             </tbody>

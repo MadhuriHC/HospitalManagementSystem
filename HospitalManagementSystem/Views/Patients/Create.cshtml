@@ -115,9 +115,10 @@
                 </div>
             </div>
         </form>
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    </div>
+
+    <div>
+        <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark">Back To List</button>
     </div>
 </body>
 </html>

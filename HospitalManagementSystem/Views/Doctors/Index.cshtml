@@ -1,15 +1,23 @@
 ﻿@model IEnumerable<HospitalManagementSystem.Models.Doctor>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Doctor's List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="~/Scripts/style.css" rel="stylesheet" />
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/popper.js"></script>
+    </head>
+<h2>Doctor's List</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -27,7 +35,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Status)
         </th>
-        <th></th>
+        <th>Edit</th>
+        <th>Details</th>
+        <th>Delete</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -47,11 +57,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DoctorID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DoctorID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DoctorID })
-        </td>
+        <td><a href="@Url.Action("Edit","Doctors",new { id=item.DoctorID })"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+        <td><a href="@Url.Action("Details","Doctors",new { id=item.DoctorID })"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></td>
+        <td><a href="@Url.Action("Delete","Doctors",new { id=item.DoctorID })"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
     </tr>
 }
 

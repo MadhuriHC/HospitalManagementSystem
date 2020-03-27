@@ -14,7 +14,6 @@
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 <body>
 
@@ -84,9 +83,10 @@
                 </div>
             </div>
         }
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
     </div>
+    <div>
+        <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark">Back To List</button>
+    </div>
+    
 </body>
 </html>
