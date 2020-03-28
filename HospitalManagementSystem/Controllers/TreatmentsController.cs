@@ -55,6 +55,7 @@ namespace HospitalManagementSystem.Controllers
             //if (ModelState.IsValid)
             //{
 				treatment.Doses = fc["Doses"];
+            treatment.BeforeMeal = fc["RbBeforeMeal"];
                 db.Treatments.Add(treatment);
                 db.SaveChanges();
                 return RedirectToAction("PatientList","PatientReport");
@@ -65,7 +66,7 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // GET: Treatments/Edit/5
-        public ActionResult Edit(int? id,string doses)
+        public ActionResult Edit(int? id,string doses,string bm)
         {
             if (id == null)
             {
@@ -76,7 +77,6 @@ namespace HospitalManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
-			ViewBag.Category = doses;
             if (doses.Equals("1-0-0"))
                 ViewBag.n = 1;
             else if (doses.Equals("0-1-0"))
@@ -91,6 +91,11 @@ namespace HospitalManagementSystem.Controllers
                 ViewBag.n = 6;
 			else if (doses.Equals("1-1-1"))
                 ViewBag.n = 7;
+
+            if(bm.Equals("Yes"))
+                ViewBag.n = 1;
+            else
+                ViewBag.n = 0;
             ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
             return View(treatment);
         }
@@ -105,6 +110,7 @@ namespace HospitalManagementSystem.Controllers
             //if (ModelState.IsValid)
             //{
             treatment.Doses = fc["Doses"];
+            treatment.BeforeMeal = fc["RbBeforeMeal"];
                 db.Entry(treatment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("PatientList", "PatientReport");

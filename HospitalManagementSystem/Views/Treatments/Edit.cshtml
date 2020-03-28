@@ -164,7 +164,17 @@
         <div class="form-group">
             @Html.LabelFor(model => model.BeforeMeal, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BeforeMeal, new { htmlAttributes = new { @class = "form-control" } })
+                @if (ViewBag.n == 1)
+                {
+                    @Html.RadioButton("RbBeforeMeal", "Yes",isChecked:true) @Html.Label("Yes")
+                    @Html.RadioButton("RbBeforeMeal", "No") @Html.Label("No")
+                }
+                else
+                {
+                    @Html.RadioButton("RbBeforeMeal", "Yes") @Html.Label("Yes")
+                    @Html.RadioButton("RbBeforeMeal", "No",isChecked:true) @Html.Label("No")
+                }
+
                 @Html.ValidationMessageFor(model => model.BeforeMeal, "", new { @class = "text-danger" })
             </div>
         </div>
