@@ -46,20 +46,17 @@ namespace HospitalManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StaffID,FirstName,LastName,Email,Phone,SCategory")] Staff staff)
+        public ActionResult Create([Bind(Include = "StaffID,FirstName,LastName,Email,Phone,SCategory")] Staff staff,FormCollection fc)
         {
-            if (ModelState.IsValid)
-            {
-                db.Staffs.Add(staff);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(staff);
+            staff.SCategory = fc["Category"];
+            db.Staffs.Add(staff);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+            //return View(staff);
         }
 
         // GET: Staffs/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id,string cat)
         {
             if (id == null)
             {
@@ -70,6 +67,13 @@ namespace HospitalManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
+			ViewBag.Category = cat;
+            if (cat.Equals("Receptionist"))
+                ViewBag.n = 1;
+            else if (cat.Equals("Accountant"))
+                ViewBag.n = 2;
+            else if (cat.Equals("Laboraties"))
+                ViewBag.n = 3;
             return View(staff);
         }
 
@@ -78,15 +82,16 @@ namespace HospitalManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StaffID,FirstName,LastName,Email,Phone,SCategory")] Staff staff)
+        public ActionResult Edit([Bind(Include = "StaffID,FirstName,LastName,Email,Phone,SCategory")] Staff staff,FormCollection fc)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(staff).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(staff);
+            //if (ModelState.IsValid)
+            //{
+            staff.SCategory = fc["Category"];
+            db.Entry(staff).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+            //}
+            //return View(staff);
         }
 
         // GET: Staffs/Delete/5

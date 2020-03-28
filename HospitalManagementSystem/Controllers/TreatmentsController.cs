@@ -50,21 +50,23 @@ namespace HospitalManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TreatemntID,PatientID,CheckupDate,Symptoms,Diagnosis,Medicine,Doses,BeforeMeal")] Treatment treatment)
+        public ActionResult Create([Bind(Include = "TreatemntID,PatientID,CheckupDate,Symptoms,Diagnosis,Medicine,Doses,BeforeMeal")] Treatment treatment,FormCollection fc)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
+				treatment.Doses = fc["Doses"];
+            treatment.BeforeMeal = fc["RbBeforeMeal"];
                 db.Treatments.Add(treatment);
                 db.SaveChanges();
                 return RedirectToAction("PatientList","PatientReport");
-            }
+            //}
 
            // ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
-            return View(treatment);
+            //return View(treatment);
         }
 
         // GET: Treatments/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id,string doses,string bm)
         {
             if (id == null)
             {
@@ -75,6 +77,25 @@ namespace HospitalManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
+            if (doses.Equals("1-0-0"))
+                ViewBag.n = 1;
+            else if (doses.Equals("0-1-0"))
+                ViewBag.n = 2;
+			else if (doses.Equals("0-0-1"))
+                ViewBag.n = 3;
+			else if (doses.Equals("1-1-0"))
+                ViewBag.n = 4;
+			else if (doses.Equals("1-0-1"))
+                ViewBag.n = 5;
+			else if (doses.Equals("0-1-1"))
+                ViewBag.n = 6;
+			else if (doses.Equals("1-1-1"))
+                ViewBag.n = 7;
+
+            if(bm.Equals("Yes"))
+                ViewBag.n = 1;
+            else
+                ViewBag.n = 0;
             ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
             return View(treatment);
         }
@@ -84,16 +105,19 @@ namespace HospitalManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TreatemntID,PatientID,CheckupDate,Symptoms,Diagnosis,Medicine,Doses,BeforeMeal")] Treatment treatment)
+        public ActionResult Edit([Bind(Include = "TreatemntID,PatientID,CheckupDate,Symptoms,Diagnosis,Medicine,Doses,BeforeMeal")] Treatment treatment,FormCollection fc)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
+            treatment.Doses = fc["Doses"];
+            treatment.BeforeMeal = fc["RbBeforeMeal"];
                 db.Entry(treatment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("PatientList", "PatientReport");
-            }
-            ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
-            return View(treatment);
+            //}
+
+            //ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
+            //return View(treatment);
         }
 
         // GET: Treatments/Delete/5
