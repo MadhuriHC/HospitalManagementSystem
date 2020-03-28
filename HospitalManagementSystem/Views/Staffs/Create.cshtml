@@ -70,12 +70,12 @@
                     <div class=" form row text-center">
                         <label class="col-sm-2 col-form-label">Staff Category</label>
                         <div class="col-sm-10">
-                            <select id="inputAdmin" class="form-control selectpicker" title="Select Admin">
-                                <option hidden>Please select</option>
-                                <option>Accountants</option>
-                                <option>Laboraties</option>
-                                <option>Receptionist</option>
-                            </select>
+                            @Html.DropDownList("Category", new List<SelectListItem>
+                             {
+                                 new SelectListItem{Text="Accountant",Value="Accountant"},
+                                 new SelectListItem{Text="Laboraties",Value="Laboraties"},
+                                 new SelectListItem{Text="Receptionist",Value="Receptionist"}
+                            })
                             @Html.ValidationMessageFor(model => model.SCategory, "", new { @class = "text-danger" })
                         </div>
                     </div>

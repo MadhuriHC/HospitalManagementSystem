@@ -49,7 +49,7 @@
     <td>
         @Html.DisplayFor(modelItem => item.SCategory)
     </td>
-    <td><a href="@Url.Action("Edit","Staffs",new { id=item.StaffID })"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+    <td><a href="@Url.Action("Edit","Staffs",new { id=item.StaffID ,cat=item.SCategory})"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
     <td><a href="@Url.Action("Details","Staffs",new { id=item.StaffID })"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></td>
     <td><a href="@Url.Action("Delete","Staffs",new { id=item.StaffID })"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
 </tr>

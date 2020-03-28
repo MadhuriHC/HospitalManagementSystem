@@ -1,4 +1,4 @@
-﻿@model HMSProject.Models.Staff
+﻿@model HospitalManagementSystem.Models.Staff
 
 @{
     ViewBag.Title = "Edit";
@@ -53,8 +53,34 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SCategory, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SCategory, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SCategory, "", new { @class = "text-danger" })
+                @if (@ViewBag.n == 1)
+                {
+                    @Html.DropDownList("Category", new List<SelectListItem>
+                     {
+                         new SelectListItem{Text="Accountant",Value="Accountant"},
+                         new SelectListItem{Text="Laboraties",Value="Laboraties"},
+                         new SelectListItem{Text="Receptionist",Value="Receptionist",Selected=true}
+                    }, new { htmlAttributes = new { @class = "form-control" } })
+                }
+                else if (@ViewBag.n == 2)
+                {
+                    @Html.DropDownList("Category", new List<SelectListItem>
+                                {
+                                    new SelectListItem{Text="Accountant",Value="Accountant",Selected=true},
+                                    new SelectListItem{Text="Laboraties",Value="Laboraties"},
+                                    new SelectListItem{Text="Receptionist",Value="Receptionist"}
+                               }, new { htmlAttributes = new { @class = "form-control" } })
+                }
+                else
+                {
+                    @Html.DropDownList("Category", new List<SelectListItem>
+                            {
+                                new SelectListItem{Text="Accountant",Value="Accountant"},
+                                new SelectListItem{Text="Laboraties",Value="Laboraties",Selected=true},
+                                new SelectListItem{Text="Receptionist",Value="Receptionist"}
+                           }, new { htmlAttributes = new { @class = "form-control" } })
+                }
+            @Html.ValidationMessageFor(model => model.SCategory, "", new { @class = "text-danger" })
             </div>
         </div>
 
