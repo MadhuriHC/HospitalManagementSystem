@@ -3,6 +3,23 @@
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    <head>
+        <style>
+           .btn-patient,
+            .btn-patient:visited,
+            .btn-patient:hover,
+            .btn-patient:focus {
+                background-color: #fafafa !important;
+                border-color: #fafafa !important;
+            }
+
+                .btn-patient:active {
+                    background-color: darkgrey !important;
+                    border-color: darkgrey !important;
+                    color: grey !important;
+                }
+        </style>
+    </head>
 }
     <div class="min-vh-100">
         <h3>Delete Info</h3>
@@ -80,9 +97,9 @@
         {
             @Html.AntiForgeryToken()
 
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" />
-                <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark">Back To List</button>
-            </div>
+    <div class="form-actions no-color">
+        <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark">Back To List</button>
+        <input type="submit" value="Delete" class="btn btn-patient" />
+    </div>
         }
     </div>
