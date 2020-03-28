@@ -14,111 +14,126 @@
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .btn-patient,
 
+    .btn-patient:visited,
+    .btn-patient:hover,
+    .btn-patient:focus {
+        background-color: #e9e4e2 !important;
+        border-color: #e9e4e2 !important;
+    }
+
+    .btn-patient:active
+    {
+        background-color: darkgrey !important;
+        border-color: darkgrey !important;
+        color:grey !important;
+
+    }
+</style>
 </head>
 <body>
+    <form name="f1" method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
 
-    <div class=" d-flex justify-content-center align-items-center vh-100 ">
-        <form name="f1" method="post" enctype="multipart/form-data">
-            @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="card" style="width: 70rem;">
-                <div class=" card-header text-center background-color:red700">
-                    Patient
+        <div class=" d-flex justify-content-center align-items-center vh-100 ">
+            <div class="card" style="width: 70rem;  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.25);">
+                <div class=" card-header text-center " style="background-color:#e9e4e2">
+                    <h4>Add Patient</h4>
                 </div>
-                <div class="card-body">
-                    <h4> Add Patient</h4>
-                    <hr />
+                <div class="card-body" style="padding-left:5rem;">
+                    <br />
+                    <br />
+
                     <div class="form row">
-                        <label class="col-sm-2 col-form-label">First Name</label>
-                        <div class="col-sm-10">
+                        <div class=" col-md-6">
+                            <label class="col-form-label">First Name</label>
                             @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                         </div>
-                    </div>
-                    <br />
+                        <div class="col-md-6">
+                            <label class="col-form-label">Last Name</label>
 
-                    <div class=" form row">
-                        <label class="col-sm-2 col-form-label">Last Name</label>
-                        <div class="col-sm-10">
                             @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <br />
+                    <br />
 
                     <div class=" form row">
-                        <label class="col-sm-2 col-form-label">Photo</label>
-                        <div class="col-sm-10">
+                        <label class="col-sm-3 col-form-label">Photo</label>
+                        <div class="col-sm-9">
                             <input type="file" name="postedFile">
                         </div>
                     </div>
                     <br />
+                    <br />
+
                     <div class=" form row">
-                        <label class="col-sm-2 col-form-label">Date of Birth</label>
-                        <div class="col-sm-10">
+                        <div class="col-md-6">
+                            <label class="col-form-label">Date of Birth</label>
+
                             @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
                         </div>
-                    </div>
-                    <br />
+                        <div class=" col-md-6">
+                            <label class="col-form-label">Blood Group</label>
 
-                    <div class=" form row">
-                        <label class=" col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
-                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <br />
-
-                    <div class=" form row">
-                        <label class=" col-sm-2 col-form-label">Phone</label>
-                        <div class="col-sm-10">
-                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <br />
-
-                    <div class=" form row">
-                        <label class=" col-sm-2 col-form-label">Blood Group</label>
-                        <div class="col-sm-10">
                             @Html.EditorFor(model => model.BloodGroup, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.BloodGroup, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                    <br />
 
-                    <div class=" form row">
-                        <label class="col-sm-2 col-form-label">Status</label>
-                        <div class="col-sm-10">
-                            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                    <br />
+                    <div class="form row">
+                        <div class="col-md-6">
+                            <label class=" col-form-label">Email</label>
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6">
+                            <label class=" col-form-label">Phone</label>
+                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+
                         </div>
                     </div>
                     <br />
 
+
+
                     <div class=" form row">
-                        <label class="col-sm-2 col-form-label">Assign Doctor</label>
-                        <div class="col-sm-10">
+                        <div class="col-md-6">
+                            <label class=" col-form-label">Status</label>
+                            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6">
+                            <label class="col-form-label">Assign Doctor</label>
                             @Html.EditorFor(model => model.DoctorID, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.DoctorID, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <br />
-
-                    <div class=" d-flex justify-content-center">
-                        <button type="submit" value="submit" class="btn btn-success col-sm-4">Add</button>
-                    </div>
                 </div>
+                <br/>
+                <div class=" d-flex justify-content-center">
+                    <button type="submit" value="submit" class="btn btn-patient col-sm-4">Add</button>
+                </div>
+                <br />
             </div>
-        </form>
-    </div>
+            <br />
+             </div>
 
-    <div>
-        <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark">Back To List</button>
-    </div>
+            <div>
+                <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark">Back To List</button>
+            </div>
+
+    </form>
+    
 </body>
 </html>

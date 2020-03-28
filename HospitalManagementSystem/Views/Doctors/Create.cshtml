@@ -16,21 +16,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-    <div class=" d-flex justify-content-center align-items-center vh-100 ">
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="card" style="width: 65rem;">
-                <div class=" card-header text-center background-color:red700">
-                    Doctor
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class=" d-flex justify-content-center align-items-center vh-100 ">
+            <div class="card" style="width: 65rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.25);">
+                <div class=" card-header text-center " style="background-color:#171c4f">
+                    <h4 style="color:white">Add Doctor</h4>
                 </div>
-                <div class="card-body">
-                    <h4 class="text-center"> Add Doctor</h4>
-                    <hr />
+                <div class="card-body" style="background-color:#fefefd;">
                     <div class="pl-5">
+                        <br/>
+                        <br/>
                         <div class="form row">
                             <label class="col-sm-4 col-form-label">First Name</label>
                             <div class="col-sm-8">
@@ -77,16 +76,18 @@
                         <br />
 
                         <div class=" d-flex justify-content-center">
-                            <button type="submit" value="submit" class="btn btn-success col-sm-4">Add</button>
+                            <button type="submit" value="submit" class="btn btn-primary col-sm-4">Add</button>
                         </div>
+                        <br/>
                     </div>
                 </div>
             </div>
-        }
-    </div>
+
+        </div>
+    }
     <div>
         <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark">Back To List</button>
     </div>
-    
+
 </body>
 </html>

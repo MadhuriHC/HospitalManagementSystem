@@ -4,16 +4,30 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+    <head>
+        <style>
+            .btn-patient,
+            .btn-patient:visited,
+            .btn-patient:hover,
+            .btn-patient:focus {
+                background-color: #e9e4e2 !important;
+                border-color: #e9e4e2 !important;
+            }
 
-<h2>Edit</h2>
-
-
+                .btn-patient:active {
+                    background-color: darkgrey !important;
+                    border-color: darkgrey !important;
+                    color: grey !important;
+                }
+        </style>
+    </head>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Patient</h4>
+    <div class="form-horizontal min-vh-100">
+        <br/>
+        <h4>Edit Patient Info</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.PatientID)
@@ -84,7 +98,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
+                <input type="submit" value="Save" class="btn btn-patient" />
             </div>
         </div>
     </div>
