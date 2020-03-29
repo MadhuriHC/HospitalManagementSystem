@@ -36,5 +36,6 @@ namespace HospitalManagementSystem.Models
         public virtual Doctor Doctor { get; set; }
 
         public virtual ICollection<Treatment> Treatments { get; set; }
+        public virtual ICollection<Payment> Payments { get; set; }
     }
 }

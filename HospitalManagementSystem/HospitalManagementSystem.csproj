@@ -164,12 +164,17 @@
     <Compile Include="Migrations\202003290429088_UpdatedTreatmentTable.Designer.cs">
       <DependentUpon>202003290429088_UpdatedTreatmentTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003290455403_CreatePaymentTable.cs" />
+    <Compile Include="Migrations\202003290455403_CreatePaymentTable.Designer.cs">
+      <DependentUpon>202003290455403_CreatePaymentTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\GuestResponse.cs" />
     <Compile Include="Models\HMSDbContext.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\PatientReport.cs" />
+    <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\SuperAdmin.cs" />
     <Compile Include="Models\Treatment.cs" />
@@ -276,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003290429088_UpdatedTreatmentTable.resx">
       <DependentUpon>202003290429088_UpdatedTreatmentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003290455403_CreatePaymentTable.resx">
+      <DependentUpon>202003290455403_CreatePaymentTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
