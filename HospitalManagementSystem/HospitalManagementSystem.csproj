@@ -160,6 +160,10 @@
     <Compile Include="Migrations\202003262255126_UpdateTreatmentTable.Designer.cs">
       <DependentUpon>202003262255126_UpdateTreatmentTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003290429088_UpdatedTreatmentTable.cs" />
+    <Compile Include="Migrations\202003290429088_UpdatedTreatmentTable.Designer.cs">
+      <DependentUpon>202003290429088_UpdatedTreatmentTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\GuestResponse.cs" />
@@ -269,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003262255126_UpdateTreatmentTable.resx">
       <DependentUpon>202003262255126_UpdateTreatmentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003290429088_UpdatedTreatmentTable.resx">
+      <DependentUpon>202003290429088_UpdatedTreatmentTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

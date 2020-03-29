@@ -24,6 +24,7 @@ namespace HospitalManagementSystem.Models
         public string Doses { get; set; }
         [Required]
         public string BeforeMeal { get; set; }
+        public string Advice { get; set; }
 
         public virtual Patient Patient { get; set; }
     }

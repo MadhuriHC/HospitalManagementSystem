@@ -72,7 +72,8 @@
                             <br />Diagnosis: @item.treatment.Diagnosis
                             <br />Medicine: @item.treatment.Medicine
                             <br />Doses: @item.treatment.Doses
-                            <br />BeforeMeal: @item.treatment.BeforeMeal
+                            <br />Before Meal: @item.treatment.BeforeMeal
+                            <br />Advice: @item.treatment.Advice
                         </td>
                         <td><a href="@Url.Action("Edit","Treatments",new { id=item.treatment.TreatemntID,doses=item.treatment.Doses,bm=item.treatment.BeforeMeal })"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
                     </tr>
