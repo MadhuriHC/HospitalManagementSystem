@@ -13,17 +13,23 @@ namespace HospitalManagementSystem.Models
         [Key]
         public int PatientID { get; set; }
         [Required]
+        [DataType(DataType.Text)]
         public string FirstName { get; set; }
         [Required]
+        [DataType(DataType.Text)]
         public string LastName { get; set; }
         [Required]
-        public char Gender { get; set; }
+        [DataType(DataType.Text)]
+        public string Gender { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "{0:dd-mm-yyyy}")]
+        [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }
         [Required]
+        [Phone]
         public long Phone { get; set; }
         [Required]
         public string BloodGroup { get; set; }

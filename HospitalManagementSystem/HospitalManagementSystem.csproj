@@ -143,6 +143,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PatientReportController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\TreatmentsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -167,6 +168,14 @@
     <Compile Include="Migrations\202003290455403_CreatePaymentTable.cs" />
     <Compile Include="Migrations\202003290455403_CreatePaymentTable.Designer.cs">
       <DependentUpon>202003290455403_CreatePaymentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003290504543_UpdatedPaymentTable.cs" />
+    <Compile Include="Migrations\202003290504543_UpdatedPaymentTable.Designer.cs">
+      <DependentUpon>202003290504543_UpdatedPaymentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003290546362_UpdatedPatientTable.cs" />
+    <Compile Include="Migrations\202003290546362_UpdatedPatientTable.Designer.cs">
+      <DependentUpon>202003290546362_UpdatedPatientTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -254,6 +263,11 @@
     <Content Include="Views\Treatments\Edit.cshtml" />
     <Content Include="Views\Treatments\Index.cshtml" />
     <Content Include="Views\PatientReport\PatientList.cshtml" />
+    <Content Include="Views\Payments\Create.cshtml" />
+    <Content Include="Views\Payments\Delete.cshtml" />
+    <Content Include="Views\Payments\Details.cshtml" />
+    <Content Include="Views\Payments\Edit.cshtml" />
+    <Content Include="Views\Payments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -284,6 +298,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003290455403_CreatePaymentTable.resx">
       <DependentUpon>202003290455403_CreatePaymentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003290504543_UpdatedPaymentTable.resx">
+      <DependentUpon>202003290504543_UpdatedPaymentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003290546362_UpdatedPatientTable.resx">
+      <DependentUpon>202003290546362_UpdatedPatientTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

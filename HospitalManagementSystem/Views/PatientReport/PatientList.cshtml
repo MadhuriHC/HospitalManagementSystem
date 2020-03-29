@@ -23,6 +23,8 @@
                     <th>DOB</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>New Payment</th>
+                    <th>View/Edit Payment</th>
                     <th>New</th>
                     <th>View/Edit</th>
                 </tr>
@@ -30,22 +32,30 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@item.patient.PatientID</td>
-                        <td><img src="@Url.Content(@item.patient.Photo)" style="height:80px;width:80px;" /></td>
-                        <td>@item.patient.FirstName @item.patient.LastName</td>
-                        <td>@item.patient.DOB</td>
-                        <td>@item.patient.Email</td>
-                        <td>@item.patient.Phone</td>
-                        <td>
-                            <a href="@Url.Action("Create","Treatments",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-                            @*@Html.ActionLink("New", "Create", "Treatments", new { id = item.patient.PatientID }, new { })*@
-                        </td>
-                        <td>
-                            <a href="@Url.Action("ExistingPatientReport","PatientReport",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
-                            @*@Html.ActionLink("View", "ExistingPatientReport", new { id = item.patient.PatientID })*@
-                        </td>
-                    </tr>
+                <tr>
+                    <td>@item.patient.PatientID</td>
+                    <td><img src="@Url.Content(@item.patient.Photo)" style="height:80px;width:80px;" /></td>
+                    <td>@item.patient.FirstName @item.patient.LastName</td>
+                    <td>@item.patient.DOB</td>
+                    <td>@item.patient.Email</td>
+                    <td>@item.patient.Phone</td>
+                    <td>
+                        <a href="@Url.Action("Create","Payments",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span></a>
+                        @*@Html.ActionLink("New", "Create", "Treatments", new { id = item.patient.PatientID }, new { })*@
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Index","Payments",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+                        @*@Html.ActionLink("New", "Create", "Treatments", new { id = item.patient.PatientID }, new { })*@
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Create","Treatments",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                        @*@Html.ActionLink("New", "Create", "Treatments", new { id = item.patient.PatientID }, new { })*@
+                    </td>
+                    <td>
+                        <a href="@Url.Action("ExistingPatientReport","PatientReport",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+                        @*@Html.ActionLink("View", "ExistingPatientReport", new { id = item.patient.PatientID })*@
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>

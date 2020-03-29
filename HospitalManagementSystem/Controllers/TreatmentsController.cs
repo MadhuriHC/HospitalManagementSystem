@@ -55,7 +55,7 @@ namespace HospitalManagementSystem.Controllers
             //if (ModelState.IsValid)
             //{
 				treatment.Doses = fc["Doses"];
-            treatment.BeforeMeal = fc["RbBeforeMeal"];
+                treatment.BeforeMeal = fc["RbBeforeMeal"];
                 db.Treatments.Add(treatment);
                 db.SaveChanges();
                 return RedirectToAction("PatientList","PatientReport");

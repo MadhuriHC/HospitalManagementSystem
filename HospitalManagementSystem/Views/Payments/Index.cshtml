@@ -1,0 +1,64 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.Payment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PayableAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentMethod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>Edit</th>
+        <th>Details</th>
+        <th>Delete</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PayableAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentMethod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit","Payments",new { id = item.PaymentID, pm = item.PaymentMethod, s = item.Status})"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+        </td>
+        <td>
+            <a href="@Url.Action("Details","Payments",new { id = item.PaymentID})"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+        </td>
+        <td>
+            <a href="@Url.Action("Delete","Payments",new { id = item.PaymentID})"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+        </td>
+    </tr>
+}
+
+</table>
