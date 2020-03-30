@@ -1,0 +1,127 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.PatientReport>
+@{
+    ViewBag.Title = "PrintableReportSummary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="@Url.Action("~/scripts/jquery-3.3.1.min.js")"></script>
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet">
+</head>
+<body>
+    @if (ViewBag.n == 1)
+    {
+        <p>
+            @foreach (var i in Model)
+            {
+                <label>Patient Name:</label> @i.patient.FirstName<label>&nbsp;</label>@i.patient.LastName<br />
+                <label>Blood Group:</label>@i.patient.BloodGroup<br />
+                <label>Date of Birth:</label> @i.patient.DOB<br />
+                <label>Email ID:</label> @i.patient.Email<br />
+                <label>Contact No.:</label> @i.patient.Phone<br />
+                <label>Doctor Name:</label> @i.doctor.FirstName<label>&nbsp;</label>@i.doctor.LastName
+                break;
+            }
+        </p>
+        <br />
+        <label>Treatment</label>
+
+        <table cellspacing="5" cellpadding="5" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Checkup Date</th>
+                    <th>Symptoms</th>
+                    <th>Diagnosis</th>
+                    <th>Medicine</th>
+                    <th>Doses</th>
+                    <th>Before Meal</th>
+                    <th>Advice</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td> @item.treatment.CheckupDate</td>
+                        <td> @item.treatment.Symptoms </td>
+                        <td> @item.treatment.Diagnosis</td>
+                        <td>@item.treatment.Medicine</td>
+                        <td> @item.treatment.Doses</td>
+                        <td>
+                            @item.treatment.BeforeMeal
+                        </td>
+                        <td>
+                            @item.treatment.Advice
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    }
+    else if (ViewBag.n == 2)
+    {
+        <p>
+            @foreach (var i in Model)
+            {
+                <label>Patient Name:</label> @i.patient.FirstName<label>&nbsp;</label>@i.patient.LastName<br />
+                <label>Blood Group:</label>@i.patient.BloodGroup<br />
+                <label>Date of Birth:</label> @i.patient.DOB<br />
+                <label>Email ID:</label> @i.patient.Email<br />
+                <label>Contact No.:</label> @i.patient.Phone<br />
+                <label>Doctor Name:</label> @i.doctor.FirstName<label>&nbsp;</label>@i.doctor.LastName
+                break;
+            }
+        </p>
+        <br />
+        <label>Treatment</label>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Checkup Date</th>
+                    <th>Symptoms</th>
+                    <th>Diagnosis</th>
+                    <th>Medicine</th>
+                    <th>Doses</th>
+                    <th>Before Meal</th>
+                    <th>Advice</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td> @item.treatment.CheckupDate</td>
+                        <td> @item.treatment.Symptoms </td>
+                        <td> @item.treatment.Diagnosis</td>
+                        <td>@item.treatment.Medicine</td>
+                        <td> @item.treatment.Doses</td>
+                        <td>
+                            @item.treatment.BeforeMeal
+                        </td>
+                        <td>
+                            @item.treatment.Advice
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    }
+
+
+</body>
+</html>
+
+

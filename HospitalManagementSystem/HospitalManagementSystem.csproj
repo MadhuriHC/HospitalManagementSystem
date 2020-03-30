@@ -137,7 +137,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PatientReportController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
@@ -172,6 +171,10 @@
     <Compile Include="Migrations\202003290546362_UpdatedPatientTable.cs" />
     <Compile Include="Migrations\202003290546362_UpdatedPatientTable.Designer.cs">
       <DependentUpon>202003290546362_UpdatedPatientTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003300803009_UpdatedTreatmentTable2.cs" />
+    <Compile Include="Migrations\202003300803009_UpdatedTreatmentTable2.Designer.cs">
+      <DependentUpon>202003300803009_UpdatedTreatmentTable2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -390,13 +393,11 @@
     <Content Include="Views\Home\DashSuper.cshtml" />
     <Content Include="Views\Doctors\Dashdoc.cshtml" />
     <Content Include="Views\Staffs\Dashrecep.cshtml" />
-    <Content Include="Views\PatientReport\ExistingPatientReport.cshtml" />
     <Content Include="Views\Treatments\Create.cshtml" />
     <Content Include="Views\Treatments\Delete.cshtml" />
     <Content Include="Views\Treatments\Details.cshtml" />
     <Content Include="Views\Treatments\Edit.cshtml" />
     <Content Include="Views\Treatments\Index.cshtml" />
-    <Content Include="Views\PatientReport\PatientList.cshtml" />
     <Content Include="Views\Payments\Create.cshtml" />
     <Content Include="Views\Payments\Delete.cshtml" />
     <Content Include="Views\Payments\Details.cshtml" />
@@ -412,6 +413,10 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Patients\ExistingPatientReport.cshtml" />
+    <Content Include="Views\Patients\PatientList.cshtml" />
+    <Content Include="Views\Patients\PatientReportSummary.cshtml" />
+    <Content Include="Views\Patients\PrintableReportSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />
@@ -444,6 +449,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003290546362_UpdatedPatientTable.resx">
       <DependentUpon>202003290546362_UpdatedPatientTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003300803009_UpdatedTreatmentTable2.resx">
+      <DependentUpon>202003300803009_UpdatedTreatmentTable2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -9,7 +9,7 @@ namespace HospitalManagementSystem.Models
     public class Treatment
     {
         [Key]
-        public int TreatemntID { get; set; }
+        public int TreatmentID { get; set; }
 
         public Nullable<int> PatientID { get; set; }
         [Required]

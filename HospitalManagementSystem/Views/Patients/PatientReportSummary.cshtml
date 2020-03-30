@@ -23,20 +23,21 @@
         <table class="table table-striped table-bordered">
             <thead class="bg-dark text-white">
                 <tr>
-                <th>Patient ID</th>
-                <th>Photo</th>
-                <th>Name</th>
-                <th>DOB</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Blood Group</th>
-                <th>Doctor's Name</th>
+                    <th>Patient ID</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>DOB</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Blood Group</th>
+                    <th>Doctor's Name</th>
+                    <th>Print</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var i in Model)
                 {
-                    <tr>
+                <tr>
                     <td>@i.patient.PatientID</td>
                     <td><img src=@Url.Content(i.patient.Photo) style="height:80px;width:80px;" /></td>
                     <td>@i.patient.FirstName @i.patient.LastName</td>
@@ -45,38 +46,44 @@
                     <td>@i.patient.Phone</td>
                     <td>@i.patient.BloodGroup</td>
                     <td>@i.doctor.FirstName @i.doctor.LastName</td>
-                    </tr>
-                    break;
-                }
+                    <td>
+                        <a href='@Url.Action("PrintableReportSummary", "Patients",new { id1=@i.patient.PatientID,n=1})' class="btn btn-primary col-2 glyphicon-print">Print</a>
+                    </td>
+                </tr>
+                        break;
+                        }
 
-            </tbody>
+                </tbody>
         </table>
-    </div>
+    </div>       
 
     <div class="container-fluid py-4">
-        <h4 class="text-center text-uppercase">Treatment Detailis</h4>
+        <h4 class="text-center text-uppercase">Treatment Details</h4>
         <table class="table table-striped table-bordered">
             <thead class="bg-dark text-white">
                 <tr>
+                    
                     <th>Treatment</th>
-                    <th>Edit</th>
+                    <th>Print</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            Checkup Date: @item.treatment.CheckupDate
-                            <br />Symptoms: @item.treatment.Symptoms
-                            <br />Diagnosis: @item.treatment.Diagnosis
-                            <br />Medicine: @item.treatment.Medicine
-                            <br />Doses: @item.treatment.Doses
-                            <br />Before Meal: @item.treatment.BeforeMeal
-                            <br />Advice: @item.treatment.Advice
-                        </td>
-                        <td><a href="@Url.Action("Edit","Treatments",new { id=item.treatment.TreatemntID,doses=item.treatment.Doses,bm=item.treatment.BeforeMeal })"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
-                    </tr>
+                <tr>
+                   
+                    <td>
+                        Checkup Date: @item.treatment.CheckupDate
+                        <br />Symptoms: @item.treatment.Symptoms
+                        <br />Diagnosis: @item.treatment.Diagnosis
+                        <br />Medicine: @item.treatment.Medicine
+                        <br />Doses: @item.treatment.Doses
+                        <br />Before Meal: @item.treatment.BeforeMeal
+                        <br />Advice: @item.treatment.Advice
+                    </td>
+                    <td><a href="@Url.Action("PrintableReportSummary","Patients",new { id1=item.treatment.PatientID,id2=item.treatment.TreatmentID,n=2 })"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></a></td>
+                </tr>
+                    
                 }
             </tbody>
         </table>

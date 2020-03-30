@@ -82,7 +82,7 @@
         @Html.AntiForgeryToken()
 
 <div class="form-actions no-color">
-    <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark">Back To List</button>
+    <button onclick="location.href='@Url.Action("ExistingPatientReport","Patients",new { id=Model.Patient.PatientID})';return false;" class="btn btn-dark">Back To List</button>
     <input type="submit" value="Delete" class="btn btn-default" />
 </div>
     }

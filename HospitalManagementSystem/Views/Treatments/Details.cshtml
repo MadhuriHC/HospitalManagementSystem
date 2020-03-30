@@ -79,5 +79,5 @@
 </div>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.TreatemntID })*@
-    <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark">Back To List</button>
+    <button onclick="location.href='@Url.Action("ExistingPatientReport","Patients",new { id=Model.Patient.PatientID})';return false;" class="btn btn-dark">Back To List</button>
 </p>
