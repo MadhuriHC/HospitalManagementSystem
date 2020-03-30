@@ -1,64 +1,88 @@
-﻿@model IEnumerable<HospitalManagementSystem.Models.Payment>
+﻿@model IEnumerable<HospitalManagementSystem.Models.PaymentReport>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="@Url.Action("~/scripts/jquery-3.3.1.min.js")"></script>
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet">
+</head>
+<body>
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Patient.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PayableAmount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PaymentDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PaymentMethod)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>Edit</th>
-        <th>Details</th>
-        <th>Delete</th>
-    </tr>
+    <div class="container-fluid py-4">
+        <h4 class="text-center text-uppercase">Patient Details</h4>
+        <table class="table table-striped table-bordered">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th>Patient ID</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>DOB</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@i.patient.PatientID</td>
+                        <td><img src=@Url.Content(i.patient.Photo) style="height:80px;width:80px;" /></td>
+                        <td>@i.patient.FirstName @i.patient.LastName</td>
+                        <td>@i.patient.DOB</td>
+                        <td>@i.patient.Email</td>
+                        <td>@i.patient.Phone</td>
+                    </tr>
+                    break;
+                }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Patient.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PayableAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PaymentDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PaymentMethod)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            <a href="@Url.Action("Edit","Payments",new { id = item.PaymentID, pm = item.PaymentMethod, s = item.Status})"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-        </td>
-        <td>
-            <a href="@Url.Action("Details","Payments",new { id = item.PaymentID})"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
-        </td>
-        <td>
-            <a href="@Url.Action("Delete","Payments",new { id = item.PaymentID})"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-        </td>
-    </tr>
-}
+            </tbody>
+        </table>
+    </div>
 
-</table>
+    <div class="container-fluid py-4">
+        <h4 class="text-center text-uppercase">Payment Details</h4>
+        <table class="table table-striped table-bordered">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th>Payment</th>
+                    <th>Edit</th>
+                    <th>Details</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        Payable Amount: @item.payment.PayableAmount
+                        <br />Payment Date: @item.payment.PaymentDate.ToString("dd-mm-yyyy")
+                        <br />Payment Method: @item.payment.PaymentMethod
+                        <br />Payment Status : @item.payment.Status
+                    </td>
+                    <td><a href="@Url.Action("Edit","Payments",new { id=item.payment.PaymentID,pm=item.payment.PaymentMethod,s=item.payment.Status,d=item.payment.PaymentDate })"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+                    <td><a href="@Url.Action("Details","Payments",new { id=item.payment.PaymentID })"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a></td>
+                    <td><a href="@Url.Action("Delete","Payments",new { id=item.payment.PaymentID })"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <button onclick="location.href='@Url.Action("PatientList","PatientReport")';return false;" class="btn btn-dark">Back To List</button>
+    </div>
+</body>
+</html>
+

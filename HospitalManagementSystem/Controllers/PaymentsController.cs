@@ -15,10 +15,27 @@ namespace HospitalManagementSystem.Controllers
         private HMSDbContext db = new HMSDbContext();
 
         // GET: Payments
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            var payments = db.Payments.Include(p => p.Patient);
-            return View(payments.ToList());
+            using (db)
+            {
+                List<Patient> patient = db.Patients.ToList();
+                List<Payment> payment = db.Payments.ToList();
+
+                var PaymentReport = from p1 in patient
+                                    join p2 in payment on p1.PatientID equals p2.PatientID into table1
+                                    from p2 in table1.ToList()
+                                    where p2.PatientID == id
+                                    select new PaymentReport
+                                    {
+                                        patient = p1,
+                                        payment = p2
+                                    };
+                return View(PaymentReport);
+            }
+
+            //var payments = db.Payments.Include(p => p.Patient);
+            //return View(payments.ToList());
         }
 
         // GET: Payments/Details/5
@@ -57,7 +74,7 @@ namespace HospitalManagementSystem.Controllers
             payment.Status = fc["RbStatus"];
             db.Payments.Add(payment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("PatientList", "PatientReport");
             //}
 
             //ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", payment.PatientID);
@@ -65,7 +82,7 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // GET: Payments/Edit/5
-        public ActionResult Edit(int? id, string pm, string s)
+        public ActionResult Edit(int? id, string pm, string s,DateTime d)
         {
             if (id == null)
             {
@@ -77,18 +94,21 @@ namespace HospitalManagementSystem.Controllers
                 return HttpNotFound();
             }
             if (pm.Equals("Cash"))
-                ViewBag.n = 1;
+                ViewBag.p = 1;
             else if (pm.Equals("CreditCard"))
-                ViewBag.n = 2;
+                ViewBag.p = 2;
             else if (pm.Equals("DebitCard"))
-                ViewBag.n = 3;
+                ViewBag.p = 3;
             else if (pm.Equals("UPI"))
-                ViewBag.n = 4;
+                ViewBag.p = 4;
 
             if (s.Equals("Paid"))
                 ViewBag.n = 1;
             else
                 ViewBag.n = 0;
+
+            ViewBag.date = d.ToShortDateString();
+            ViewBag.date2 = d;
             ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", payment.PatientID);
             return View(payment);
         }
