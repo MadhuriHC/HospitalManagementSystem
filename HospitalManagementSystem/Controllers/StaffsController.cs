@@ -132,5 +132,10 @@ namespace HospitalManagementSystem.Controllers
         {
             return View("Dashrecep");
         }
+        public ActionResult Dashacc()
+        {
+            return View("Dashacc");
+        }
+
     }
 }

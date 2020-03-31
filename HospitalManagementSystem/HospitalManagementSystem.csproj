@@ -420,6 +420,10 @@
     <None Include="Views\Patients\PatientList.cshtml" />
     <Content Include="Views\Patients\PatientReportSummary.cshtml" />
     <Content Include="Views\Patients\PrintableReportSummary.cshtml" />
+    <Content Include="Views\Shared\_LayoutDoc.cshtml" />
+    <Content Include="Views\Shared\_LayoutRecep.cshtml" />
+    <Content Include="Views\Staffs\Dashacc.cshtml" />
+    <Content Include="Views\Shared\_LayoutAcc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />

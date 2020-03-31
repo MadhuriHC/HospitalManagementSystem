@@ -2,31 +2,31 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutRecep.cshtml";
 }
-    <head>
-        <style>
-            .btn-patient,
-            .btn-patient:visited,
-            .btn-patient:hover,
-            .btn-patient:focus {
-                background-color: #e9e4e2 !important;
-                border-color: #e9e4e2 !important;
-            }
+<head>
+    <style>
+        .btn-patient,
+        .btn-patient:visited,
+        .btn-patient:hover,
+        .btn-patient:focus {
+            background-color: #e9e4e2 !important;
+            border-color: #e9e4e2 !important;
+        }
 
-                .btn-patient:active {
-                    background-color: darkgrey !important;
-                    border-color: darkgrey !important;
-                    color: grey !important;
-                }
-        </style>
-    </head>
+            .btn-patient:active {
+                background-color: darkgrey !important;
+                border-color: darkgrey !important;
+                color: grey !important;
+            }
+    </style>
+</head>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal min-vh-100">
-        <br/>
+        <br />
         <h4>Edit Patient Info</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -98,12 +98,13 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-patient" />
+                <input type="submit" value="Save"  style="font-size:14px;" class="btn btn-patient" />
             </div>
         </div>
-    </div>
-}
 
-<div>
-    <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark">Back To List</button>
-</div>
+        <div>
+            <button onclick="location.href='@Url.Action("Index")';return false;" style="font-size:14px;" class="btn btn-dark">Back To List</button>
+        </div>
+    </div>
+
+}

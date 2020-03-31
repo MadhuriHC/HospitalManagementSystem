@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutRecep.cshtml";
 }
 
 <!DOCTYPE html>
@@ -90,8 +90,10 @@
 
                     <br />
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label" })
+                    <div class="form row">
+                        <div class="col-md-6">
+                            <label class="col-form-label">Gender</label>
+                        </div>
                         <div class="col-md-6">
                             @Html.RadioButton("RbGender", "Male", isChecked: true) @Html.Label("Male")
                             @Html.RadioButton("RbGender", "Female", isChecked: false) @Html.Label("Female")

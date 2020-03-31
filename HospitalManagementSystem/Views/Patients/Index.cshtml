@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutRecep.cshtml";
 }
     <head>
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -13,7 +13,7 @@
         <style>
 
             td{              
-                color:#fafafa;
+                color:black;
             }
 
             .btn-patient,
@@ -109,13 +109,13 @@
                         @Html.DisplayFor(modelItem => item.DoctorID)
                     </td>
                     <td>
-                        <a href="@Url.Action("Edit","Patients",new { id=item.PatientID })"><span class="fa fa-edit" style="color:#fafafa" aria-hidden="true"></span></a>
+                        <a href="@Url.Action("Edit","Patients",new { id=item.PatientID })"><span class="fa fa-edit" style="color:black" aria-hidden="true"></span></a>
                     </td>
                     <td>
-                        <a href="@Url.Action("Details","Patients",new { id=item.PatientID })"><span class="fa fa-list" style="color:#fafafa" aria-hidden="true"></span></a>
+                        <a href="@Url.Action("Details","Patients",new { id=item.PatientID })"><span class="fa fa-list" style="color:black" aria-hidden="true"></span></a>
                     </td>
                     <td>
-                        <a href="@Url.Action("Delete","Patients",new { id=item.PatientID })"><span class="fa fa-trash" style="color:#fafafa" aria-hidden="true"></span></a>
+                        <a href="@Url.Action("Delete","Patients",new { id=item.PatientID })"><span class="fa fa-trash" style="color:black" aria-hidden="true"></span></a>
                     </td>
                 </tr>
             }

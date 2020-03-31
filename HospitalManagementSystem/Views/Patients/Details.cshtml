@@ -2,9 +2,16 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutRecep.cshtml";
 }
+<head>
+    <style>
+         dt,dd {
+            font-size:14px;
+        }
 
+    </style>
+</head>
 <div class="min-vh-100">
     <br/>
     <h4>Patient Details</h4>
@@ -15,7 +22,7 @@
         </dt>
 
         <dd>
-            <img src="@Url.Content(Model.Photo)" style="height:80px;width:80px;" />
+            <img src="@Url.Content(Model.Photo)" style="height: 80px; width: 80px;" />
         </dd>
 
         <dt>
@@ -75,8 +82,9 @@
         </dd>
 
     </dl>
+
+<div class="form-actions no-color">
+    <button onclick="location.href='@Url.Action("Index")';return false;"  style="font-size:14px;"class="btn btn-dark">Back To List</button>
+  
 </div>
-<p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.PatientID })*@
-    <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark">Back To List</button>
-</p>
+</div>

@@ -1,10 +1,10 @@
 ﻿
 @{
-    ViewBag.Title = "Dashdoc";
-    Layout = "~/Views/Shared/_LayoutDoc.cshtml";
+    ViewBag.Title = "Dashacc";
+    Layout = "~/Views/Shared/_LayoutAcc.cshtml";
 }
 
-<h2>Dashdoc</h2>
+<h2>Dashacc</h2>
 
 <html>
 <head>
@@ -21,29 +21,26 @@
             <br />
             <br />
             <br />
-
             <div class="form-row" style="padding-left:100px;">
                 <div class="form-group col-md-4">
-                    <div class="card bg-success text-white;" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.25);width: 25rem; height: 17rem; color: white;border:none;border-radius:15px">
+                    <div class="card bg-danger text-white ;" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.25);width: 25rem;height: 17rem; color: white;border:none;border-radius:15px">
                         <div class="card-header text-xl-right " style="font-size:20px;">
-                            <div class=" fa fa-credit-card text-xl-left" style="font-size:20px;margin-right:65px"></div>
-                            Patient Report
+                            <div class=" fa fa-user-md text-xl-left" style="font-size:20px;margin-right:110px"></div>
+                            Payment
                         </div>
                         <div class="card-body;">
+
+
                             <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
                             <ul style="padding-left:20px; padding-top:25px;">
-                                <li><a href='@Url.Action("PatientList","Patients")' class="card-link" style="color: white; font-size:16px;">Generate New Report</a></li>
-                                <li><a href='@Url.Action("PatientList","Patients")' class="card-link" style="color: white; font-size:16px;">View Existing Report</a></li>
-                                <li><a href='@Url.Action("PatientList","Patients")' class="card-link" style="color: white; font-size:16px;">Edit Existing Report</a></li>
-
+                                <li><a href='@Url.Action("PatientList","Patients")' class="card-link" style="color: white; font-size:16px;">Payment</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
             </div>
-           </div>
         </div>
-    
-    </body>
+    </div>
+</body>
 </html>

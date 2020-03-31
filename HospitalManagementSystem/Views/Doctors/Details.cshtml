@@ -4,6 +4,13 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<head>
+    <style>
+        dt,dd {
+            font-size:14px;
+        }
+    </style>
+</head>
     <div class="min-vh-100">
         <h2>Details</h2>
 
@@ -18,7 +25,8 @@
                 <dd>
                     @Html.DisplayFor(model => model.FirstName)
                 </dd>
-
+                <br/>
+                <br/>
                 <dt>
                     @Html.DisplayNameFor(model => model.LastName)
                 </dt>
@@ -26,7 +34,8 @@
                 <dd>
                     @Html.DisplayFor(model => model.LastName)
                 </dd>
-
+                <br/>
+                <br/>
                 <dt>
                     @Html.DisplayNameFor(model => model.Email)
                 </dt>
@@ -34,7 +43,8 @@
                 <dd>
                     @Html.DisplayFor(model => model.Email)
                 </dd>
-
+                <br/>
+                <br/>
                 <dt>
                     @Html.DisplayNameFor(model => model.Phone)
                 </dt>
@@ -42,7 +52,8 @@
                 <dd>
                     @Html.DisplayFor(model => model.Phone)
                 </dd>
-
+                <br/>
+                <br/>
                 <dt>
                     @Html.DisplayNameFor(model => model.Status)
                 </dt>
@@ -50,11 +61,12 @@
                 <dd>
                     @Html.DisplayFor(model => model.Status)
                 </dd>
-
+                <br/>
+                <br/>
             </dl>
         </div>
         <p>
             @*@Html.ActionLink("Edit", "Edit", new { id = Model.DoctorID })*@
-            <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark">Back To List</button>
+            <button onclick="location.href='@Url.Action("Index")';return false;" style="font-size:14px;" class="btn btn-dark">Back To List</button>
         </p>
     </div>

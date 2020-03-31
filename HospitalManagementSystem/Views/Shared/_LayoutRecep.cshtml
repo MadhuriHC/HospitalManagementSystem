@@ -15,11 +15,14 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/popper.js"></script>
     <script src="~/Scripts/main.js"></script>
+<style>
+    a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+</style>
 </head>
-<nav class="navbar navbar-dark navbar-expand-lg fixed-top" style="background-color:#3f256c">
-    <p style="color:antiquewhite">Apollo Hospital Management</p>
-</nav>
-<body style="padding-top:0px; padding-bottom:0px; margin-top:50px; overflow-x:hidden;overflow-y:hidden">
+<body style="padding-top:0px; padding-bottom:0px;overflow-x:hidden;overflow-y:hidden">
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
             <div class="custom-menu">
@@ -32,33 +35,33 @@
                 <h1><a href="" class="logo">Apollo</a></h1>
                 <ul class="list-unstyled components mb-5">
                     <li>
-                        <a href='@Url.Action("DashSuper","Home")'><span class="glyphicon glyphicon-th mr-3"></span>Dashboard</a>
+                        <a href='@Url.Action("Dashrecep","Staffs")'><span class="glyphicon glyphicon-th mr-3"></span>Dashboard</a>
                     </li>
                     <li>
-                        <a href='@Url.Action("Index","Doctors")'><span class="fa fa-user-md mr-3"></span>Doctors</a>
+                        <a href='@Url.Action("Dashdoc","Doctors")' class="disabled"><span class="fa fa-user-md mr-3"></span>Doctors</a>
                     </li>
                     <li>
-                        <a href='@Url.Action("Index","Patients")'><span class="fa fa-bed mr-3"></span>Patients</a>
+                        <a href='@Url.Action("Index","Patients")' class="disabled"><span class="fa fa-bed mr-3"></span>Patients</a>
                     </li>
                     <li>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-user mr-3"></span>Staffs</a>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"><span class="fa fa-user mr-3"></span>Staffs</a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             <li>
-                                <a href='@Url.Action("","")'><span class="fa fa-medkit mr-3"></span>Receptionist</a>
+                                <a href='@Url.Action("Dashrecep","Staffs")'><span class="fa fa-medkit mr-3"></span>Receptionist</a>
                             </li>
                             <li>
-                                <a href='@Url.Action("","")'><span class="fa fa-book mr-3"></span>Accountants</a>
+                                <a href='@Url.Action("","")' class="disabled"><span class="fa fa-book mr-3"></span>Accountants</a>
                             </li>
                             <li>
-                                <a href='@Url.Action("","")'><span class="fa fa-flask mr-3"></span>Laboraties</a>
+                                <a href='@Url.Action("","")' class="disabled"><span class="fa fa-flask mr-3"></span>Laboraties</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href='@Url.Action("PatientList","Patients")'><span class="fa fa-credit-card mr-3"></span>Payment</a>
+                        <a href='@Url.Action("PatientList","Patients")' class="disabled"><span class="fa fa-credit-card mr-3"></span>Payment</a>
                     </li>
                     <li>
-                        <a href='@Url.Action("","")'><span class="glyphicon glyphicon-user mr-3"></span>Edit Profile</a>
+                        <a href='@Url.Action("","")' class="disabled"><span class="glyphicon glyphicon-user mr-3"></span>Edit Profile</a>
                     </li>
                 </ul>
 
@@ -66,7 +69,7 @@
                     <p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved <br />Apollo Hospital Managemnet</a>
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved <br />Apoolo Hospital Managemnet</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
@@ -75,13 +78,13 @@
         </nav>
         <div class="container body-content min-vh-100" style="background-color:white">
             @RenderBody()
-            <hr style="color:black"/>
+            <hr style="color:black" />
             <footer>
                 <p>&copy;@DateTime.Now.Year - Apollo Hospital Management</p>
             </footer>
         </div>
     </div>
-    
+
     <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/popper.js"></script>
