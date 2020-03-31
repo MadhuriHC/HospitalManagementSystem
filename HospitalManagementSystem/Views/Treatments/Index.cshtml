@@ -33,8 +33,9 @@
         <th>
             @Html.DisplayNameFor(model => model.BeforeMeal)
         </th>
-        <th>Details</th>
-        <th>Delete</th>
+        <th>
+            @Html.DisplayNameFor(model => model.Advice)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -60,8 +61,9 @@
     <td>
         @Html.DisplayFor(modelItem => item.BeforeMeal)
     </td>
-    <td><a href="@Url.Action("Details","Treatments",new { id=item.TreatemntID })"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></td>
-    <td><a href="@Url.Action("Delete","Treatments",new { id=item.TreatemntID })"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Advice)
+    </td>
 </tr>
 }
 

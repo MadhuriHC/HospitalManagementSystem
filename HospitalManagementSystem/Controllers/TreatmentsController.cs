@@ -50,15 +50,15 @@ namespace HospitalManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TreatemntID,PatientID,CheckupDate,Symptoms,Diagnosis,Medicine,Doses,BeforeMeal")] Treatment treatment,FormCollection fc)
+        public ActionResult Create([Bind(Include = "TreatmentID,PatientID,CheckupDate,Symptoms,Diagnosis,Medicine,Doses,BeforeMeal,Advice")] Treatment treatment,FormCollection fc)
         {
             //if (ModelState.IsValid)
             //{
 				treatment.Doses = fc["Doses"];
-            treatment.BeforeMeal = fc["RbBeforeMeal"];
+                treatment.BeforeMeal = fc["RbBeforeMeal"];
                 db.Treatments.Add(treatment);
                 db.SaveChanges();
-                return RedirectToAction("PatientList","PatientReport");
+                return RedirectToAction("ExistingPatientReport", "Patients", new { id = treatment.PatientID });
             //}
 
            // ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
@@ -105,7 +105,7 @@ namespace HospitalManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TreatemntID,PatientID,CheckupDate,Symptoms,Diagnosis,Medicine,Doses,BeforeMeal")] Treatment treatment,FormCollection fc)
+        public ActionResult Edit([Bind(Include = "TreatmentID,PatientID,CheckupDate,Symptoms,Diagnosis,Medicine,Doses,BeforeMeal,Advice")] Treatment treatment,FormCollection fc)
         {
             //if (ModelState.IsValid)
             //{
@@ -113,7 +113,7 @@ namespace HospitalManagementSystem.Controllers
             treatment.BeforeMeal = fc["RbBeforeMeal"];
                 db.Entry(treatment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("PatientList", "PatientReport");
+                return RedirectToAction("ExistingPatientReport", "Patients", new { id = treatment.PatientID });
             //}
 
             //ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
@@ -141,9 +141,10 @@ namespace HospitalManagementSystem.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Treatment treatment = db.Treatments.Find(id);
+            int? PID = treatment.PatientID;
             db.Treatments.Remove(treatment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ExistingPatientReport", "Patients", new { id = PID });
         }
 
         protected override void Dispose(bool disposing)

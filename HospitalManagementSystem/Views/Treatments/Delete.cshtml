@@ -68,13 +68,21 @@
             @Html.DisplayFor(model => model.BeforeMeal)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Advice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Advice)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
 <div class="form-actions no-color">
-    <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark">Back To List</button>
+    <button onclick="location.href='@Url.Action("ExistingPatientReport","Patients",new { id=Model.Patient.PatientID})';return false;" class="btn btn-dark">Back To List</button>
     <input type="submit" value="Delete" class="btn btn-default" />
 </div>
     }

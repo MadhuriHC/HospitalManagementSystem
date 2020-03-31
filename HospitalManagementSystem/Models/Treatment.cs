@@ -9,7 +9,7 @@ namespace HospitalManagementSystem.Models
     public class Treatment
     {
         [Key]
-        public int TreatemntID { get; set; }
+        public int TreatmentID { get; set; }
 
         public Nullable<int> PatientID { get; set; }
         [Required]
@@ -24,6 +24,7 @@ namespace HospitalManagementSystem.Models
         public string Doses { get; set; }
         [Required]
         public string BeforeMeal { get; set; }
+        public string Advice { get; set; }
 
         public virtual Patient Patient { get; set; }
     }

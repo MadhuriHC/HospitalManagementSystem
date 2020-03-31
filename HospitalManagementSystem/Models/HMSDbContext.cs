@@ -18,5 +18,6 @@ namespace HospitalManagementSystem.Models
         public DbSet<Treatment> Treatments { get; set; }
         public DbSet<SuperAdmin> Admin { get; set; }
         public DbSet<Staff> Staffs { get; set; }
+        public DbSet<Payment> Payments { get; set; }
     }
 }

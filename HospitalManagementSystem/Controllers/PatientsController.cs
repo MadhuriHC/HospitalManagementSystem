@@ -47,7 +47,7 @@ namespace HospitalManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PatientID,FirstName,LastName,DOB,Email,Phone,BloodGroup,Status,Photo")] Patient patient,HttpPostedFileBase postedFile)
+        public ActionResult Create([Bind(Include = "PatientID,FirstName,LastName,DOB,Email,Phone,BloodGroup,Status,Photo,Gender")] Patient patient,HttpPostedFileBase postedFile)
         {
             string filename = System.IO.Path.GetFileName(postedFile.FileName);
             string filepath = "~/Uploads/PatientImages/" + filename;
@@ -92,7 +92,7 @@ namespace HospitalManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PatientID,FirstName,LastName,DOB,Email,Phone,BloodGroup,Status,Photo")] Patient patient)
+        public ActionResult Edit([Bind(Include = "PatientID,FirstName,LastName,DOB,Email,Phone,BloodGroup,Status,Photo,Gender")] Patient patient)
         {
             if (ModelState.IsValid)
             {
@@ -136,6 +136,135 @@ namespace HospitalManagementSystem.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult PatientList()
+        {
+            //int id= (int)RouteData.Values["did"];
+            List<Patient> patient = db.Patients.ToList();
+            var PatientList = from p in patient where p.DoctorID == 1 select new PatientReport { patient = p };
+            return View(PatientList);
+        }
+
+        public ActionResult ExistingPatientReport(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            Treatment tt = db.Treatments.Find(id);
+            if (tt == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                using (db)
+                {
+                    List<Patient> patient = db.Patients.ToList();
+                    List<Doctor> doctor = db.Doctors.ToList();
+                    List<Treatment> treatment = db.Treatments.ToList();
+
+                    var PatientReport = from p in patient
+                                        join d in doctor on p.DoctorID equals d.DoctorID into table1
+                                        from d in table1.ToList()
+                                        join t in treatment on p.PatientID equals t.PatientID into table2
+                                        from t in table2.ToList()
+                                        where t.PatientID == id
+                                        select new PatientReport
+                                        {
+                                            patient = p,
+                                            doctor = d,
+                                            treatment = t
+                                        };
+                    return View(PatientReport);
+                }
+            }
+        }
+
+        public ActionResult PatientReportSummary(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            Treatment tt = db.Treatments.Find(id);
+            if (tt == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                using (db)
+                {
+                    List<Patient> patient = db.Patients.ToList();
+                    List<Doctor> doctor = db.Doctors.ToList();
+                    List<Treatment> treatment = db.Treatments.ToList();
+
+                    var PatientReport = from p in patient
+                                        join d in doctor on p.DoctorID equals d.DoctorID into table1
+                                        from d in table1.ToList()
+                                        join t in treatment on p.PatientID equals t.PatientID into table2
+                                        from t in table2.ToList()
+                                        where t.PatientID == id
+                                        select new PatientReport
+                                        {
+                                            patient = p,
+                                            doctor = d,
+                                            treatment = t
+                                        };
+                    return View(PatientReport);
+                }
+            }
+        }
+
+        public ActionResult PrintableReportSummary(int? id1, int? id2, int? n)
+        {
+            if (n == 1)
+                ViewBag.n = 1;
+            else
+                ViewBag.n = 2;
+            using (db)
+            {
+                List<Patient> patient = db.Patients.ToList();
+                List<Doctor> doctor = db.Doctors.ToList();
+                List<Treatment> treatment = db.Treatments.ToList();
+
+                if (id1 != null && id2 == null)
+                {
+                    var PatientReport = from p in patient
+                                        join d in doctor on p.DoctorID equals d.DoctorID into table1
+                                        from d in table1.ToList()
+                                        join t in treatment on p.PatientID equals t.PatientID into table2
+                                        from t in table2.ToList()
+                                        where t.PatientID == id1
+                                        select new PatientReport
+                                        {
+                                            patient = p,
+                                            doctor = d,
+                                            treatment = t
+                                        };
+                    return View(PatientReport);
+                }
+                else
+                {
+                    var PatientReport = from p in patient
+                                        join d in doctor on p.DoctorID equals d.DoctorID into table1
+                                        from d in table1.ToList()
+                                        join t in treatment on p.PatientID equals t.PatientID into table2
+                                        from t in table2.ToList()
+                                        where t.PatientID == id1 & t.TreatmentID == id2
+                                        select new PatientReport
+                                        {
+                                            patient = p,
+                                            doctor = d,
+                                            treatment = t
+                                        };
+                    return View(PatientReport);
+                }
+
+            }
+
         }
     }
 }

@@ -67,9 +67,17 @@
             @Html.DisplayFor(model => model.BeforeMeal)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Advice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Advice)
+        </dd>
+
     </dl>
 </div>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.TreatemntID })*@
-    <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark">Back To List</button>
+    <button onclick="location.href='@Url.Action("ExistingPatientReport","Patients",new { id=Model.Patient.PatientID})';return false;" class="btn btn-dark">Back To List</button>
 </p>
