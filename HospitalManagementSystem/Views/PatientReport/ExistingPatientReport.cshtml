@@ -15,74 +15,197 @@
     <link href="~/Content/Styles.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet">
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet">
+    <link href="~/Content/scrollbar.css" rel="stylesheet" />
+    <style>
+        .scrollb {
+       
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+        }
+    </style>
+        
 </head>
 <body>
 
-    <div class="container-fluid py-4">
-        <h4 class="text-center text-uppercase">Patient Details</h4>
-        <table class="table table-striped table-bordered">
-            <thead class="bg-dark text-white">
-                <tr>
-                <th>Patient ID</th>
-                <th>Photo</th>
-                <th>Name</th>
-                <th>DOB</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Blood Group</th>
-                <th>Doctor's Name</th>
-                </tr>
-            </thead>
-            <tbody>
+    <div class="container-fluid py-4 min-vh-100">
+        <div class="form row">
+            <div class="card" style="width: 40rem; height:55rem; margin-right:40px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.25);">
+                <div class="card-header bg-dark text-center" style="margin-left:-1px; margin-right:-1px;">
+                    <h4 style="color:#fafafa;">Patient Details</h4>
+                </div>
                 @foreach (var i in Model)
                 {
-                    <tr>
-                    <td>@i.patient.PatientID</td>
-                    <td><img src=@Url.Content(i.patient.Photo) style="height:80px;width:80px;" /></td>
-                    <td>@i.patient.FirstName @i.patient.LastName</td>
-                    <td>@i.patient.DOB</td>
-                    <td>@i.patient.Email</td>
-                    <td>@i.patient.Phone</td>
-                    <td>@i.patient.BloodGroup</td>
-                    <td>@i.doctor.FirstName @i.doctor.LastName</td>
-                    </tr>
+                    <div style="padding:15px;" align="middle">
+                        <img src=@Url.Content(i.patient.Photo) style="height:80px;width:80px;" />
+                    </div>
+
+                    <div class="card-body" style="padding-bottom:0px;">
+                        <p class="text-center" style="color:skyblue; margin-bottom:0px; ;">@i.patient.Phone</p>
+                        <p class="text-center" style="color: grey;">@i.patient.Email</p>
+
+
+                        <ul class="list-group list-group-flush">
+
+                            <li class="list-group-item">
+                                <div class="form row">
+                                    <div class="col-md-5">
+                                        <strong> Patient ID</strong>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <p align="right">@i.patient.PatientID</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="form row">
+                                    <div class="col-md-5">
+                                        <strong> First Name</strong>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <p align="right">@i.patient.FirstName</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="form row">
+                                    <div class="col-md-5">
+                                        <strong>Last Name</strong>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <p align="right">@i.patient.LastName</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="form row">
+                                    <div class="col-md-5">
+                                        <strong>DOB</strong>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <p align="right">@i.patient.DOB</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="form row">
+                                    <div class="col-md-5">
+                                        <strong>Blood Group</strong>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <p align="right">@i.patient.BloodGroup</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="form row">
+                                    <div class="col-md-5">
+                                        <strong>Doctor's Name</strong>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <p align="right">@i.doctor.FirstName @i.doctor.LastName</p>
+                                    </div>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
                     break;
                 }
+            </div>
 
-            </tbody>
-        </table>
-    </div>
+       
+           
+            <div class="card" style="width:65rem; height:55rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.25);">
+                <div class=" card-header bg-dark" style="margin-left:-1px; margin-right:-1px;">
+                    <h4 class="text-center" style="color:#fafafa">Treatment Details</h4>
+                </div>
+                <div class="scrollb scrollbar scrollbar-black bordered-black thin" style="padding: 20px; ">
 
-    <div class="container-fluid py-4">
-        <h4 class="text-center text-uppercase">Treatment Detailis</h4>
-        <table class="table table-striped table-bordered">
-            <thead class="bg-dark text-white">
-                <tr>
-                    <th>Treatment</th>
-                    <th>Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            Checkup Date: @item.treatment.CheckupDate
-                            <br />Symptoms: @item.treatment.Symptoms
-                            <br />Diagnosis: @item.treatment.Diagnosis
-                            <br />Medicine: @item.treatment.Medicine
-                            <br />Doses: @item.treatment.Doses
-                            <br />BeforeMeal: @item.treatment.BeforeMeal
-                        </td>
-                        <td><a href="@Url.Action("Edit","Treatments",new { id=item.treatment.TreatemntID,doses=item.treatment.Doses,bm=item.treatment.BeforeMeal })"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+                    @foreach (var item in Model)
+                    {
+                        <div class="form row">
+                            <div class="col-md-6">
+                                <h4 style="margin-top:15px;"> Checkup</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <p style="margin-top:15px;" align="right"><a href="@Url.Action("Edit", "Treatments", new { id = item.treatment.TreatemntID, doses = item.treatment.Doses, bm = item.treatment.BeforeMeal })"><span class="fa fa-edit" style="color:black;" aria-hidden="true"></span></a></p>
+                            </div>
+                        </div>
+                        <hr style="margin-top:0px;">
+                        <br />
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label class="col-form-label">Symptoms</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p style="color:dimgrey">@item.treatment.Symptoms</p>
+                            </div>
+                        </div>
+                        <br />
 
-    <div>
-        <button onclick="location.href='@Url.Action("PatientList")';return false;" class="btn btn-dark">Back To List</button>
-    </div>
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label class="col-form-label">Diagnosis</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p style="color:dimgray">@item.treatment.Diagnosis</p>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label class="col-form-label">Checkup Date</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p style="color:dimgray">@item.treatment.CheckupDate</p>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label class="col-form-label">Medicine</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p style="color:dimgray">@item.treatment.Medicine</p>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label class="col-form-label">Dosage</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p style="color:dimgray">@item.treatment.Doses</p>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label class="col-form-label">Checkup Date</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p style="color:dimgray">@item.treatment.BeforeMeal</p>
+                            </div>
+                        </div>
+                        <br />
+                        <hr />
+
+
+                    }
+                </div>
+            </div>
+        </div>
+          </div>
+               <div>
+                    <button onclick="location.href='@Url.Action("PatientList")';return false;" class="btn btn-dark">Back To List</button>
+                </div>
 </body>
 </html>

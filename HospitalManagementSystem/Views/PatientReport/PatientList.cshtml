@@ -10,24 +10,25 @@
     <link href="~/Content/Styles.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet">
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet">
-</head>
+    </head>
 <body>
-    <div class="container-fluid py-4">
-        <h4 class="text-center text-uppercase">Patient's List</h4>
-        <table class="table table-striped table-bordered">
-            <thead class="bg-dark text-white">
-                <tr>
-                    <th>Patient ID</th>
-                    <th>Photo</th>
-                    <th>Name</th>
-                    <th>DOB</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>New</th>
-                    <th>View/Edit</th>
-                </tr>
-            </thead>
-            <tbody>
+    <div class="min-vh-100">
+        <div class="container-fluid py-4">
+            <h4 class="text-center text-uppercase">Patient's List</h4>
+            <table class="table">
+                <thead class="bg-dark text-white">
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Photo</th>
+                        <th>Name</th>
+                        <th>DOB</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>New</th>
+                        <th>View/Edit</th>
+                    </tr>
+                </thead>
+
                 @foreach (var item in Model)
                 {
                     <tr>
@@ -38,17 +39,19 @@
                         <td>@item.patient.Email</td>
                         <td>@item.patient.Phone</td>
                         <td>
-                            <a href="@Url.Action("Create","Treatments",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                            <a href="@Url.Action("Create","Treatments",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-plus" style="color:black;" aria-hidden="true"></span></a>
                             @*@Html.ActionLink("New", "Create", "Treatments", new { id = item.patient.PatientID }, new { })*@
                         </td>
                         <td>
-                            <a href="@Url.Action("ExistingPatientReport","PatientReport",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+                            <a href="@Url.Action("ExistingPatientReport","PatientReport",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-th-list"style="color:black" aria-hidden="true"></span></a>
                             @*@Html.ActionLink("View", "ExistingPatientReport", new { id = item.patient.PatientID })*@
                         </td>
                     </tr>
                 }
-            </tbody>
-        </table>
+
+            </table>
+            @*<hr/>*@
+        </div>
     </div>
 </body>
 </html>
