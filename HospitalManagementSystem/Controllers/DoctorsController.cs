@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using HospitalManagementSystem.Models;
+using PagedList;
 
 namespace HospitalManagementSystem.Controllers
 {
@@ -15,9 +16,25 @@ namespace HospitalManagementSystem.Controllers
         private HMSDbContext db = new HMSDbContext();
 
         // GET: Doctors
-        public ActionResult Index()
+        public ActionResult Index(int? page, int? psize)
         {
-            return View(db.Doctors.ToList());
+            int pIndex = 1;
+            pIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            int defaultsize = (psize ?? 5);
+            ViewBag.psize = defaultsize;
+            ViewBag.PageSize = new List<SelectListItem>
+            {
+                new SelectListItem(){Value="5",Text="5"},
+                new SelectListItem(){Value="10",Text="10"},
+                new SelectListItem(){Value="15",Text="15"},
+                new SelectListItem(){Value="25",Text="25"},
+                new SelectListItem(){Value="50",Text="50"}
+            };
+            IPagedList<Doctor> d = null;
+            d = db.Doctors.OrderBy(x => x.DoctorID).ToPagedList(pIndex, defaultsize);
+
+            return View(d);
+            //return View(db.Doctors.ToList());
         }
 
         // GET: Doctors/Details/5
