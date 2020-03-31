@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -11,8 +11,12 @@
     <link href="~/Scripts/style.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/popper.js"></script>
+    <script src="~/Scripts/main.js"></script>
 </head>
-<body style="padding-top:0px; padding-bottom:0px;">
+<body style="padding-top:0px; padding-bottom:0px;overflow-x:hidden;overflow-y:hidden">
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
             <div class="custom-menu">
@@ -66,7 +70,7 @@
 
             </div>
         </nav>
-        <div class="container body-content " style="background-color:white">
+        <div class="container body-content min-vh-100" style="background-color:white">
             @RenderBody()
             <hr style="color:black"/>
             <footer>
@@ -74,9 +78,5 @@
             </footer>
         </div>
     </div>
-    <script src="~/Scripts/jquery.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/popper.js"></script>
-    <script src="~/Scripts/main.js"></script>
 </body>
 </html>
