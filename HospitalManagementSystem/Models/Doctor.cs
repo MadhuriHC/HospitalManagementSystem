@@ -10,16 +10,23 @@ namespace HospitalManagementSystem.Models
     {
         [Key]
         public int DoctorID { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter your First Name")]
+        [Display(Name = "First Name *")]
+        [DataType(DataType.Text)]
         public string FirstName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter your Last Name")]
+        [Display(Name = "Last Name *")]
+        [DataType(DataType.Text)]
         public string LastName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter your Email ID")]
         [EmailAddress]
+        [Display(Name = "Email ID *")]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter your Contact No.")]
+        [Display(Name = "Contact No. *")]
         public long Phone { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter Status")]
+        [Display(Name = "Status *")]
         public int Status { get; set; }
 
         public virtual ICollection<Patient> Patients { get; set; }

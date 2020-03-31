@@ -11,18 +11,21 @@ namespace HospitalManagementSystem.Models
         [Key]
         public int PaymentID { get; set; }
         public Nullable<int> PatientID { get; set; }
-        [Required]
-        [Display(Name ="Payable Amount")]
+        [Required(ErrorMessage = "Please enter Payable Amount")]
+        [Display(Name ="Payable Amount *")]
         public double PayableAmount { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter Payment Date")]
         [DisplayFormat(DataFormatString ="{0:dd-mm-yyyy}")]
         [DataType(DataType.Date)]
+        [Display(Name = "Payment Date *")]
         public DateTime PaymentDate { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter Payment Method")]
         [DataType(DataType.Text)]
+        [Display(Name = "Payment Method *")]
         public string PaymentMethod { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter Payment Status")]
         [DataType(DataType.Text)]
+        [Display(Name = "Payment Status *")]
         public string Status { get; set; }
 
         public virtual Patient Patient { get; set; }
