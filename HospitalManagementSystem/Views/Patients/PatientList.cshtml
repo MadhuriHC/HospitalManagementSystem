@@ -43,7 +43,7 @@
                             @*@Html.ActionLink("New", "Create", "Treatments", new { id = item.patient.PatientID }, new { })*@
                         </td>
                         <td>
-                            <a href="@Url.Action("ExistingPatientReport","PatientReport",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-th-list"style="color:black" aria-hidden="true"></span></a>
+                            <a href="@Url.Action("ExistingPatientReport","Patients",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-th-list"style="color:black" aria-hidden="true"></span></a>
                             @*@Html.ActionLink("View", "ExistingPatientReport", new { id = item.patient.PatientID })*@
                         </td>
                     </tr>
