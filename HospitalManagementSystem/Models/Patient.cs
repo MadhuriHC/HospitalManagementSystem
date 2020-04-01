@@ -12,34 +12,34 @@ namespace HospitalManagementSystem.Models
     {
         [Key]
         public int PatientID { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter First Name")]
         [DataType(DataType.Text)]
         [Display(Name = "First Name *")]
         public string FirstName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter Last Name")]
         [DataType(DataType.Text)]
         [Display(Name = "Last Name *")]
         public string LastName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please select Gender")]
         [DataType(DataType.Text)]
-        [Display(Name = "Last Name *")]
+        [Display(Name = "Gender *")]
         public string Gender { get; set; }
-        [Required]
-        //[DisplayFormat(DataFormatString = "{0:dd-mm-yyyy}")]
+        [Required(ErrorMessage = "Please select Date of Birth")]
+        [DisplayFormat(DataFormatString = "{mm-dd-yyyy}")]
         [DataType(DataType.Date)]
         [Display(Name = "Date of Birth *")]
         public DateTime DOB { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter Email ID")]
         [EmailAddress]
         [Display(Name = "Email ID *")]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter Contact No.")]
         [Display(Name = "Contact No. *")]
         public long Phone { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter Blood Group")]
         [Display(Name = "Blood Group *")]
         public string BloodGroup { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter Patient's Status")]
         [Display(Name = "Status *")]
         public int Status { get; set; }
         public string Photo { get; set; }

@@ -2,7 +2,15 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_LayoutRecep.cshtml";
+    @if (ViewBag.layout == 2)
+    {
+        Layout = "~/Views/Shared/_LayoutRecep.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
 }
 <head>
     <style>
@@ -51,7 +59,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBox("DOB", "", "", new { @class = "form-control", @Value = @ViewBag.d })
                 @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -81,6 +89,24 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @if (ViewBag.n == 1)
+                {
+
+                    @Html.RadioButton("RbGender", "Male", isChecked: true) @Html.Label("Male")
+                    @Html.RadioButton("RbGender", "Female", isChecked: false) @Html.Label("Female")
+                }
+                else
+                {
+                    @Html.RadioButton("RbGender", "Male", isChecked: false) @Html.Label("Male")
+                    @Html.RadioButton("RbGender", "Female", isChecked: true) @Html.Label("Female")
+                }
+                @Html.ValidationMessageFor(model => model.BloodGroup, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
@@ -98,12 +124,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save"  style="font-size:14px;" class="btn btn-patient" />
+                <input type="submit" value="Save" style="font-size:14px;" class="btn btn-patient" />
             </div>
         </div>
 
         <div>
-            <button onclick="location.href='@Url.Action("Index")';return false;" style="font-size:14px;" class="btn btn-dark">Back To List</button>
+            <button onclick="location.href='@Url.Action("Index","",new { l=2})';return false;" style="font-size:14px;" class="btn btn-dark">Back To List</button>
         </div>
     </div>
 

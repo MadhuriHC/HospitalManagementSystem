@@ -15,13 +15,14 @@ namespace HospitalManagementSystem.Controllers
         private HMSDbContext db = new HMSDbContext();
 
         // GET: Patients
-        public ActionResult Index()
+        public ActionResult Index(int? l)
         {
+            ViewBag.layout = l;
             return View(db.Patients.ToList());
         }
 
         // GET: Patients/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, int? l)
         {
             if (id == null)
             {
@@ -32,13 +33,15 @@ namespace HospitalManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.layout = l;
             return View(patient);
         }
 
         // GET: Patients/Create
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create(, int? l)
         {
+            ViewBag.layout = l;
             return View();
         }
 
@@ -58,8 +61,8 @@ namespace HospitalManagementSystem.Controllers
                 {
                     FirstName=patient.FirstName,
                     LastName=patient.LastName,
-                    DOB=patient.DOB,
-                    Email=patient.Email,
+                    DOB= Convert.ToDateTime(patient.DOB.ToString("mm-dd-yyyy")),
+                    Email =patient.Email,
                     Phone=patient.Phone,
                     BloodGroup=patient.BloodGroup,
                     Status=patient.Status,
@@ -73,7 +76,7 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // GET: Patients/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id,string g, DateTime dob, int? l)
         {
             if (id == null)
             {
@@ -84,6 +87,13 @@ namespace HospitalManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
+            if (g.Equals("Male"))
+                ViewBag.n = 1;
+            else
+                ViewBag.n = 0;
+
+            ViewBag.d = dob.ToShortDateString();
+            ViewBag.layout = l;
             return View(patient);
         }
 
@@ -92,19 +102,20 @@ namespace HospitalManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PatientID,FirstName,LastName,DOB,Email,Phone,BloodGroup,Status,Photo,Gender")] Patient patient)
+        public ActionResult Edit([Bind(Include = "PatientID,FirstName,LastName,DOB,Email,Phone,BloodGroup,Status,Photo,Gender")] Patient patient, FormCollection fc)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
+                patient.Gender = fc["RbGender"];
                 db.Entry(patient).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-            return View(patient);
+            //}
+            //return View(patient);
         }
 
         // GET: Patients/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id, int? l)
         {
             if (id == null)
             {
@@ -115,6 +126,7 @@ namespace HospitalManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.layout = l;
             return View(patient);
         }
 
@@ -138,15 +150,16 @@ namespace HospitalManagementSystem.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult PatientList()
+        public ActionResult PatientList(int? l)
         {
             //int id= (int)RouteData.Values["did"];
+            ViewBag.layout = l;
             List<Patient> patient = db.Patients.ToList();
             var PatientList = from p in patient where p.DoctorID == 1 select new PatientReport { patient = p };
             return View(PatientList);
         }
 
-        public ActionResult ExistingPatientReport(int? id)
+        public ActionResult ExistingPatientReport(int? id,int? l)
         {
             if (id == null)
             {
@@ -177,12 +190,13 @@ namespace HospitalManagementSystem.Controllers
                                             doctor = d,
                                             treatment = t
                                         };
+                    ViewBag.layout = l;
                     return View(PatientReport);
                 }
             }
         }
 
-        public ActionResult PatientReportSummary(int? id)
+        public ActionResult PatientReportSummary(int? id, int? l)
         {
             if (id == null)
             {
@@ -213,12 +227,13 @@ namespace HospitalManagementSystem.Controllers
                                             doctor = d,
                                             treatment = t
                                         };
+                    ViewBag.layout = l;
                     return View(PatientReport);
                 }
             }
         }
 
-        public ActionResult PrintableReportSummary(int? id1, int? id2, int? n)
+        public ActionResult PrintableReportSummary(int? id1, int? id2, int? n, int? l)
         {
             if (n == 1)
                 ViewBag.n = 1;
@@ -244,6 +259,7 @@ namespace HospitalManagementSystem.Controllers
                                             doctor = d,
                                             treatment = t
                                         };
+                    ViewBag.layout = l;
                     return View(PatientReport);
                 }
                 else
@@ -260,6 +276,7 @@ namespace HospitalManagementSystem.Controllers
                                             doctor = d,
                                             treatment = t
                                         };
+                    ViewBag.layout = l;
                     return View(PatientReport);
                 }
 

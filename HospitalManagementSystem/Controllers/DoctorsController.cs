@@ -140,8 +140,9 @@ namespace HospitalManagementSystem.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult Dashdoc()
+        public ActionResult Dashdoc(int? id)
         {
+            ViewBag.n = id;
             return View("Dashdoc");
         }
     }

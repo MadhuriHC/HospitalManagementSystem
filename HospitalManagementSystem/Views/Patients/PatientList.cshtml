@@ -1,7 +1,14 @@
 ﻿@model IEnumerable<HospitalManagementSystem.Models.PatientReport>
 @{
     ViewBag.Title = "PatientList";
-    Layout = "~/Views/Shared/_LayoutDoc.cshtml";
+    @if(ViewBag.layout==1)
+    {
+        Layout = "~/Views/Shared/_LayoutDoc.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }
 
 <html>
@@ -35,22 +42,22 @@
                         <td>@item.patient.PatientID</td>
                         <td><img src="@Url.Content(@item.patient.Photo)" style="height:80px;width:80px;" /></td>
                         <td>@item.patient.FirstName @item.patient.LastName</td>
-                        <td>@item.patient.DOB</td>
+                        <td>@item.patient.DOB.ToShortDateString()</td>
                         <td>@item.patient.Email</td>
                         <td>@item.patient.Phone</td>
                         <td>
-                            <a href="@Url.Action("Create","Treatments",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-plus" style="color:black;" aria-hidden="true"></span></a>
+                            <a href="@Url.Action("Create","Treatments",new { id=item.patient.PatientID,l=1})"><span class="glyphicon glyphicon-plus" style="color:black;" aria-hidden="true"></span></a>
                             @*@Html.ActionLink("New", "Create", "Treatments", new { id = item.patient.PatientID }, new { })*@
                         </td>
                         <td>
-                            <a href="@Url.Action("ExistingPatientReport","Patients",new { id=item.patient.PatientID})"><span class="glyphicon glyphicon-th-list"style="color:black" aria-hidden="true"></span></a>
+                            <a href="@Url.Action("ExistingPatientReport", "Patients", new { id = item.patient.PatientID, l=1})"><span class="glyphicon glyphicon-th-list"style="color:black" aria-hidden="true"></span></a>
                             @*@Html.ActionLink("View", "ExistingPatientReport", new { id = item.patient.PatientID })*@
                         </td>
                     </tr>
                 }
 
             </table>
-            @*<hr/>*@
+            <hr/>
         </div>
     </div>
 </body>

@@ -1,7 +1,15 @@
 ﻿
 @{
     ViewBag.Title = "Dashrecep";
-    Layout = "~/Views/Shared/_LayoutRecep.cshtml";
+    @if(@ViewBag.n==2)
+    {
+         Layout = "~/Views/Shared/_LayoutRecep.cshtml";
+    }
+    else
+    {
+         Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+   
 }
 
 <html>
@@ -31,11 +39,11 @@
 
                             <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
                             <ul style="padding-left:20px; padding-top:25px;">
-                                <li><a href='@Url.Action("Create","Patients")' class="card-link" style="color: white; font-size:16px;"> Add New Patient Info</a></li>
-                                <li><a href='@Url.Action("Index","Patients")' class="card-link" style="        color: white;
+                                <li><a href='@Url.Action("Create","Patients",new { l=2})' class="card-link" style="color: white; font-size:16px;"> Add New Patient Info</a></li>
+                                <li><a href='@Url.Action("Index","Patients",new { l=2})' class="card-link" style="        color: white;
         font-size: 16px;
 ">View Patient's List</a></li>
-                                <li><a href='@Url.Action("PatientList","Patients")' class="card-link" style="color: white; font-size:16px;">Report Summary</a></li>
+                                <li><a href='@Url.Action("PatientList","Patients",new { l=2})' class="card-link" style="color: white; font-size:16px;">Report Summary</a></li>
                             </ul>
                         </div>
                     </div>

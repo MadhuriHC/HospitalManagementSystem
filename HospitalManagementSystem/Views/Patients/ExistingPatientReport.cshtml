@@ -1,7 +1,14 @@
 ﻿@model IEnumerable<HospitalManagementSystem.Models.PatientReport>
 @{
     ViewBag.Title = "ExistingPatientReport";
-    Layout = "~/Views/Shared/_LayoutDoc.cshtml";
+    @if (ViewBag.layout == 1)
+    {
+        Layout = "~/Views/Shared/_LayoutDoc.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }
 
 <!DOCTYPE html>
@@ -18,12 +25,11 @@
     <link href="~/Content/scrollbar.css" rel="stylesheet" />
     <style>
         .scrollb {
-       
-  overflow-x: hidden;
-  overflow-y: scroll;
+            overflow-x: hidden;
+            overflow-y: scroll;
         }
     </style>
-        
+
 </head>
 <body>
 
@@ -84,7 +90,7 @@
                                         <strong>DOB</strong>
                                     </div>
                                     <div class="col-md-7">
-                                        <p align="right">@i.patient.DOB</p>
+                                        <p align="right">@i.patient.DOB.ToShortDateString()</p>
                                     </div>
                                 </div>
                             </li>
@@ -131,7 +137,11 @@
                                 <h4 style="margin-top:15px;"> Checkup</h4>
                             </div>
                             <div class="col-md-6">
-                                <p style="margin-top:15px;" align="right"><a href="@Url.Action("Edit", "Treatments", new { id = item.treatment.TreatmentID, doses = item.treatment.Doses, bm = item.treatment.BeforeMeal })"><span class="fa fa-edit" style="color:black;" aria-hidden="true"></span></a></p>
+                                <p style="margin-top:15px;" align="right"><a href="@Url.Action("Edit", "Treatments", new { id = item.treatment.TreatmentID, doses = item.treatment.Doses, bm = item.treatment.BeforeMeal,l=1 })"><span class="fa fa-edit" style="color:black;" aria-hidden="true"></span></a></p>
+                                @* <p style="margin-top:15px;"><a href="@Url.Action("Details", "Treatments", new { id = item.treatment.TreatmentID})"><span class="fa fa-list" style="color:black;" aria-hidden="true"></span></a></p>
+
+                                    <p style="margin-top:15px;"><a href="@Url.Action("Delete", "Treatments", new { id = item.treatment.TreatmentID})"><span class="fa fa-trash" style="color:black;" aria-hidden="true"></span></a></p>
+                                *@
                             </div>
                         </div>
                         <hr style="margin-top:0px;">
@@ -161,7 +171,7 @@
                                 <label class="col-form-label">Checkup Date</label>
                             </div>
                             <div class="col-md-5">
-                                <p style="color:dimgray">@item.treatment.CheckupDate</p>
+                                <p style="color:dimgray">@item.treatment.CheckupDate.ToShortDateString()</p>
                             </div>
                         </div>
                         <br />
@@ -202,12 +212,12 @@
                 </div>
             </div>
         </div>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div>
             <button onclick="location.href='@Url.Action("PatientList")';return false;" class="btn btn-dark">Back To List</button>
         </div>
 
     </div>
-               </body>
+</body>
 </html>

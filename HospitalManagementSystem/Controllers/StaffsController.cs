@@ -128,12 +128,14 @@ namespace HospitalManagementSystem.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult Dashrecep()
+        public ActionResult Dashrecep(int? id)
         {
+            ViewBag.n = id;
             return View("Dashrecep");
         }
-        public ActionResult Dashacc()
+        public ActionResult Dashacc(int? id)
         {
+            ViewBag.n = id;
             return View("Dashacc");
         }
 

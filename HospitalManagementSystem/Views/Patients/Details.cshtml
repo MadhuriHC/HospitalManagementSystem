@@ -2,18 +2,25 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_LayoutRecep.cshtml";
+    @if (ViewBag.layout == 2)
+    {
+        Layout = "~/Views/Shared/_LayoutRecep.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
 }
 <head>
     <style>
-         dt,dd {
-            font-size:14px;
+        dt, dd {
+            font-size: 14px;
         }
-
     </style>
 </head>
 <div class="min-vh-100">
-    <br/>
+    <br />
     <h4>Patient Details</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -46,7 +53,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DOB)
+            @Model.DOB.ToShortDateString()
         </dd>
 
         <dt>
@@ -83,8 +90,8 @@
 
     </dl>
 
-<div class="form-actions no-color">
-    <button onclick="location.href='@Url.Action("Index")';return false;"  style="font-size:14px;"class="btn btn-dark">Back To List</button>
-  
-</div>
+    <div class="form-actions no-color">
+        <button onclick="location.href='@Url.Action("Index","",new { l=2})';return false;" style="font-size:14px;" class="btn btn-dark">Back To List</button>
+
+    </div>
 </div>

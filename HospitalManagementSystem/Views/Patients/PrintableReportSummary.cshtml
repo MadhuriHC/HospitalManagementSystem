@@ -1,7 +1,15 @@
 ﻿@model IEnumerable<HospitalManagementSystem.Models.PatientReport>
 @{
     ViewBag.Title = "PrintableReportSummary";
-    Layout = "~/Views/Shared/_LayoutRecep.cshtml";
+    @if (ViewBag.layout == 2)
+    {
+        Layout = "~/Views/Shared/_LayoutRecep.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
 }
 
 <!DOCTYPE html>

@@ -1,7 +1,14 @@
 ﻿
 @{
     ViewBag.Title = "Dashacc";
-    Layout = "~/Views/Shared/_LayoutAcc.cshtml";
+    @if(ViewBag.n==3)
+    {
+            Layout = "~/Views/Shared/_LayoutAcc.cshtml";
+    }
+    else
+    {
+            Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }
 
 <html>
@@ -31,7 +38,7 @@
 
                             <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
                             <ul style="padding-left:20px; padding-top:25px;">
-                                <li><a href='@Url.Action("PatientList","Patients")' class="card-link" style="color: white; font-size:16px;">Payment</a></li>
+                                <li><a href='@Url.Action("PatientList","Patients",new { l=1})' class="card-link" style="color: white; font-size:16px;">Payment</a></li>
                             </ul>
                         </div>
                     </div>

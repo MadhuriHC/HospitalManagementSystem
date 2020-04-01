@@ -1,7 +1,15 @@
 ﻿@model IEnumerable<HospitalManagementSystem.Models.PatientReport>
 @{
     ViewBag.Title = "ExistingPatientReport";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    @if (ViewBag.layout == 2)
+    {
+        Layout = "~/Views/Shared/_LayoutRecep.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
 }
 
 <!DOCTYPE html>
@@ -18,13 +26,11 @@
     <link href="~/Content/scrollbar.css" rel="stylesheet" />
     <style>
         .scrollb {
-       
-  overflow-x: hidden;
-  overflow-y: scroll;
-
+            overflow-x: hidden;
+            overflow-y: scroll;
         }
     </style>
-        
+
 </head>
 <body>
 
@@ -117,8 +123,8 @@
                 }
             </div>
 
-       
-           
+
+
             <div class="card" style="width:65rem; height:55rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.25);">
                 <div class=" card-header bg-dark" style="margin-left:-1px; margin-right:-1px;">
                     <h4 class="text-center" style="color:#fafafa">Treatment Details</h4>
@@ -203,9 +209,9 @@
                 </div>
             </div>
         </div>
-          </div>
-               <div>
-                    <button onclick="location.href='@Url.Action("PatientList")';return false;" class="btn btn-dark">Back To List</button>
-                </div>
+    </div>
+    <div>
+        <button onclick="location.href='@Url.Action("PatientList","",new { l=2})';return false;" class="btn btn-dark">Back To List</button>
+    </div>
 </body>
 </html>

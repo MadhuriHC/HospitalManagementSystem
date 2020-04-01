@@ -13,7 +13,7 @@ namespace HospitalManagementSystem.Models
 
         public Nullable<int> PatientID { get; set; }
         [Required(ErrorMessage = "Please enter Checkup Date")]
-        //[DisplayFormat(DataFormatString = "{0:dd-mm-yyyy}")]
+        [DisplayFormat(DataFormatString = "{mm-dd-yyyy}")]
         [DataType(DataType.Date)]
         [Display(Name = "Checkup Date *")]
         public DateTime CheckupDate { get; set; }

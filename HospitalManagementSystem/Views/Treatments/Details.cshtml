@@ -2,7 +2,14 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_LayoutDoc.cshtml";
+    @if (ViewBag.layout == 1)
+    {
+        Layout = "~/Views/Shared/_LayoutDoc.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }
 
 <h2>Details</h2>
@@ -24,7 +31,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CheckupDate)
+            @Model.CheckupDate.ToShortDateString()
         </dd>
 
         <dt>
@@ -79,5 +86,5 @@
 </div>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.TreatemntID })*@
-    <button onclick="location.href='@Url.Action("ExistingPatientReport","Patients",new { id=Model.Patient.PatientID})';return false;" class="btn btn-dark">Back To List</button>
+    <button onclick="location.href='@Url.Action("ExistingPatientReport","Patients",new { id=Model.Patient.PatientID,l=1})';return false;" class="btn btn-dark">Back To List</button>
 </p>

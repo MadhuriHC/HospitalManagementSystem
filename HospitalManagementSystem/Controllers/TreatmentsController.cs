@@ -22,7 +22,7 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // GET: Treatments/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id,int? l)
         {
             if (id == null)
             {
@@ -33,14 +33,15 @@ namespace HospitalManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.layout = l;
             return View(treatment);
         }
 
         // GET: Treatments/Create
-        public ActionResult Create(int? id)
+        public ActionResult Create(int? id,int? l)
         {
            ViewBag.PatientID = id;
-
+            ViewBag.layout = l;
             //ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName");
             return View();
         }
@@ -56,9 +57,10 @@ namespace HospitalManagementSystem.Controllers
             //{
 				treatment.Doses = fc["Doses"];
                 treatment.BeforeMeal = fc["RbBeforeMeal"];
-                db.Treatments.Add(treatment);
+            treatment.CheckupDate.ToString("mm-dd-yyyy");
+            db.Treatments.Add(treatment);
                 db.SaveChanges();
-                return RedirectToAction("ExistingPatientReport", "Patients", new { id = treatment.PatientID });
+                return RedirectToAction("ExistingPatientReport", "Patients", new { id = treatment.PatientID ,l=1});
             //}
 
            // ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
@@ -66,7 +68,7 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // GET: Treatments/Edit/5
-        public ActionResult Edit(int? id,string doses,string bm)
+        public ActionResult Edit(int? id,string doses,string bm, DateTime cd,int? l)
         {
             if (id == null)
             {
@@ -96,6 +98,9 @@ namespace HospitalManagementSystem.Controllers
                 ViewBag.n = 1;
             else
                 ViewBag.n = 0;
+
+            ViewBag.c = cd.ToShortDateString();
+            ViewBag.layout = l;
             ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
             return View(treatment);
         }
@@ -113,7 +118,7 @@ namespace HospitalManagementSystem.Controllers
             treatment.BeforeMeal = fc["RbBeforeMeal"];
                 db.Entry(treatment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("ExistingPatientReport", "Patients", new { id = treatment.PatientID });
+                return RedirectToAction("ExistingPatientReport", "Patients", new { id = treatment.PatientID ,l=1});
             //}
 
             //ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
@@ -121,7 +126,7 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // GET: Treatments/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id,int? l)
         {
             if (id == null)
             {
@@ -132,6 +137,7 @@ namespace HospitalManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.layout = l;
             return View(treatment);
         }
 
@@ -144,7 +150,7 @@ namespace HospitalManagementSystem.Controllers
             int? PID = treatment.PatientID;
             db.Treatments.Remove(treatment);
             db.SaveChanges();
-            return RedirectToAction("ExistingPatientReport", "Patients", new { id = PID });
+            return RedirectToAction("ExistingPatientReport", "Patients", new { id = PID ,l=1});
         }
 
         protected override void Dispose(bool disposing)

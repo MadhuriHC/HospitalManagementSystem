@@ -15,7 +15,7 @@ namespace HospitalManagementSystem.Controllers
         private HMSDbContext db = new HMSDbContext();
 
         // GET: Payments
-        public ActionResult Index(int? id)
+        public ActionResult Index(int? id,int? l)
         {
             using (db)
             {
@@ -31,6 +31,7 @@ namespace HospitalManagementSystem.Controllers
                                         patient = p1,
                                         payment = p2
                                     };
+                ViewBag.layout = l;
                 return View(PaymentReport);
             }
 
@@ -39,7 +40,7 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // GET: Payments/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, int? l)
         {
             if (id == null)
             {
@@ -50,14 +51,16 @@ namespace HospitalManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.layout = l;
             return View(payment);
         }
 
         // GET: Payments/Create
-        public ActionResult Create(int? id)
+        public ActionResult Create(int? id, int? l)
         {
             // ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName");
             ViewBag.PatientID = id;
+            ViewBag.layout = l;
             return View();
         }
 
@@ -72,9 +75,10 @@ namespace HospitalManagementSystem.Controllers
             //{
             payment.PaymentMethod = fc["RbPM"];
             payment.Status = fc["RbStatus"];
+            payment.PaymentDate.ToString("mm-dd-yyyy");
             db.Payments.Add(payment);
                 db.SaveChanges();
-                return RedirectToAction("PatientList", "PatientReport");
+                return RedirectToAction("PatientList", "Patients",new { l=3});
             //}
 
             //ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", payment.PatientID);
@@ -82,7 +86,7 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // GET: Payments/Edit/5
-        public ActionResult Edit(int? id, string pm, string s,DateTime d)
+        public ActionResult Edit(int? id, string pm, string s,DateTime d, int? l)
         {
             if (id == null)
             {
@@ -108,7 +112,7 @@ namespace HospitalManagementSystem.Controllers
                 ViewBag.n = 0;
 
             ViewBag.date = d.ToShortDateString();
-            ViewBag.date2 = d;
+            ViewBag.layout = l;
             ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", payment.PatientID);
             return View(payment);
         }
@@ -126,14 +130,14 @@ namespace HospitalManagementSystem.Controllers
                 payment.Status = fc["RbStatus"];
                 db.Entry(payment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index",new { l=3});
             //}
             //ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", payment.PatientID);
             //return View(payment);
         }
 
         // GET: Payments/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id, int? l)
         {
             if (id == null)
             {
@@ -144,6 +148,7 @@ namespace HospitalManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.layout = l;
             return View(payment);
         }
 
@@ -155,7 +160,7 @@ namespace HospitalManagementSystem.Controllers
             Payment payment = db.Payments.Find(id);
             db.Payments.Remove(payment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index",new { l=3});
         }
 
         protected override void Dispose(bool disposing)

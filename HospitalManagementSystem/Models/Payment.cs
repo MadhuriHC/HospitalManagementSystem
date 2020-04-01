@@ -15,7 +15,7 @@ namespace HospitalManagementSystem.Models
         [Display(Name ="Payable Amount *")]
         public double PayableAmount { get; set; }
         [Required(ErrorMessage = "Please enter Payment Date")]
-        [DisplayFormat(DataFormatString ="{0:dd-mm-yyyy}")]
+        [DisplayFormat(DataFormatString = "{mm-dd-yyyy}")]
         [DataType(DataType.Date)]
         [Display(Name = "Payment Date *")]
         public DateTime PaymentDate { get; set; }

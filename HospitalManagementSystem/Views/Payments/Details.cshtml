@@ -2,7 +2,14 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    @if (ViewBag.n == 3)
+    {
+        Layout = "~/Views/Shared/_LayoutAcc.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }
 
 <h2>Details</h2>
@@ -32,7 +39,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PaymentDate)
+            @Model.PaymentDate.ToShortDateString()
         </dd>
 
         <dt>

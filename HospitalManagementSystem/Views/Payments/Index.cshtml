@@ -2,7 +2,14 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    @if (ViewBag.n == 3)
+    {
+        Layout = "~/Views/Shared/_LayoutAcc.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }
 
 <!DOCTYPE html>
@@ -39,7 +46,7 @@
                         <td>@i.patient.PatientID</td>
                         <td><img src=@Url.Content(i.patient.Photo) style="height:80px;width:80px;" /></td>
                         <td>@i.patient.FirstName @i.patient.LastName</td>
-                        <td>@i.patient.DOB</td>
+                        <td>@i.patient.DOB.ToShortDateString()</td>
                         <td>@i.patient.Email</td>
                         <td>@i.patient.Phone</td>
                     </tr>
@@ -64,24 +71,24 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>
-                        Payable Amount: @item.payment.PayableAmount
-                        <br />Payment Date: @item.payment.PaymentDate.ToString("dd-mm-yyyy")
-                        <br />Payment Method: @item.payment.PaymentMethod
-                        <br />Payment Status : @item.payment.Status
-                    </td>
-                    <td><a href="@Url.Action("Edit","Payments",new { id=item.payment.PaymentID,pm=item.payment.PaymentMethod,s=item.payment.Status,d=item.payment.PaymentDate })"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
-                    <td><a href="@Url.Action("Details","Payments",new { id=item.payment.PaymentID })"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a></td>
-                    <td><a href="@Url.Action("Delete","Payments",new { id=item.payment.PaymentID })"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
-                </tr>
+                    <tr>
+                        <td>
+                            Payable Amount: @item.payment.PayableAmount
+                            <br />Payment Date: @item.payment.PaymentDate.ToShortDateString()
+                            <br />Payment Method: @item.payment.PaymentMethod
+                            <br />Payment Status : @item.payment.Status
+                        </td>
+                        <td><a href="@Url.Action("Edit","Payments",new { id=item.payment.PaymentID,pm=item.payment.PaymentMethod,s=item.payment.Status,d=item.payment.PaymentDate })"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+                        <td><a href="@Url.Action("Details","Payments",new { id=item.payment.PaymentID })"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a></td>
+                        <td><a href="@Url.Action("Delete","Payments",new { id=item.payment.PaymentID })"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+                    </tr>
                 }
             </tbody>
         </table>
     </div>
 
     <div>
-        <button onclick="location.href='@Url.Action("PatientList","PatientReport")';return false;" class="btn btn-dark">Back To List</button>
+        <button onclick="location.href='@Url.Action("PatientList","Patients")';return false;" class="btn btn-dark">Back To List</button>
     </div>
 </body>
 </html>

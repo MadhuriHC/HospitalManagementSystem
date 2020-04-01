@@ -1,7 +1,15 @@
 ﻿
 @{
     ViewBag.Title = "Dashdoc";
-    Layout = "~/Views/Shared/_LayoutDoc.cshtml";
+    @if(ViewBag.n==1)
+    {
+        Layout = "~/Views/Shared/_LayoutDoc.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    
 }
 
 <html>
@@ -30,9 +38,9 @@
                         <div class="card-body;">
                             <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
                             <ul style="padding-left:20px; padding-top:25px;">
-                                <li><a href='@Url.Action("PatientList","Patients")' class="card-link" style="color: white; font-size:16px;">Generate New Report</a></li>
-                                <li><a href='@Url.Action("PatientList","Patients")' class="card-link" style="color: white; font-size:16px;">View Existing Report</a></li>
-                                <li><a href='@Url.Action("PatientList","Patients")' class="card-link" style="color: white; font-size:16px;">Edit Existing Report</a></li>
+                                <li><a href='@Url.Action("PatientList","Patients",new { l=1})' class="card-link" style="color: white; font-size:16px;">Generate New Report</a></li>
+                                <li><a href='@Url.Action("PatientList","Patients",new { l=1})' class="card-link" style="color: white; font-size:16px;">View Existing Report</a></li>
+                                <li><a href='@Url.Action("PatientList","Patients",new { l=1})' class="card-link" style="color: white; font-size:16px;">Edit Existing Report</a></li>
 
                             </ul>
                         </div>
