@@ -15,7 +15,7 @@ namespace HospitalManagementSystem.Controllers
         private HMSDbContext db = new HMSDbContext();
 
         // GET: Payments
-        public ActionResult Index(int? id,int? l)
+        public ActionResult PaymentReport(int? id,int? l)
         {
             using (db)
             {
@@ -78,7 +78,7 @@ namespace HospitalManagementSystem.Controllers
             payment.PaymentDate.ToString("mm-dd-yyyy");
             db.Payments.Add(payment);
                 db.SaveChanges();
-                return RedirectToAction("PatientList", "Patients",new { l=3});
+                return RedirectToAction("", "Payment",new { l=3});
             //}
 
             //ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", payment.PatientID);
@@ -170,6 +170,15 @@ namespace HospitalManagementSystem.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult PatientListAcc(int? l)
+        {
+            //int id= (int)RouteData.Values["did"];
+            ViewBag.layout = l;
+            List<Patient> patient = db.Patients.ToList();
+            var PatientList = from p in patient select new PatientReport { patient = p };
+            return View(PatientList);
         }
     }
 }

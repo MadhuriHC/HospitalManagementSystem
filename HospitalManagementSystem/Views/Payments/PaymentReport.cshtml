@@ -78,9 +78,9 @@
                             <br />Payment Method: @item.payment.PaymentMethod
                             <br />Payment Status : @item.payment.Status
                         </td>
-                        <td><a href="@Url.Action("Edit","Payments",new { id=item.payment.PaymentID,pm=item.payment.PaymentMethod,s=item.payment.Status,d=item.payment.PaymentDate })"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
-                        <td><a href="@Url.Action("Details","Payments",new { id=item.payment.PaymentID })"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a></td>
-                        <td><a href="@Url.Action("Delete","Payments",new { id=item.payment.PaymentID })"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+                        <td><a href="@Url.Action("Edit","Payments",new { id=item.payment.PaymentID,pm=item.payment.PaymentMethod,s=item.payment.Status,d=item.payment.PaymentDate,l=3 })"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+                        <td><a href="@Url.Action("Details","Payments",new { id=item.payment.PaymentID,l=3 })"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a></td>
+                        <td><a href="@Url.Action("Delete","Payments",new { id=item.payment.PaymentID ,l=3})"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
                     </tr>
                 }
             </tbody>
@@ -88,7 +88,7 @@
     </div>
 
     <div>
-        <button onclick="location.href='@Url.Action("PatientList","Patients")';return false;" class="btn btn-dark">Back To List</button>
+        <button onclick="location.href='@Url.Action("PatientListAcc","Payments",new { l=3})';return false;" class="btn btn-dark">Back To List</button>
     </div>
 </body>
 </html>

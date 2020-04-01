@@ -37,17 +37,17 @@ namespace HospitalManagementSystem.Controllers
             else if (IsValid(user.Email, user.Password, user.Category) && user.Category.Equals("Doctor"))
             {
                 FormsAuthentication.SetAuthCookie(user.Email, false);
-                return RedirectToAction("Dashdoc", "Doctors", new { id = 1 });
+                return RedirectToAction("Dashdoc", "Doctors", new { l = 1 });
             }
             else if (IsValid(user.Email, user.Password, user.Category) && user.Category.Equals("Receptionist"))
             {
                 FormsAuthentication.SetAuthCookie(user.Email, false);
-                return RedirectToAction("Dashrecep", "Staffs", new { id = 2 });
+                return RedirectToAction("Dashrecep", "Staffs", new { l = 2 });
             }
             else if (IsValid(user.Email, user.Password, user.Category) && user.Category.Equals("Accountant"))
             {
                 FormsAuthentication.SetAuthCookie(user.Email, false);
-                return RedirectToAction("Dashacc", "Staffs", new { id = 3 });
+                return RedirectToAction("Dashacc", "Staffs", new { l = 3 });
             }
             else
             {

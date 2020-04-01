@@ -20,7 +20,7 @@
             @Html.ValidationSummary(true, "Login failed");
             <div class="card" style="width: 40rem;">
                 <div class=" card-header text-center bg-info">
-                    <label>@ViewBag.msg</label>
+                    
                     Login
                 </div>
                 <div class="card-body">
@@ -60,6 +60,7 @@
                         <div class="form-group">
                             <button onclick="location.href='@Url.Action("Register", "Home")';return false;" class="btn btn-primary bg-success">Sign up!</button>
                         </div>
+                        <br/><label style="color:green;font-size:20px">@ViewBag.msg</label>
                     </div>
                     </div>
             </div>

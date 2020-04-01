@@ -409,7 +409,7 @@
     <Content Include="Views\Payments\Delete.cshtml" />
     <Content Include="Views\Payments\Details.cshtml" />
     <Content Include="Views\Payments\Edit.cshtml" />
-    <Content Include="Views\Payments\Index.cshtml" />
+    <Content Include="Views\Payments\PaymentReport.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -430,6 +430,8 @@
     <Content Include="Views\Shared\_LayoutRecep.cshtml" />
     <Content Include="Views\Staffs\Dashacc.cshtml" />
     <Content Include="Views\Shared\_LayoutAcc.cshtml" />
+    <Content Include="Views\Payments\PatientListAcc.cshtml" />
+    <Content Include="Views\Patients\PatientListRecep.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />

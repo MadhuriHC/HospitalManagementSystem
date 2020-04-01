@@ -69,7 +69,7 @@ namespace HospitalManagementSystem.Controllers
                     Photo=filepath
                 });
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","",new { l=2});
             }
 
             return View(patient);
@@ -109,7 +109,7 @@ namespace HospitalManagementSystem.Controllers
                 patient.Gender = fc["RbGender"];
                 db.Entry(patient).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","",new { l=2});
             //}
             //return View(patient);
         }
@@ -138,7 +138,7 @@ namespace HospitalManagementSystem.Controllers
             Patient patient = db.Patients.Find(id);
             db.Patients.Remove(patient);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","",new { l=2});
         }
 
         protected override void Dispose(bool disposing)
@@ -156,6 +156,15 @@ namespace HospitalManagementSystem.Controllers
             ViewBag.layout = l;
             List<Patient> patient = db.Patients.ToList();
             var PatientList = from p in patient where p.DoctorID == 1 select new PatientReport { patient = p };
+            return View(PatientList);
+        }
+
+        public ActionResult PatientListRecep(int? l)
+        {
+            //int id= (int)RouteData.Values["did"];
+            ViewBag.layout = l;
+            List<Patient> patient = db.Patients.ToList();
+            var PatientList = from p in patient select new PatientReport { patient = p };
             return View(PatientList);
         }
 
