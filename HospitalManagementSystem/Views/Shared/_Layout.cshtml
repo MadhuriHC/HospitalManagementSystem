@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -11,10 +12,17 @@
     <link href="~/Scripts/style.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/popper.js"></script>
+    <script src="~/Scripts/main.js"></script>
 </head>
-<nav class="navbar navbar-dark navbar-expand-lg fixed-top" style="background-color:#3f256c">
-    <p style="color:antiquewhite">
-        Apollo Hospital Management<br />
+<nav class="navbar navbar-dark navbar-expand-sm fixed-top" style="background-color:#3f256c; margin-bottom:0px; padding-left:20px; padding-right:20px;">
+    <ul class="navbar-nav mr-sm-auto">
+        <p align="left" style="font-size:22px;color:white"><strong>Apollo</strong></p>
+    </ul>
+    <ul class="navbar-nav ml-sm-auto">
+        <p align="right" class="navbar-text"><a href="@Url.Action("Index","Home")"><span class="fa fa-power-off" style="font-size:20px; color:white;" aria-hidden="true"></span></a></p>
         @if (Request.IsAuthenticated)
         {
             @Html.Encode(User.Identity.Name)
@@ -25,9 +33,10 @@
             @Html.ActionLink("Register", "Register", "Home");
             @Html.ActionLink("Log In", "Index", "Home");
         }
-    </p>
+
+    </ul>
 </nav>
-<body style="padding-top:0px; padding-bottom:0px; margin-top:50px; overflow-x:hidden;">
+<body style="padding-top:0px; padding-bottom:0px; margin-top:50px; overflow-x:hidden;overflow-y:hidden">
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
             <div class="custom-menu">
@@ -52,21 +61,18 @@
                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-user mr-3"></span>Staffs</a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             <li>
-                                <a href='@Url.Action("Index","Staffs")'><span class="fa fa-medkit mr-3"></span>Receptionist</a>
+                                <a href='@Url.Action("","")'><span class="fa fa-medkit mr-3"></span>Receptionist</a>
                             </li>
                             <li>
-                                <a href='@Url.Action("Index","Staffs")'><span class="fa fa-book mr-3"></span>Accountants</a>
+                                <a href='@Url.Action("","")'><span class="fa fa-book mr-3"></span>Accountants</a>
                             </li>
                             <li>
-                                <a href='@Url.Action("Index","Staffs")'><span class="fa fa-flask mr-3"></span>Laboraties</a>
+                                <a href='@Url.Action("","")'><span class="fa fa-flask mr-3"></span>Laboraties</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href='@Url.Action("PatientList","Patients")'><span class="fa fa-credit-card mr-3"></span>Patient Report</a>
-                    </li>
-                    <li>
-                        <a href='@Url.Action("","")'><span class="fa fa-credit-card mr-3"></span>Payment</a>
+                        <a href='@Url.Action("PatientList","Patients")'><span class="fa fa-credit-card mr-3"></span>Payment</a>
                     </li>
                     <li>
                         <a href='@Url.Action("","")'><span class="glyphicon glyphicon-user mr-3"></span>Edit Profile</a>
@@ -86,12 +92,13 @@
         </nav>
         <div class="container body-content min-vh-100" style="background-color:white">
             @RenderBody()
-            <hr style="color:black"/>
+            <hr style="color:black" />
             <footer>
                 <p>&copy;@DateTime.Now.Year - Apollo Hospital Management</p>
             </footer>
         </div>
     </div>
+
     <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/popper.js"></script>

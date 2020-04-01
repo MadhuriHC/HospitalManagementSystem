@@ -11,14 +11,37 @@
     <link href="~/Scripts/style.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<style>
-    a.disabled {
-  pointer-events: none;
-  cursor: default;
-}
-</style>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/popper.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <style>
+        a.disabled {
+            pointer-events: none;
+            cursor: default;
+        }
+    </style>
 </head>
-<body style="padding-top:0px; padding-bottom:0px;overflow-x:hidden;overflow-y:hidden">
+<nav class="navbar navbar-dark navbar-expand-sm fixed-top" style="background-color:#3f256c; margin-bottom:0px; padding-left:20px; padding-right:20px;">
+    <ul class="navbar-nav mr-sm-auto">
+        <p align="left" style="font-size:22px;color:white"><strong>Apollo</strong></p>
+    </ul>
+    <ul class="navbar-nav ml-sm-auto">
+        <p align="right" class="navbar-text"><a href="@Url.Action("Index","Home")"><span class="fa fa-power-off" style="font-size:20px; color:white;" aria-hidden="true"></span></a></p>
+        @if (Request.IsAuthenticated)
+        {
+            @Html.Encode(User.Identity.Name)
+            @Html.ActionLink("Log Out", "LogOut", "Home");
+        }
+        else
+        {
+            @Html.ActionLink("Register", "Register", "Home");
+            @Html.ActionLink("Log In", "Index", "Home");
+        }
+
+    </ul>
+</nav>
+<body style="padding-top:0px; padding-bottom:0px;margin-top:50px; overflow-x:hidden;overflow-y:hidden">
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
             <div class="custom-menu">
