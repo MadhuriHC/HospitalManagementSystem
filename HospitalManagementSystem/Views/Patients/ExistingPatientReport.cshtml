@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<HospitalManagementSystem.Models.PatientReport>
 @{
     ViewBag.Title = "ExistingPatientReport";
-    @if (ViewBag.layout == 1)
+    if (ViewBag.layout == 1)
     {
         Layout = "~/Views/Shared/_LayoutDoc.cshtml";
     }
@@ -136,14 +136,12 @@
                             <div class="col-md-6">
                                 <h4 style="margin-top:15px;"> Checkup</h4>
                             </div>
-                            <div class="col-md-6">
-                                <p style="margin-top:15px;" align="right"><a href="@Url.Action("Edit", "Treatments", new { id = item.treatment.TreatmentID, doses = item.treatment.Doses, bm = item.treatment.BeforeMeal,l=1 })"><span class="fa fa-edit" style="color:black;" aria-hidden="true"></span></a></p>
-                                @* <p style="margin-top:15px;"><a href="@Url.Action("Details", "Treatments", new { id = item.treatment.TreatmentID})"><span class="fa fa-list" style="color:black;" aria-hidden="true"></span></a></p>
-
-                                    <p style="margin-top:15px;"><a href="@Url.Action("Delete", "Treatments", new { id = item.treatment.TreatmentID})"><span class="fa fa-trash" style="color:black;" aria-hidden="true"></span></a></p>
-                                *@
+                            <div class="col-md-6" align="right">
+                                <p style="margin-top:15px;"><a href="@Url.Action("Edit", "Treatments", new { id = item.treatment.TreatmentID, doses = item.treatment.Doses, bm = item.treatment.BeforeMeal,l=1 })"><span class="fa fa-edit" style="color:black;" aria-hidden="true"></span></a></p>
+                                <p style="margin-top:15px;"><a href="@Url.Action("Details", "Treatments", new { id = item.treatment.TreatmentID})"><span class="fa fa-list" style="color:black;" aria-hidden="true"></span></a></p>
+                                <p style="margin-top:15px;"><a href="@Url.Action("Delete", "Treatments", new { id = item.treatment.TreatmentID})"><span class="fa fa-trash" style="color:black;" aria-hidden="true"></span></a></p>
                             </div>
-                        </div>
+                         </div>
                         <hr style="margin-top:0px;">
                         <br />
                         <div class="form-row">

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<HospitalManagementSystem.Models.PatientReport>
 @{
     ViewBag.Title = "ExistingPatientReport";
-    @if (ViewBag.layout == 2)
+    if (ViewBag.layout == 2)
     {
         Layout = "~/Views/Shared/_LayoutRecep.cshtml";
     }
@@ -35,6 +35,8 @@
 <body>
 
     <div class="container-fluid py-4 min-vh-100">
+        <br/>
+        <br/>
         <div class="form row">
             <div class="card" style="width: 40rem; height:55rem; margin-right:40px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.25);">
                 <div class="card-header bg-dark text-center" style="margin-left:-1px; margin-right:-1px;">
@@ -118,9 +120,6 @@
 
                             </li>
                         </ul>
-                    </div>
-                    <div class="form-actions no-color">
-                        <button onclick="location.href='@Url.Action("PrintableReportSummary", "Patients", new { id1=i.treatment.PatientID, id2 = i.treatment.TreatmentID,n=1, l=1 })';return false;" style="font-size:14px;" class="btn btn-print">Back To List</button>
                     </div>
                     break;
                 }

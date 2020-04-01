@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<HospitalManagementSystem.Models.PatientReport>
 @{
     ViewBag.Title = "PatientListRecep";
-    @if (ViewBag.layout == 2)
+    if (ViewBag.layout == 2)
     {
         Layout = "~/Views/Shared/_LayoutRecep.cshtml";
     }
@@ -21,7 +21,10 @@
     <body>
         <div class="min-vh-100">
             <div class="container-fluid py-4">
+                <br/>
                 <h4 class="text-center text-uppercase">Patient's List</h4>
+                <br/>
+
                 <table class="table">
                     <thead class="bg-dark text-white">
                         <tr>
