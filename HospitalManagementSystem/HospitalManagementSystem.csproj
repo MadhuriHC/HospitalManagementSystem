@@ -380,7 +380,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\LogIn.cshtml" />
     <Content Include="Views\Doctors\Create.cshtml" />
     <Content Include="Views\Doctors\Delete.cshtml" />
     <Content Include="Views\Doctors\Details.cshtml" />
@@ -422,6 +422,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Patients\ExistingPatientReport.cshtml" />
     <Content Include="Views\Home\LogOut.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Views\Patients\PatientList.cshtml" />
     <Content Include="Views\Patients\PatientReportSummary.cshtml" />
     <Content Include="Views\Patients\PrintableReportSummary.cshtml" />

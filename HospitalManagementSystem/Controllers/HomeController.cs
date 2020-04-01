@@ -10,15 +10,21 @@ namespace HospitalManagementSystem.Controllers
 {
     public class HomeController : Controller
     {
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         [HttpGet]
-        public ActionResult Index(string s)
+        public ActionResult LogIn(string s)
         {
             ViewBag.msg = s;
             return View();
         }
 
         [HttpPost]
-        public ActionResult Index(Registration user)
+        public ActionResult LogIn(Registration user)
         {
             //string c = fc["Category"];
             if ((IsValid(user.Email, user.Password,user.Category)) && (user.Category.Equals("SuperAdmin")))
@@ -75,7 +81,7 @@ namespace HospitalManagementSystem.Controllers
                     //NewUser.Password = user.Password;
                     db.Registrations.Add(user);
                     db.SaveChanges();
-                    return RedirectToAction("Index", "", new { s = "Registered Succesfully" });
+                    return RedirectToAction("LogIn", "", new { s = "Registered Succesfully" });
                 }
             }
             return View(user);
@@ -84,7 +90,7 @@ namespace HospitalManagementSystem.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("LogIn", "Home");
         }
 
         private bool IsValid(string email, string password,string category)

@@ -39,7 +39,7 @@ namespace HospitalManagementSystem.Controllers
 
         // GET: Patients/Create
         [HttpGet]
-        public ActionResult Create(, int? l)
+        public ActionResult Create( int? l)
         {
             ViewBag.layout = l;
             return View();
