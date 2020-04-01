@@ -11,15 +11,23 @@
     <link href="~/Scripts/style.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/jquery.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/popper.js"></script>
-    <script src="~/Scripts/main.js"></script>
 </head>
 <nav class="navbar navbar-dark navbar-expand-lg fixed-top" style="background-color:#3f256c">
-    <p style="color:antiquewhite">Apollo Hospital Management</p>
+    <p style="color:antiquewhite">
+        Apollo Hospital Management<br />
+        @if (Request.IsAuthenticated)
+        {
+            @Html.Encode(User.Identity.Name)
+            @Html.ActionLink("Log Out", "LogOut", "Home");
+        }
+        else
+        {
+            @Html.ActionLink("Register", "Register", "Home");
+            @Html.ActionLink("Log In", "Index", "Home");
+        }
+    </p>
 </nav>
-<body style="padding-top:0px; padding-bottom:0px; margin-top:50px; overflow-x:hidden;overflow-y:hidden">
+<body style="padding-top:0px; padding-bottom:0px; margin-top:50px; overflow-x:hidden;">
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
             <div class="custom-menu">
@@ -81,7 +89,6 @@
             </footer>
         </div>
     </div>
-    
     <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/popper.js"></script>

@@ -3,10 +3,6 @@
     ViewBag.Title = "Dashrecep";
 }
 
-<h2>Dashrecep</h2>
-
-
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +18,7 @@
             <br />
             <br />
             <br />
-            <div class="form-row" style="padding-left:100px;">
+            <div class="form-row" style="padding-left:100px;margin-top:60px">
                 <div class="form-group col-md-4">
                     <div class="card bg-info text-white;" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.25);width: 25rem; height: 17rem;  color: white;border:none;border-radius:15px ">
                         <div class="card-header text-xl-right " style="font-size:20px;">
@@ -35,7 +31,9 @@
                             <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
                             <ul style="padding-left:20px; padding-top:25px;">
                                 <li><a href='@Url.Action("Create","Patients")' class="card-link" style="color: white; font-size:16px;"> Add New Patient Info</a></li>
-                                <li><a href='@Url.Action("Index","Patients")' class="card-link" style="color: white; font-size:16px;">View Patient's List</a></li>
+                                <li><a href='@Url.Action("Index","Patients")' class="card-link" style="        color: white;
+        font-size: 16px;
+">View Patient's List</a></li>
                                 <li><a href='@Url.Action("PatientList","Patients")' class="card-link" style="color: white; font-size:16px;">Report Summary</a></li>
                             </ul>
                         </div>

@@ -178,14 +178,18 @@
     <Compile Include="Migrations\202003300803009_UpdatedTreatmentTable2.Designer.cs">
       <DependentUpon>202003300803009_UpdatedTreatmentTable2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004010122402_CreateRegistrationTable.cs" />
+    <Compile Include="Migrations\202004010122402_CreateRegistrationTable.Designer.cs">
+      <DependentUpon>202004010122402_CreateRegistrationTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Doctor.cs" />
-    <Compile Include="Models\GuestResponse.cs" />
     <Compile Include="Models\HMSDbContext.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\PatientReport.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\PaymentReport.cs" />
+    <Compile Include="Models\Registration.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\SuperAdmin.cs" />
     <Compile Include="Models\Treatment.cs" />
@@ -417,6 +421,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Patients\ExistingPatientReport.cshtml" />
+    <Content Include="Views\Home\LogOut.cshtml" />
     <None Include="Views\Patients\PatientList.cshtml" />
     <Content Include="Views\Patients\PatientReportSummary.cshtml" />
     <Content Include="Views\Patients\PrintableReportSummary.cshtml" />
@@ -459,6 +464,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003300803009_UpdatedTreatmentTable2.resx">
       <DependentUpon>202003300803009_UpdatedTreatmentTable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004010122402_CreateRegistrationTable.resx">
+      <DependentUpon>202004010122402_CreateRegistrationTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

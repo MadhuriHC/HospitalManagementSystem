@@ -1,4 +1,5 @@
-﻿@{
+﻿@model HospitalManagementSystem.Models.Registration
+@{
     ViewBag.Title = "Home Page";
     Layout = null;
 }
@@ -14,49 +15,55 @@
 </head>
 <body>
     <div class=" d-flex justify-content-center align-items-center vh-100 ">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true, "Login failed");
+            <div class="card" style="width: 40rem;">
+                <div class=" card-header text-center bg-info">
+                    <label>@ViewBag.msg</label>
+                    Login
+                </div>
+                <div class="card-body">
+                    <div class="pl-3 form-group row">
+                        <label class="col-sm-4 col-form-label">Email</label>
+                        <div class="col-sm-7">
+                            @Html.TextBox("Email", "", "", new { @class = "form-control" })
+                            @Html.ValidationMessage("Email", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="pl-2 form-group row">
+                        <label class="col-sm-4 col-form-label">Password</label>
+                        <div class="col-sm-7">
+                            @Html.TextBox("Password", "", "", new { @class = "form-control" })
+                            @Html.ValidationMessage("Password", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="pl-2 form-group row">
 
-        <div class="card" style="width: 40rem;">
-            <div class=" card-header text-center bg-info">
-                Login
+                        <label class="col-sm-4 col-form-label">User Category</label>
+                        <div class="col-sm-7">
+                            @Html.DropDownList("Category", new List<SelectListItem>
+                                {
+                                    new SelectListItem{Text="Super Admin",Value="SuperAdmin"},
+                                    new SelectListItem{Text="Doctor",Value="Doctor"},
+                                    new SelectListItem{Text="Accountant",Value="Accountant"},
+                                    new SelectListItem{Text="Receptionist",Value="Receptionist"}
+                               })
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class=" d-flex justify-content-center form-row">
+                        <div class="form-group">
+                            <button type="submit" value="submit" class="btn btn-success">Login</button>
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="form-group">
+                            <button onclick="location.href='@Url.Action("Register", "Home")';return false;" class="btn btn-primary bg-success">Sign up!</button>
+                        </div>
+                    </div>
+                    </div>
             </div>
-            <div class="card-body">
-                <div class="pl-3 form-group row">
-                    <label class="col-sm-4 col-form-label">Email</label>
-                    <div class="col-sm-7">
-                        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
-                    </div>
-                </div>
-                <div class="pl-2 form-group row">
-                    <label class="col-sm-4 col-form-label">Password</label>
-                    <div class="col-sm-7">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                    </div>
-                </div>
-                <div class="pl-2 form-group row">
-
-                    <label class="col-sm-4 col-form-label">Admin</label>
-                    <div class="col-sm-7">
-                        @Html.DropDownList("UserType", new List<SelectListItem>
-                            {
-                                new SelectListItem{Text="Super Admin",Value="SuperAdmin"},
-                                new SelectListItem{Text="Doctor",Value="Doctor"},
-                                new SelectListItem{Text="Accountant",Value="Accountant"},
-                                new SelectListItem{Text="Receptionist",Value="Receptionist"}
-                           })
-                    </div>
-                </div>
-                <div class=" d-flex justify-content-center form-row">
-
-                    <div class="form-group">
-                        <a href="#" class="btn btn-primary bg-success">Login</a>
-                    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="form-group">
-                        <button onclick="location.href='@Url.Action("Register","Home")';return false;" class="btn btn-primary bg-success">Sign up!</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        }
     </div>
 </body>
-
 </html>

@@ -51,7 +51,7 @@
                     <div class="form row">
                         <div class=" col-md-6">
                             <label class="col-form-label">First Name</label>
-                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" ,@placeholder="Enter First Name"} })
                             @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                         </div>
                         <div class="col-md-6">
