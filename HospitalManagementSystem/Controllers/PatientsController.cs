@@ -269,6 +269,7 @@ namespace HospitalManagementSystem.Controllers
                                             treatment = t
                                         };
                     ViewBag.layout = l;
+                    ViewBag.PID = id1;
                     return View(PatientReport);
                 }
                 else
@@ -285,6 +286,7 @@ namespace HospitalManagementSystem.Controllers
                                             doctor = d,
                                             treatment = t
                                         };
+                    ViewBag.PID = id1;
                     ViewBag.layout = l;
                     return View(PatientReport);
                 }

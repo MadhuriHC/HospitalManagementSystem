@@ -21,9 +21,9 @@
     <body>
         <div class="min-vh-100">
             <div class="container-fluid py-4">
-                <br/>
+                <br />
                 <h4 class="text-center text-uppercase">Patient's List</h4>
-                <br/>
+                <br />
 
                 <table class="table">
                     <thead class="bg-dark text-white">
@@ -57,6 +57,10 @@
                 </table>
                 <hr />
             </div>
+        </div>
+        <div class="form-actions no-color">
+            <button onclick="location.href='@Url.Action("Dashrecep","Staffs",new { l=2})';return false;" style="font-size:14px;" class="btn btn-dark">Back To List</button>
+
         </div>
     </body>
     </html>

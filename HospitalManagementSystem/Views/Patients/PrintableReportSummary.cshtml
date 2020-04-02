@@ -25,8 +25,8 @@
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet">
 </head>
 <body>
-    <br/>
-    <br/>
+    <br />
+    <br />
 
     <div class=" d-flex  align-content-center" style="background-color:white;border:double;height:50%;width:60%">
 
@@ -145,7 +145,11 @@
                 </tbody>
             </table>
         }
-        
+
+    </div>
+    <div class="form-actions no-color">
+        <button onclick="location.href='@Url.Action("PatientReportSummary","Patients",new { id=ViewBag.PID,l=2})';return false;" style="font-size:14px;" class="btn btn-dark">Back To List</button>
+
     </div>
 </body>
 </html>
