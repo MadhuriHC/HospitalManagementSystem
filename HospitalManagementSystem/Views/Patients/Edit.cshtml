@@ -35,6 +35,7 @@
 
 <div class="form-horizontal min-vh-100">
     <br />
+    <br />
     <h4>Edit Patient Info</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -129,7 +130,7 @@
     </div>
 
     <div>
-        <button onclick="location.href='@Url.Action("Index","",new { l=2})';return false;" style="font-size:14px;" class="btn btn-dark">Back To List</button>
+        <button onclick="location.href='@Url.Action("Index","Patients",new { l=2})';return false;" style="font-size:14px;" class="btn btn-dark">Back To List</button>
     </div>
 </div>
 

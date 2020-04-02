@@ -78,7 +78,7 @@ namespace HospitalManagementSystem.Controllers
             payment.PaymentDate.ToString("mm-dd-yyyy");
             db.Payments.Add(payment);
                 db.SaveChanges();
-                return RedirectToAction("", "Payment",new { l=3});
+                return RedirectToAction("PaymentListAcc", "Payments",new {id=payment.PatientID, l=3});
             //}
 
             //ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", payment.PatientID);
@@ -130,7 +130,7 @@ namespace HospitalManagementSystem.Controllers
                 payment.Status = fc["RbStatus"];
                 db.Entry(payment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index",new { l=3});
+                return RedirectToAction("PaymentReport","Payments",new {id=payment.PatientID, l=3});
             //}
             //ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", payment.PatientID);
             //return View(payment);
@@ -160,7 +160,7 @@ namespace HospitalManagementSystem.Controllers
             Payment payment = db.Payments.Find(id);
             db.Payments.Remove(payment);
             db.SaveChanges();
-            return RedirectToAction("Index",new { l=3});
+            return RedirectToAction("PaymentReport","Payments",new {id=payment.PatientID, l=3});
         }
 
         protected override void Dispose(bool disposing)

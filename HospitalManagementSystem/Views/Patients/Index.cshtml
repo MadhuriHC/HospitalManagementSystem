@@ -60,9 +60,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.DOB)
             </th>
-            @*<th>
+            <th>
                 @Html.DisplayNameFor(model => model.Gender)
-            </th>*@
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
@@ -98,9 +98,9 @@
     <td>
         @item.DOB.ToShortDateString()
     </td>
-    @*<td>
+    <td>
         @Html.DisplayFor(modelItem => item.Gender)
-    </td>*@
+    </td>
     <td>
         @Html.DisplayFor(modelItem => item.Email)
     </td>
@@ -117,7 +117,7 @@
         @Html.DisplayFor(modelItem => item.DoctorID)
     </td>
     <td>
-        <a href="@Url.Action("Edit","Patients",new { id=item.PatientID,l=2 })"><span class="fa fa-edit" style="color:black" aria-hidden="true"></span></a>
+        <a href="@Url.Action("Edit","Patients",new { id=item.PatientID,g=item.Gender,dob=item.DOB,l=2 })"><span class="fa fa-edit" style="color:black" aria-hidden="true"></span></a>
     </td>
     <td>
         <a href="@Url.Action("Details","Patients",new { id=item.PatientID,l=2 })"><span class="fa fa-list" style="color:black" aria-hidden="true"></span></a>

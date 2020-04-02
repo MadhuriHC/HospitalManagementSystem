@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HospitalManagementSystem.Models.PaymentReport>
+﻿@model IEnumerable<HospitalManagementSystem.Models.PatientReport>
 
 @{
     ViewBag.Title = "PatientListAcc";
@@ -22,6 +22,7 @@
     <body>
         <div class="min-vh-100">
             <div class="container-fluid py-4">
+                <br/>
                 <h4 class="text-center text-uppercase">Patient's List</h4>
                 <table class="table">
                     <thead class="bg-dark text-white">
@@ -32,25 +33,31 @@
                             <th>DOB</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Select</th>
-                            
+                            <th>New</th>
+                            <th>View/Edit</th>
+
                         </tr>
                     </thead>
 
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>@item.patient.PatientID</td>
-                            <td><img src="@Url.Content(@item.patient.Photo)" style="height:80px;width:80px;" /></td>
-                            <td>@item.patient.FirstName @item.patient.LastName</td>
-                            <td>@item.patient.DOB.ToShortDateString()</td>
-                            <td>@item.patient.Email</td>
-                            <td>@item.patient.Phone</td>
-                            <td>
-                                <a href="@Url.Action("PaymentReport","Payments",new { id=item.patient.PatientID,l=1})"><span class="glyphicon glyphicon-credit-card" style="color:black;" aria-hidden="true"></span></a>
-                                @*@Html.ActionLink("New", "Create", "Treatments", new { id = item.patient.PatientID }, new { })*@
-                            </td>
-                        </tr>
+                <tr>
+                    <td>@item.patient.PatientID</td>
+                    <td><img src="@Url.Content(@item.patient.Photo)" style="height:80px;width:80px;" /></td>
+                    <td>@item.patient.FirstName @item.patient.LastName</td>
+                    <td>@item.patient.DOB.ToShortDateString()</td>
+                    <td>@item.patient.Email</td>
+                    <td>@item.patient.Phone</td>
+                    <td>
+
+                        <a href='@Url.Action("Create", "Payments", new { id = item.patient.PatientID, l = 3 })'><span class="glyphicon glyphicon-plus" style="color:black;" aria-hidden="true"></span></a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("PaymentReport","Payments",new { id=item.patient.PatientID,l=3})"><span class="glyphicon glyphicon-credit-card" style="color:black;" aria-hidden="true"></span></a>
+                        @*@Html.ActionLink("New", "Create", "Treatments", new { id = item.patient.PatientID }, new { })*@
+                    </td>
+
+                </tr>
                     }
 
                 </table>

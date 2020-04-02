@@ -6,22 +6,23 @@
 }
 <head>
     <style>
-    .btn-staff,
-    .btn-staff:visited,
-    .btn-staff:hover,
-    .btn-staff:focus {
-    background-color: #294b83 !important;
-    border-color: #294b83 !important;
-    }
+        .btn-staff,
+        .btn-staff:visited,
+        .btn-staff:hover,
+        .btn-staff:focus {
+            background-color: #294b83 !important;
+            border-color: #294b83 !important;
+        }
 
-    .btn-staff:active {
-    background-color: #294b83 !important;
-    border-color: #294b83 !important;
-    color: white !important;
-    }
+            .btn-staff:active {
+                background-color: #294b83 !important;
+                border-color: #294b83 !important;
+                color: white !important;
+            }
     </style>
 </head>
-
+<br />
+<br />
 <h2>Edit</h2>
 
 
@@ -42,7 +43,7 @@
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
             </div>
         </div>
-        <br/>
+        <br />
         <div class="form-group">
             @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -50,7 +51,7 @@
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
             </div>
         </div>
-        <br/>
+        <br />
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -58,7 +59,7 @@
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
-        <br/>
+        <br />
         <div class="form-group">
             @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -66,7 +67,7 @@
                 @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
             </div>
         </div>
-        <br/>
+        <br />
         <div class="form-group">
             @Html.LabelFor(model => model.SCategory, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -100,16 +101,16 @@
                 @Html.ValidationMessageFor(model => model.SCategory, "", new { @class = "text-danger" })
             </div>
         </div>
-        <br/>
+        <br />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-staff col-1" style="color:white; font-size:12px;"/>
+                <input type="submit" value="Save" class="btn btn-staff col-1" style="color:white; font-size:12px;" />
             </div>
         </div>
     </div>
 }
-<br/>
-<br/>
+<br />
+<br />
 
 <div>
     <button onclick="location.href='@Url.Action("Index")';return false;" class="btn btn-dark" style="font-size:12px;">Back To List</button>

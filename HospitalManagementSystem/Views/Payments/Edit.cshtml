@@ -20,6 +20,8 @@
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 </head>
 <body>
+    <br />
+    <br />
     <h2>Edit</h2>
 
     @using (Html.BeginForm())
@@ -117,7 +119,7 @@
     }
 
     <div>
-        <button onclick="location.href='@Url.Action("Index","Payments",new { id=Model.PatientID,l=3})';return false;" class="btn btn-dark">Back To List</button>
+        <button onclick="location.href='@Url.Action("PaymentReport","Payments",new { id=Model.PatientID,l=3})';return false;" class="btn btn-dark">Back To List</button>
     </div>
 </body>
 </html>

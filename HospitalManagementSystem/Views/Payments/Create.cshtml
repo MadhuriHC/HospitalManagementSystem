@@ -19,6 +19,8 @@
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 </head>
 <body>
+    <br />
+    <br />
     <h2>Create</h2>
 
     @using (Html.BeginForm())
@@ -32,7 +34,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.PatientID, "PatientID", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.PatientID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.PatientID } })
+                    @Html.EditorFor(model => model.PatientID, new { htmlAttributes = new { @class = "form-control",@Value=ViewBag.PatientID} })
                     @Html.ValidationMessageFor(model => model.PatientID, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -82,7 +84,7 @@
     }
 
     <div>
-        <button onclick="location.href='@Url.Action("","Payment",new { l=3})';return false;" class="btn btn-dark">Back To List</button>
+        <button onclick="location.href='@Url.Action("PatientListAcc","Payments",new {l=3})';return false;" class="btn btn-dark">Back To List</button>
     </div>
 </body>
 </html>

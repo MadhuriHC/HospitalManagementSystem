@@ -69,7 +69,7 @@ namespace HospitalManagementSystem.Controllers
                     Photo=filepath
                 });
                 db.SaveChanges();
-                return RedirectToAction("Index","",new { l=2});
+                return RedirectToAction("Index","Patients",new { l=2});
             }
 
             return View(patient);
@@ -109,7 +109,7 @@ namespace HospitalManagementSystem.Controllers
                 patient.Gender = fc["RbGender"];
                 db.Entry(patient).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index","",new { l=2});
+                return RedirectToAction("Index","Patients",new { l=2});
             //}
             //return View(patient);
         }
@@ -138,7 +138,7 @@ namespace HospitalManagementSystem.Controllers
             Patient patient = db.Patients.Find(id);
             db.Patients.Remove(patient);
             db.SaveChanges();
-            return RedirectToAction("Index","",new { l=2});
+            return RedirectToAction("Index","Patients",new { l=2});
         }
 
         protected override void Dispose(bool disposing)
