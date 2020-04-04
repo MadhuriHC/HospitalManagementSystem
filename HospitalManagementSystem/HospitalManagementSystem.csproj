@@ -423,6 +423,7 @@
     <Content Include="Views\Patients\ExistingPatientReport.cshtml" />
     <Content Include="Views\Home\LogOut.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\EditProfile.cshtml" />
     <None Include="Views\Patients\PatientList.cshtml" />
     <Content Include="Views\Patients\PatientReportSummary.cshtml" />
     <Content Include="Views\Patients\PrintableReportSummary.cshtml" />

@@ -10,18 +10,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
+   @* @Styles.Render("~/Content/css")*@
     @*@Scripts.Render("~/bundles/modernizr")*@
 </head>
-<body>
-    <div class=" d-flex justify-content-center align-items-center vh-100 ">
+<body >
+    <div class=" d-flex justify-content-center align-items-center vh-100 " style="background-color:#E5E5E5;">
         @using (Html.BeginForm())
         {
             @Html.ValidationSummary(true, "Login failed");
-            <div class="card" style="width: 40rem;">
-                <div class=" card-header text-center bg-info">
-                    
-                    Login
+            <div class="card" style="width: 40rem;  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.25);">
+                <div class=" card-header text-center bg-dark" style="margin-top:-1px; margin-left:-1px; margin-right:-1px">
+                    <h4 style="color:white">Login</h4>
                 </div>
                 <div class="card-body">
                     <div class="pl-3 form-group row">
@@ -55,10 +54,10 @@
 
                     <div class=" d-flex justify-content-center form-row">
                         <div class="form-group">
-                            <button type="submit" value="submit" class="btn btn-success">Login</button>
+                            <button type="submit" value="submit" class="btn btn-dark">Login</button>
                         </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <div class="form-group">
-                            <button onclick="location.href='@Url.Action("Register", "Home")';return false;" class="btn btn-primary bg-success">Sign up!</button>
+                            <button onclick="location.href='@Url.Action("Register", "Home")';return false;" class="btn btn-primary bg-dark">Sign up!</button>
                         </div>
                         <br/><label style="color:green;font-size:20px">@ViewBag.msg</label>
                     </div>

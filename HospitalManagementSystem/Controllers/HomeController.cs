@@ -113,5 +113,11 @@ namespace HospitalManagementSystem.Controllers
             }
             return IsValid;
         }
+        public ActionResult EditProfile()
+        {
+            return View("EditProfile");
+        }
+
+
     }
 }
