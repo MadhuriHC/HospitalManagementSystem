@@ -29,9 +29,10 @@ namespace HospitalManagementSystem.Controllers
             else if (IsValid(user.Email, user.Password, user.Category) && user.Category.Equals("Doctor"))
             {
                 List<Doctor> doctor = db.Doctors.ToList();
-                var did = from d in doctor where d.Email == user.Email select d.DoctorID;
+                var result = doctor.Where(x=>x.Email.Equals(user.Email)).Select(x=>x.DoctorID);
+                var DocId = result.ToList();
                 FormsAuthentication.SetAuthCookie(user.Email, false);
-                return RedirectToAction("Dashdoc", "Doctors", new { Did = did, l = 1 });
+                return RedirectToAction("Dashdoc", "Doctors", new { Did = DocId[0], l = 1 });
             }
             else if (IsValid(user.Email, user.Password, user.Category) && user.Category.Equals("Receptionist"))
             {

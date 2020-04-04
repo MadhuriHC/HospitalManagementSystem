@@ -50,11 +50,11 @@
                         <td>@item.patient.Email</td>
                         <td>@item.patient.Phone</td>
                         <td>
-                            <a href="@Url.Action("Create","Treatments",new { id=item.patient.PatientID,l=1})"><span class="glyphicon glyphicon-plus" style="color:black;" aria-hidden="true"></span></a>
+                            <a href="@Url.Action("Create","Treatments",new { id=item.patient.PatientID,Did=item.patient.DoctorID,l=1})"><span class="glyphicon glyphicon-plus" style="color:black;" aria-hidden="true"></span></a>
                             @*@Html.ActionLink("New", "Create", "Treatments", new { id = item.patient.PatientID }, new { })*@
                         </td>
                         <td>
-                            <a href="@Url.Action("ExistingPatientReport", "Patients", new { id = item.patient.PatientID, l=1})"><span class="glyphicon glyphicon-th-list" style="color:black" aria-hidden="true"></span></a>
+                            <a href="@Url.Action("ExistingPatientReport", "Patients", new { id = item.patient.PatientID,Did=item.patient.DoctorID, l=1})"><span class="glyphicon glyphicon-th-list" style="color:black" aria-hidden="true"></span></a>
                             @*@Html.ActionLink("View", "ExistingPatientReport", new { id = item.patient.PatientID })*@
                         </td>
                     </tr>
@@ -66,7 +66,7 @@
     </div>
 
     <div class="form-actions no-color">
-        <button onclick="location.href='@Url.Action("Dashdoc","Doctors",new { l=2})';return false;" style="font-size:14px;" class="btn btn-dark">Back To List</button>
+        <button onclick="location.href='@Url.Action("Dashdoc","Doctors",new {Did=ViewBag.did, l=2})';return false;" style="font-size:14px;" class="btn btn-dark">Back To List</button>
 
     </div>
 </body>

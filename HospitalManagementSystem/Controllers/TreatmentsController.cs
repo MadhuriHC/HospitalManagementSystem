@@ -22,7 +22,7 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // GET: Treatments/Details/5
-        public ActionResult Details(int? id,int? l)
+        public ActionResult Details(int? id,int? Did,int? l)
         {
             if (id == null)
             {
@@ -33,14 +33,16 @@ namespace HospitalManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.did = Did;
             ViewBag.layout = l;
             return View(treatment);
         }
 
         // GET: Treatments/Create
-        public ActionResult Create(int? id,int? l)
+        public ActionResult Create(int? id,int? Did,int? l)
         {
            ViewBag.PatientID = id;
+            ViewBag.did = Did;
             ViewBag.layout = l;
             //ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName");
             return View();
@@ -58,9 +60,14 @@ namespace HospitalManagementSystem.Controllers
 				treatment.Doses = fc["Doses"];
                 treatment.BeforeMeal = fc["RbBeforeMeal"];
             treatment.CheckupDate.ToString("mm-dd-yyyy");
+
+            List<Patient> patient = db.Patients.ToList();
+            var result = patient.Where(x => x.PatientID.Equals(treatment.PatientID)).Select(x => x.DoctorID);
+            var DocId = result.ToList();
+
             db.Treatments.Add(treatment);
                 db.SaveChanges();
-                return RedirectToAction("ExistingPatientReport", "Patients", new { id = treatment.PatientID ,l=1});
+                return RedirectToAction("ExistingPatientReport", "Patients", new { id = treatment.PatientID ,Did=DocId[0],l=1});
             //}
 
            // ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
@@ -68,7 +75,7 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // GET: Treatments/Edit/5
-        public ActionResult Edit(int? id,string doses,string bm, DateTime cd,int? l)
+        public ActionResult Edit(int? id,string doses,string bm, DateTime cd,int? Did,int? l)
         {
             if (id == null)
             {
@@ -101,6 +108,7 @@ namespace HospitalManagementSystem.Controllers
 
             ViewBag.c = cd.ToShortDateString();
             ViewBag.layout = l;
+            ViewBag.did = Did;
             ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
             return View(treatment);
         }
@@ -116,9 +124,12 @@ namespace HospitalManagementSystem.Controllers
             //{
             treatment.Doses = fc["Doses"];
             treatment.BeforeMeal = fc["RbBeforeMeal"];
-                db.Entry(treatment).State = EntityState.Modified;
+            List<Patient> patient = db.Patients.ToList();
+            var result = patient.Where(x => x.PatientID.Equals(treatment.PatientID)).Select(x => x.DoctorID);
+            var DocId = result.ToList();
+            db.Entry(treatment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("ExistingPatientReport", "Patients", new { id = treatment.PatientID ,l=1});
+                return RedirectToAction("ExistingPatientReport", "Patients", new { id = treatment.PatientID ,Did=DocId[0],l=1});
             //}
 
             //ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", treatment.PatientID);
@@ -126,7 +137,7 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // GET: Treatments/Delete/5
-        public ActionResult Delete(int? id,int? l)
+        public ActionResult Delete(int? id,int? Did,int? l)
         {
             if (id == null)
             {
@@ -137,6 +148,7 @@ namespace HospitalManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.did = Did;
             ViewBag.layout = l;
             return View(treatment);
         }
@@ -148,9 +160,12 @@ namespace HospitalManagementSystem.Controllers
         {
             Treatment treatment = db.Treatments.Find(id);
             int? PID = treatment.PatientID;
+            List<Patient> patient = db.Patients.ToList();
+            var result = patient.Where(x => x.PatientID.Equals(treatment.PatientID)).Select(x => x.DoctorID);
+            var DocId = result.ToList();
             db.Treatments.Remove(treatment);
             db.SaveChanges();
-            return RedirectToAction("ExistingPatientReport", "Patients", new { id = PID ,l=1});
+            return RedirectToAction("ExistingPatientReport", "Patients", new { id = PID ,Did=DocId[0],l=1});
         }
 
         protected override void Dispose(bool disposing)

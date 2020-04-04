@@ -156,13 +156,22 @@ namespace HospitalManagementSystem.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult PatientList(int? l)
+        public ActionResult PatientList(int? Did, int? l)
         {
             //int id= (int)RouteData.Values["did"];
             ViewBag.layout = l;
+            ViewBag.did = Did;
             List<Patient> patient = db.Patients.ToList();
-            var PatientList = from p in patient where p.DoctorID == 1 select new PatientReport { patient = p };
-            return View(PatientList);
+            if(Did!=null)
+            {
+                var PatientList = from p in patient where p.DoctorID == Did select new PatientReport { patient = p };
+                return View(PatientList);
+            }
+            else
+            {
+                var PatientList = from p in patient select new PatientReport { patient = p };
+                return View(PatientList);
+            }
         }
 
         public ActionResult PatientListRecep(int? l)
@@ -174,7 +183,7 @@ namespace HospitalManagementSystem.Controllers
             return View(PatientList);
         }
 
-        public ActionResult ExistingPatientReport(int? id,int? l)
+        public ActionResult ExistingPatientReport(int? id,int? Did,int? l)
         {
             if (id == null)
             {
@@ -187,6 +196,7 @@ namespace HospitalManagementSystem.Controllers
             }
             else
             {
+                ViewBag.did = Did;
                     ViewBag.layout = l;
                     return View(GetPatientList(id));
             }

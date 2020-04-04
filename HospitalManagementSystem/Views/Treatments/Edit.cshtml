@@ -206,5 +206,5 @@
 }
 
 <div>
-    <button onclick="location.href='@Url.Action("ExistingPatientReport","Patients",new { id=Model.Patient.PatientID,l=1})';return false;" class="btn btn-dark">Back To List</button>
+    <button onclick="location.href='@Url.Action("ExistingPatientReport","Patients",new { id=Model.Patient.PatientID,Did=@ViewBag.did,l=1})';return false;" class="btn btn-dark">Back To List</button>
 </div>

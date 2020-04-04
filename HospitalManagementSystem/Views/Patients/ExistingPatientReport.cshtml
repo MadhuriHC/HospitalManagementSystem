@@ -9,7 +9,7 @@
     {
         Layout = "~/Views/Shared/_Layout.cshtml";
     }*@
-    Layout = "~/Views/Shared/_LayoutDoc.cshtml";
+Layout = "~/Views/Shared/_LayoutDoc.cshtml";
 
 }
 
@@ -154,9 +154,9 @@
                                 <h4 style="margin-top:15px;"> Checkup</h4>
                             </div>
                             <div class="col-md-6" align="right">
-                                <p style="margin-top:15px;"><a href="@Url.Action("Edit", "Treatments", new { id = item.treatment.TreatmentID, doses = item.treatment.Doses, bm = item.treatment.BeforeMeal,cd=item.treatment.CheckupDate,l=1 })"><span class="fa fa-edit" style="color:black;" aria-hidden="true"></span></a></p>
-                                <p style="margin-top:15px;"><a href="@Url.Action("Details", "Treatments", new { id = item.treatment.TreatmentID})"><span class="fa fa-list" style="color:black;" aria-hidden="true"></span></a></p>
-                                <p style="margin-top:15px;"><a href="@Url.Action("Delete", "Treatments", new { id = item.treatment.TreatmentID})"><span class="fa fa-trash" style="color:black;" aria-hidden="true"></span></a></p>
+                                <p style="margin-top:15px;"><a href="@Url.Action("Edit", "Treatments", new { id = item.treatment.TreatmentID, doses = item.treatment.Doses, bm = item.treatment.BeforeMeal, cd = item.treatment.CheckupDate,Did=item.doctor.DoctorID, l = 1 })"><span class="fa fa-edit" style="color:black;" aria-hidden="true"></span></a></p>
+                                <p style="margin-top:15px;"><a href="@Url.Action("Details", "Treatments", new { id = item.treatment.TreatmentID ,Did=item.doctor.DoctorID})"><span class="fa fa-list" style="color:black;" aria-hidden="true"></span></a></p>
+                                <p style="margin-top:15px;"><a href="@Url.Action("Delete", "Treatments", new { id = item.treatment.TreatmentID,Did=item.doctor.DoctorID })"><span class="fa fa-trash" style="color:black;" aria-hidden="true"></span></a></p>
                             </div>
                         </div>
                         <hr style="margin-top:0px;">
@@ -240,7 +240,7 @@
         <br />
         <br />
         <div>
-            <button onclick="location.href='@Url.Action("PatientList","Patients",new { l=1})';return false;" class="btn btn-dark">Back To List</button>
+            <button onclick="location.href='@Url.Action("PatientList","Patients",new {Did=ViewBag.did, l=1})';return false;" class="btn btn-dark">Back To List</button>
         </div>
 
     </div>
