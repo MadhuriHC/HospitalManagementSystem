@@ -78,7 +78,7 @@ namespace HospitalManagementSystem.Controllers
             payment.PaymentDate.ToString("mm-dd-yyyy");
             db.Payments.Add(payment);
                 db.SaveChanges();
-                return RedirectToAction("PaymentListAcc", "Payments",new {id=payment.PatientID, l=3});
+                return RedirectToAction("PatientListAcc", "Payments",new {id=payment.PatientID, l=3});
             //}
 
             //ViewBag.PatientID = new SelectList(db.Patients, "PatientID", "FirstName", payment.PatientID);
@@ -158,9 +158,10 @@ namespace HospitalManagementSystem.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Payment payment = db.Payments.Find(id);
+            var PID = payment.PatientID;
             db.Payments.Remove(payment);
             db.SaveChanges();
-            return RedirectToAction("PaymentReport","Payments",new {id=payment.PatientID, l=3});
+            return RedirectToAction("PaymentReport","Payments",new {id=PID, l=3});
         }
 
         protected override void Dispose(bool disposing)
