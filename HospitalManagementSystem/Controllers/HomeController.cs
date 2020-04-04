@@ -10,12 +10,7 @@ namespace HospitalManagementSystem.Controllers
 {
     public class HomeController : Controller
     {
-
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        private HMSDbContext db = new HMSDbContext();
         [HttpGet]
         public ActionResult LogIn(string s)
         {
@@ -26,18 +21,17 @@ namespace HospitalManagementSystem.Controllers
         [HttpPost]
         public ActionResult LogIn(Registration user)
         {
-            //string c = fc["Category"];
             if ((IsValid(user.Email, user.Password,user.Category)) && (user.Category.Equals("SuperAdmin")))
             {
-                //DefaultController d = new DefaultController();
-                //d.User(user.Email);
                 FormsAuthentication.SetAuthCookie(user.Email, false);
                 return RedirectToAction("DashSuper", "Home");
             }
             else if (IsValid(user.Email, user.Password, user.Category) && user.Category.Equals("Doctor"))
             {
+                List<Doctor> doctor = db.Doctors.ToList();
+                var did = from d in doctor where d.Email == user.Email select d.DoctorID;
                 FormsAuthentication.SetAuthCookie(user.Email, false);
-                return RedirectToAction("Dashdoc", "Doctors", new { l = 1 });
+                return RedirectToAction("Dashdoc", "Doctors", new { Did = did, l = 1 });
             }
             else if (IsValid(user.Email, user.Password, user.Category) && user.Category.Equals("Receptionist"))
             {
@@ -106,8 +100,7 @@ namespace HospitalManagementSystem.Controllers
                         if(user.Category==category)
                         {
                             IsValid = true;
-                        }
-                        
+                        }  
                     }
                 }
             }

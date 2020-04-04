@@ -51,7 +51,7 @@
                 {
                     <label>Patient Name:</label> @i.patient.FirstName<label>&nbsp;</label>@i.patient.LastName<br />
                     <label>Blood Group:</label>@i.patient.BloodGroup<br />
-                    <label>Date of Birth:</label> @i.patient.DOB<br />
+                    <label>Date of Birth:</label> @i.patient.DOB.ToShortDateString()<br />
                     <label>Email ID:</label> @i.patient.Email<br />
                     <label>Contact No.:</label> @i.patient.Phone<br />
                     <label>Doctor Name:</label> @i.doctor.FirstName<label>&nbsp;</label>@i.doctor.LastName
@@ -78,7 +78,7 @@
                     {
                         <tr>
 
-                            <td> @item.treatment.CheckupDate</td>
+                            <td> @item.treatment.CheckupDate.ToShortDateString()</td>
                             <td> @item.treatment.Symptoms </td>
                             <td> @item.treatment.Diagnosis</td>
                             <td>@item.treatment.Medicine</td>
@@ -102,7 +102,7 @@
                 {
                     <label>Patient Name:</label> @i.patient.FirstName<label>&nbsp;</label>@i.patient.LastName<br />
                     <label>Blood Group:</label>@i.patient.BloodGroup<br />
-                    <label>Date of Birth:</label> @i.patient.DOB<br />
+                    <label>Date of Birth:</label> @i.patient.DOB.ToShortDateString()<br />
                     <label>Email ID:</label> @i.patient.Email<br />
                     <label>Contact No.:</label> @i.patient.Phone<br />
                     <label>Doctor Name:</label> @i.doctor.FirstName<label>&nbsp;</label>@i.doctor.LastName
@@ -129,7 +129,7 @@
                     {
                         <tr>
 
-                            <td> @item.treatment.CheckupDate</td>
+                            <td> @item.treatment.CheckupDate.ToShortDateString()</td>
                             <td> @item.treatment.Symptoms </td>
                             <td> @item.treatment.Diagnosis</td>
                             <td>@item.treatment.Medicine</td>

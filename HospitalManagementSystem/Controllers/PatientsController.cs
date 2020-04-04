@@ -181,27 +181,8 @@ namespace HospitalManagementSystem.Controllers
             }
             else
             {
-                using (db)
-                {
-                    List<Patient> patient = db.Patients.ToList();
-                    List<Doctor> doctor = db.Doctors.ToList();
-                    List<Treatment> treatment = db.Treatments.ToList();
-
-                    var PatientReport = from p in patient
-                                        join d in doctor on p.DoctorID equals d.DoctorID into table1
-                                        from d in table1.ToList()
-                                        join t in treatment on p.PatientID equals t.PatientID into table2
-                                        from t in table2.ToList()
-                                        where t.PatientID == id
-                                        select new PatientReport
-                                        {
-                                            patient = p,
-                                            doctor = d,
-                                            treatment = t
-                                        };
                     ViewBag.layout = l;
-                    return View(PatientReport);
-                }
+                    return View(GetPatientList(id));
             }
         }
 
@@ -218,31 +199,12 @@ namespace HospitalManagementSystem.Controllers
             }
             else
             {
-                using (db)
-                {
-                    List<Patient> patient = db.Patients.ToList();
-                    List<Doctor> doctor = db.Doctors.ToList();
-                    List<Treatment> treatment = db.Treatments.ToList();
-
-                    var PatientReport = from p in patient
-                                        join d in doctor on p.DoctorID equals d.DoctorID into table1
-                                        from d in table1.ToList()
-                                        join t in treatment on p.PatientID equals t.PatientID into table2
-                                        from t in table2.ToList()
-                                        where t.PatientID == id
-                                        select new PatientReport
-                                        {
-                                            patient = p,
-                                            doctor = d,
-                                            treatment = t
-                                        };
-                    ViewBag.layout = l;
-                    return View(PatientReport);
-                }
+                ViewBag.layout = l;
+                return View(GetPatientList(id));
             }
         }
 
-        public ActionResult PrintableReportSummary(int? id1, int? id2, int? n, int? l)
+        public ActionResult PrintableReportSummary(int? id, int? id2, int? n, int? l)
         {
             if (n == 1)
                 ViewBag.n = 1;
@@ -254,23 +216,11 @@ namespace HospitalManagementSystem.Controllers
                 List<Doctor> doctor = db.Doctors.ToList();
                 List<Treatment> treatment = db.Treatments.ToList();
 
-                if (id1 != null && id2 == null)
+                if (id != null && id2 == null)
                 {
-                    var PatientReport = from p in patient
-                                        join d in doctor on p.DoctorID equals d.DoctorID into table1
-                                        from d in table1.ToList()
-                                        join t in treatment on p.PatientID equals t.PatientID into table2
-                                        from t in table2.ToList()
-                                        where t.PatientID == id1
-                                        select new PatientReport
-                                        {
-                                            patient = p,
-                                            doctor = d,
-                                            treatment = t
-                                        };
                     ViewBag.layout = l;
-                    ViewBag.PID = id1;
-                    return View(PatientReport);
+                    ViewBag.PID = id;
+                    return View(GetPatientList(id));
                 }
                 else
                 {
@@ -279,20 +229,44 @@ namespace HospitalManagementSystem.Controllers
                                         from d in table1.ToList()
                                         join t in treatment on p.PatientID equals t.PatientID into table2
                                         from t in table2.ToList()
-                                        where t.PatientID == id1 & t.TreatmentID == id2
+                                        where t.PatientID == id & t.TreatmentID == id2
                                         select new PatientReport
                                         {
                                             patient = p,
                                             doctor = d,
                                             treatment = t
                                         };
-                    ViewBag.PID = id1;
+                    ViewBag.PID = id;
                     ViewBag.layout = l;
                     return View(PatientReport);
                 }
 
             }
 
+        }
+
+        public IEnumerable<PatientReport> GetPatientList(int? id)
+        {
+            using (db)
+            {
+                List<Patient> patient = db.Patients.ToList();
+                List<Doctor> doctor = db.Doctors.ToList();
+                List<Treatment> treatment = db.Treatments.ToList();
+
+                var PatientReport = from p in patient
+                                    join d in doctor on p.DoctorID equals d.DoctorID into table1
+                                    from d in table1.ToList()
+                                    join t in treatment on p.PatientID equals t.PatientID into table2
+                                    from t in table2.ToList()
+                                    where t.PatientID == id
+                                    select new PatientReport
+                                    {
+                                        patient = p,
+                                        doctor = d,
+                                        treatment = t
+                                    };
+                return PatientReport;
+            }
         }
     }
 }

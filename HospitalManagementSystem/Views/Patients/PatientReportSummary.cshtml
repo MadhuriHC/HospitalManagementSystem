@@ -120,8 +120,17 @@
                                 </div>
 
                             </li>
+                            <li class="list-group-item">
+                                <div class="form row">
+                                    <div class="col-md-5">
+                                        <a href="@Url.Action("PrintableReportSummary", "Patients", new {id=i.treatment.PatientID ,id2 = i.treatment.TreatmentID,n=1, l=1 })"><span class="fa fa-print" style="color:black;" aria-hidden="true">Print Entire Report</span></a>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
+
+                  
                     break;
                 }
             </div>
@@ -141,7 +150,7 @@
                                 <h4 style="margin-top:15px;"> Checkup</h4>
                             </div>
                             <div class="col-md-6">
-                                <p style="margin-top:15px;" align="right"><a href="@Url.Action("PrintableReportSummary", "Patients", new {id1=item.treatment.PatientID ,id2 = item.treatment.TreatmentID,n=2, l=1 })"><span class="fa fa-print" style="color:black;" aria-hidden="true"></span></a></p>
+                                <p style="margin-top:15px;" align="right"><a href="@Url.Action("PrintableReportSummary", "Patients", new {id=item.treatment.PatientID ,id2 = item.treatment.TreatmentID,n=2, l=1 })"><span class="fa fa-print" style="color:black;" aria-hidden="true"></span></a></p>
                                 @* <p style="margin-top:15px;"><a href="@Url.Action("Details", "Treatments", new { id = item.treatment.TreatmentID})"><span class="fa fa-list" style="color:black;" aria-hidden="true"></span></a></p>
 
                                     <p style="margin-top:15px;"><a href="@Url.Action("Delete", "Treatments", new { id = item.treatment.TreatmentID})"><span class="fa fa-trash" style="color:black;" aria-hidden="true"></span></a></p>
