@@ -23,7 +23,6 @@ namespace HospitalManagementSystem.Models
         [Display(Name = "Last Name *")]
         public string LastName { get; set; }
         [Required]
-        [Phone]
         [Display(Name = "Contact No. *")]
         public long Phone { get; set; }
         [Required]

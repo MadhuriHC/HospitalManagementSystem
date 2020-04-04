@@ -142,6 +142,7 @@
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
+    <Compile Include="Controllers\SuperAdminsController.cs" />
     <Compile Include="Controllers\TreatmentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -422,8 +423,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Patients\ExistingPatientReport.cshtml" />
     <Content Include="Views\Home\LogOut.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\EditProfile.cshtml" />
     <None Include="Views\Patients\PatientList.cshtml" />
     <Content Include="Views\Patients\PatientReportSummary.cshtml" />
     <Content Include="Views\Patients\PrintableReportSummary.cshtml" />
@@ -433,6 +432,11 @@
     <Content Include="Views\Shared\_LayoutAcc.cshtml" />
     <Content Include="Views\Payments\PatientListAcc.cshtml" />
     <Content Include="Views\Patients\PatientListRecep.cshtml" />
+    <Content Include="Views\SuperAdmins\Create.cshtml" />
+    <Content Include="Views\SuperAdmins\Delete.cshtml" />
+    <Content Include="Views\SuperAdmins\Details.cshtml" />
+    <Content Include="Views\SuperAdmins\Edit.cshtml" />
+    <Content Include="Views\SuperAdmins\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />
