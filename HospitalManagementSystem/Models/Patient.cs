@@ -21,7 +21,6 @@ namespace HospitalManagementSystem.Models
         [Display(Name = "Last Name *")]
         public string LastName { get; set; }
         [Required(ErrorMessage = "Please select Gender")]
-        [DataType(DataType.Text)]
         [Display(Name = "Gender *")]
         public string Gender { get; set; }
         [Required(ErrorMessage = "Please select Date of Birth")]

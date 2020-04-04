@@ -123,14 +123,12 @@
                             <li class="list-group-item">
                                 <div class="form row">
                                     <div class="col-md-5">
-                                        <a href="@Url.Action("PrintableReportSummary", "Patients", new {id=i.treatment.PatientID ,id2 = i.treatment.TreatmentID,n=1, l=1 })"><span class="fa fa-print" style="color:black;" aria-hidden="true">Print Entire Report</span></a>
+                                        <button onclick="location.href='@Url.Action("PrintableReportSummary", "Patients", new {id=i.treatment.PatientID,n=1, l=1 })';return false;" class="btn btn-dark "><span class="fa fa-print" aria-hidden="true">Print Entire Report</span></button>
                                     </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
-
-                  
                     break;
                 }
             </div>

@@ -50,29 +50,35 @@ namespace HospitalManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PatientID,FirstName,LastName,DOB,Email,Phone,BloodGroup,Status,Photo,Gender")] Patient patient,HttpPostedFileBase postedFile)
+        public ActionResult Create([Bind(Include = "PatientID,FirstName,LastName,DOB,Email,Phone,BloodGroup,Status,Photo,Gender,DoctorID")] Patient patient,HttpPostedFileBase postedFile,FormCollection fc)
         {
             string filename = System.IO.Path.GetFileName(postedFile.FileName);
             string filepath = "~/Uploads/PatientImages/" + filename;
             postedFile.SaveAs(Server.MapPath(filepath));
-            if (ModelState.IsValid)
-            {
-                db.Patients.Add(new Patient
-                {
-                    FirstName=patient.FirstName,
-                    LastName=patient.LastName,
-                    DOB= Convert.ToDateTime(patient.DOB.ToString("mm-dd-yyyy")),
-                    Email =patient.Email,
-                    Phone=patient.Phone,
-                    BloodGroup=patient.BloodGroup,
-                    Status=patient.Status,
-                    Photo=filepath
-                });
-                db.SaveChanges();
+            // if (ModelState.IsValid)
+            // {
+            /* db.Patients.Add(new Patient
+             {
+                 FirstName=patient.FirstName,
+                 LastName=patient.LastName,
+                 DOB= patient.DOB.ToString("mm-dd-yyyy")),
+                 Email =patient.Email,
+                 Gender=fc["RbGender"],
+                 Phone=patient.Phone,
+                 BloodGroup=patient.BloodGroup,
+                 Status=patient.Status,
+                 Photo=filepath,
+                 DoctorID=patient.DoctorID
+             });*/
+            patient.Gender = fc["RbGender"];
+            patient.DOB.ToString("mm-dd-yyyy");
+            patient.Photo = filepath;
+            db.Patients.Add(patient);
+            db.SaveChanges();
                 return RedirectToAction("Index","Patients",new { l=2});
-            }
+           // }
 
-            return View(patient);
+           // return View(patient);
         }
 
         // GET: Patients/Edit/5
@@ -102,7 +108,7 @@ namespace HospitalManagementSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PatientID,FirstName,LastName,DOB,Email,Phone,BloodGroup,Status,Photo,Gender")] Patient patient, FormCollection fc)
+        public ActionResult Edit([Bind(Include = "PatientID,FirstName,LastName,DOB,Email,Phone,BloodGroup,Status,Photo,Gender,DoctorID")] Patient patient, FormCollection fc)
         {
             //if (ModelState.IsValid)
             //{
